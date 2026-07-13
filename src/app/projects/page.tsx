@@ -2,6 +2,7 @@ import { Metadata } from 'next';
 import { createMetadata } from '@/lib/seo';
 import { getBreadcrumbSchema } from '@/lib/schema';
 import SchemaScript from '@/components/ui/SchemaScript';
+import ProjectsCards from '@/components/sections/ProjectsCards';
 
 export const metadata: Metadata = createMetadata({
   title: 'Projects | Jimsolutions Technology Work and Installations',
@@ -19,15 +20,20 @@ export default function ProjectsPage() {
   return (
     <>
       <SchemaScript schema={breadcrumbSchema} />
-      <div className="flex flex-1 flex-col items-center justify-center p-8 text-center min-h-[60vh]">
-        <h1 className="text-4xl font-bold tracking-tight text-navy mb-4">Completed Projects</h1>
-        <p className="text-xl text-navy/70 max-w-2xl mb-8">
-          A showcase of our recent works in Lagos and nationwide. Verified neat engineering results.
-        </p>
-        <span className="inline-flex items-center rounded-md bg-orange/10 px-3 py-1 text-sm font-medium text-orange ring-1 ring-inset ring-orange/20">
-          Projects Page Placeholder
-        </span>
-      </div>
+
+      {/* Page Header */}
+      <section className="bg-navy py-20 text-white text-center relative overflow-hidden">
+        <div className="absolute inset-0 opacity-10 bg-[radial-gradient(#F97316_1px,transparent_1px)] [background-size:16px_16px]"></div>
+        <div className="mx-auto max-w-7xl px-4 relative">
+          <h1 className="text-4xl font-extrabold tracking-tight sm:text-5xl">Completed Projects</h1>
+          <p className="mt-4 text-lg text-white/80 max-w-2xl mx-auto">
+            Real workmanship outcomes showing how we design clean solutions.
+          </p>
+        </div>
+      </section>
+
+      {/* Projects Cards Showcase */}
+      <ProjectsCards />
     </>
   );
 }

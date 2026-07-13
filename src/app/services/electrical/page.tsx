@@ -1,7 +1,15 @@
 import { Metadata } from 'next';
+import Image from 'next/image';
+import Link from 'next/link';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faPhone, faChevronLeft } from '@fortawesome/free-solid-svg-icons';
+import { faWhatsapp } from '@fortawesome/free-brands-svg-icons';
 import { createMetadata } from '@/lib/seo';
 import { getBreadcrumbSchema, getServiceSchema } from '@/lib/schema';
 import SchemaScript from '@/components/ui/SchemaScript';
+import { BUSINESS_DETAILS, getWhatsappLink } from '@/lib/constants';
+import Button from '@/components/ui/Button';
+import SectionHeading from '@/components/ui/SectionHeading';
 
 export const metadata: Metadata = createMetadata({
   title: 'Professional Electrical Services in Lagos | Jimsolutions Technology',
@@ -14,28 +22,90 @@ export default function ElectricalServicePage() {
   const serviceSchema = getServiceSchema(
     'Electrical Services',
     'Comprehensive electrical services including wiring, troubleshooting, repairs, and installations.',
-    '/services/electrical'
+    '/services/electrical',
   );
-  
+
   const breadcrumbSchema = getBreadcrumbSchema([
     { name: 'Home', url: '/' },
     { name: 'Services', url: '/services' },
     { name: 'Electrical', url: '/services/electrical' },
   ]);
 
+  const whatsappUrl = getWhatsappLink(
+    'Hello Jimsolutions Technology, I would like to get a quote for Electrical Services.',
+  );
+
   return (
     <>
       <SchemaScript schema={serviceSchema} />
       <SchemaScript schema={breadcrumbSchema} />
-      <div className="flex flex-1 flex-col items-center justify-center p-8 text-center min-h-[60vh]">
-        <h1 className="text-4xl font-bold tracking-tight text-navy mb-4">Electrical Services</h1>
-        <p className="text-xl text-navy/70 max-w-2xl mb-8">
-          Complete wiring/rewiring, fault diagnostics, breaker fixes, and safety audits.
-        </p>
-        <span className="inline-flex items-center rounded-md bg-orange/10 px-3 py-1 text-sm font-medium text-orange ring-1 ring-inset ring-orange/20">
-          Electrical Service Page Placeholder
-        </span>
-      </div>
+
+      {/* Detail section */}
+      <section className="py-12 bg-white">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <Link
+            href="/services"
+            className="inline-flex items-center text-sm font-semibold text-navy hover:text-orange transition-colors mb-8"
+          >
+            <FontAwesomeIcon icon={faChevronLeft} className="mr-2 h-3 w-3" />
+            Back to All Services
+          </Link>
+
+          <div className="grid grid-cols-1 gap-12 lg:grid-cols-2 items-start">
+            {/* Image panel */}
+            <div className="relative aspect-[4/3] rounded-lg overflow-hidden border border-navy/5 shadow-md">
+              <Image
+                src="/img/services/electrical.jpg"
+                alt="Electrical wiring assessment and troubleshooting"
+                fill
+                sizes="(max-w-1024px) 100vw, 50vw"
+                className="object-cover"
+                priority
+              />
+            </div>
+
+            {/* Text panel */}
+            <div className="space-y-6">
+              <SectionHeading
+                badge="Electrical Services"
+                title="Neat Wiring, Compliant Repairs & Safety Audits"
+                align="left"
+              />
+
+              <div className="text-navy/70 leading-7 space-y-4">
+                <p>
+                  Electrical safety is the core of any functional space. At Jimsolutions Technology,
+                  we provide comprehensive electrical services for residential and commercial
+                  properties in Lagos and nationwide.
+                </p>
+                <p>
+                  Our certified technical team handles complete electrical wiring/rewiring, fault
+                  finding, circuit breaker repairs, power outlets installation, and light fixture
+                  upgrades.
+                </p>
+                <p className="font-semibold text-navy">What we cover:</p>
+                <ul className="list-disc pl-5 space-y-2">
+                  <li>Full property wiring/rewiring with clean conduit paths</li>
+                  <li>Fault diagnostics and circuit breaker troubleshooting</li>
+                  <li>Safety compliance assessments and grounding audits</li>
+                  <li>Neat installation of switches, sockets, and accent light panels</li>
+                </ul>
+              </div>
+
+              <div className="pt-6 flex flex-wrap gap-4 items-center">
+                <Button href={whatsappUrl} variant="secondary" size="lg" external>
+                  <FontAwesomeIcon icon={faWhatsapp} className="mr-2 h-5 w-5" />
+                  Request Electrical Quote
+                </Button>
+                <Button href={`tel:${BUSINESS_DETAILS.phone}`} variant="outline" size="lg">
+                  <FontAwesomeIcon icon={faPhone} className="mr-2 h-4 w-4" />
+                  Call Now
+                </Button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
     </>
   );
 }

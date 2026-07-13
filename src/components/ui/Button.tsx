@@ -28,8 +28,10 @@ export default function Button({
       'bg-navy text-white hover:bg-navy-light focus-visible:outline-navy shadow-md hover:shadow-lg',
     secondary:
       'bg-orange text-white hover:bg-orange-dark focus-visible:outline-orange shadow-md hover:shadow-lg',
-    outline: 'border border-navy/20 text-navy hover:bg-navy hover:text-white focus-visible:outline-navy',
-    white: 'bg-white text-navy hover:bg-gray-50 focus-visible:outline-white shadow-md hover:shadow-lg',
+    outline:
+      'border border-navy/20 text-navy hover:bg-navy hover:text-white focus-visible:outline-navy',
+    white:
+      'bg-white text-navy hover:bg-gray-50 focus-visible:outline-white shadow-md hover:shadow-lg',
   };
 
   const sizes = {

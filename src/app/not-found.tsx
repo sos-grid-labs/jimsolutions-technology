@@ -4,7 +4,9 @@ export default function NotFound() {
   return (
     <div className="flex flex-1 flex-col items-center justify-center px-6 py-24 text-center sm:py-32 lg:px-8">
       <p className="text-base font-semibold text-orange">404</p>
-      <h1 className="mt-4 text-3xl font-bold tracking-tight text-navy sm:text-5xl">Page not found</h1>
+      <h1 className="mt-4 text-3xl font-bold tracking-tight text-navy sm:text-5xl">
+        Page not found
+      </h1>
       <p className="mt-6 text-base leading-7 text-navy/70">
         Sorry, we could not find the page you are looking for.
       </p>
@@ -15,7 +17,10 @@ export default function NotFound() {
         >
           Go back home
         </Link>
-        <Link href="/contact" className="text-sm font-semibold text-navy hover:text-navy-light transition-all duration-200">
+        <Link
+          href="/contact"
+          className="text-sm font-semibold text-navy hover:text-navy-light transition-all duration-200"
+        >
           Contact Support <span aria-hidden="true">&rarr;</span>
         </Link>
       </div>

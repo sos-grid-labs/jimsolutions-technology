@@ -62,7 +62,10 @@ export default function Footer() {
             <ul className="mt-4 space-y-2 text-sm text-white/70">
               {quickLinks.map((link) => (
                 <li key={link.name}>
-                  <Link href={link.href} className="hover:text-white transition-colors duration-200">
+                  <Link
+                    href={link.href}
+                    className="hover:text-white transition-colors duration-200"
+                  >
                     {link.name}
                   </Link>
                 </li>
@@ -122,7 +125,10 @@ export default function Footer() {
                 </li>
                 <li className="flex items-center gap-2">
                   <FontAwesomeIcon icon={faEnvelope} className="h-4 w-4 text-orange" />
-                  <a href={`mailto:${BUSINESS_DETAILS.email}`} className="hover:text-white break-all">
+                  <a
+                    href={`mailto:${BUSINESS_DETAILS.email}`}
+                    className="hover:text-white break-all"
+                  >
                     {BUSINESS_DETAILS.email}
                   </a>
                 </li>

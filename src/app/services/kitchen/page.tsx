@@ -1,7 +1,15 @@
 import { Metadata } from 'next';
+import Image from 'next/image';
+import Link from 'next/link';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faPhone, faChevronLeft } from '@fortawesome/free-solid-svg-icons';
+import { faWhatsapp } from '@fortawesome/free-brands-svg-icons';
 import { createMetadata } from '@/lib/seo';
 import { getBreadcrumbSchema, getServiceSchema } from '@/lib/schema';
 import SchemaScript from '@/components/ui/SchemaScript';
+import { BUSINESS_DETAILS, getWhatsappLink } from '@/lib/constants';
+import Button from '@/components/ui/Button';
+import SectionHeading from '@/components/ui/SectionHeading';
 
 export const metadata: Metadata = createMetadata({
   title: 'Modern Kitchen Cabinets & Cooktop Installation Lagos | Jimsolutions Technology',
@@ -14,28 +22,90 @@ export default function KitchenServicePage() {
   const serviceSchema = getServiceSchema(
     'Kitchen Installation',
     'Custom kitchen layouts, premium cabinets configuration, and smart appliance integration.',
-    '/services/kitchen'
+    '/services/kitchen',
   );
-  
+
   const breadcrumbSchema = getBreadcrumbSchema([
     { name: 'Home', url: '/' },
     { name: 'Services', url: '/services' },
     { name: 'Kitchen Installation', url: '/services/kitchen' },
   ]);
 
+  const whatsappUrl = getWhatsappLink(
+    'Hello Jimsolutions Technology, I would like to get a quote for kitchen cabinets and island cooktop installation. My location is Lagos.',
+  );
+
   return (
     <>
       <SchemaScript schema={serviceSchema} />
       <SchemaScript schema={breadcrumbSchema} />
-      <div className="flex flex-1 flex-col items-center justify-center p-8 text-center min-h-[60vh]">
-        <h1 className="text-4xl font-bold tracking-tight text-navy mb-4">Kitchen Installation</h1>
-        <p className="text-xl text-navy/70 max-w-2xl mb-8">
-          Cabinet layout planning, island cooktops configuration, and integrated appliances.
-        </p>
-        <span className="inline-flex items-center rounded-md bg-orange/10 px-3 py-1 text-sm font-medium text-orange ring-1 ring-inset ring-orange/20">
-          Kitchen Service Page Placeholder
-        </span>
-      </div>
+
+      {/* Detail section */}
+      <section className="py-12 bg-white">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <Link
+            href="/services"
+            className="inline-flex items-center text-sm font-semibold text-navy hover:text-orange transition-colors mb-8"
+          >
+            <FontAwesomeIcon icon={faChevronLeft} className="mr-2 h-3 w-3" />
+            Back to All Services
+          </Link>
+
+          <div className="grid grid-cols-1 gap-12 lg:grid-cols-2 items-start">
+            {/* Image panel */}
+            <div className="relative aspect-[4/3] rounded-lg overflow-hidden border border-navy/5 shadow-md">
+              <Image
+                src="/img/services/kitchens.jpg"
+                alt="Kitchen cabinet and built-in cooktop installation"
+                fill
+                sizes="(max-w-1024px) 100vw, 50vw"
+                className="object-cover"
+                priority
+              />
+            </div>
+
+            {/* Text panel */}
+            <div className="space-y-6">
+              <SectionHeading
+                badge="Kitchen Installation"
+                title="Sleek Cabinet Layouts & High-End Cooktop Integration"
+                align="left"
+              />
+
+              <div className="text-navy/70 leading-7 space-y-4">
+                <p>
+                  A modern kitchen should balance workflow logic with premium style. Jimsolutions
+                  Technology plans, installs, and finishes custom kitchen spaces featuring built-in
+                  appliances and custom cabinet configurations.
+                </p>
+                <p>
+                  We focus on precise layout measurements, ensuring completely flush joints for
+                  island cooktops, installing downdraft extractors, and routing plumbing and gas
+                  connections safely out of sight.
+                </p>
+                <p className="font-semibold text-navy">What we cover:</p>
+                <ul className="list-disc pl-5 space-y-2">
+                  <li>Custom cabinet alignment and professional installation</li>
+                  <li>Island kitchen cooktops and induction hobs setup</li>
+                  <li>Downdraft and canopy extractor fans mounting</li>
+                  <li>Flush integration of master cool refrigerators and built-in ovens</li>
+                </ul>
+              </div>
+
+              <div className="pt-6 flex flex-wrap gap-4 items-center">
+                <Button href={whatsappUrl} variant="secondary" size="lg" external>
+                  <FontAwesomeIcon icon={faWhatsapp} className="mr-2 h-5 w-5" />
+                  Request Kitchen Quote
+                </Button>
+                <Button href={`tel:${BUSINESS_DETAILS.phone}`} variant="outline" size="lg">
+                  <FontAwesomeIcon icon={faPhone} className="mr-2 h-4 w-4" />
+                  Call Now
+                </Button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
     </>
   );
 }
