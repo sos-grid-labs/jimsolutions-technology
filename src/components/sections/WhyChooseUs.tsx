@@ -4,55 +4,85 @@ import SectionHeading from '../ui/SectionHeading';
 import Card from '../ui/Card';
 
 export default function WhyChooseUs() {
-  const points = [
+  const values = [
     {
-      title: 'Safety Compliant Work',
+      title: 'Safety Standards',
       description:
-        'We adhere to engineering standards. No shortcuts, neat cable concealment, and safe load distributions.',
+        'We follow NERC guidelines, conduit cable separation, and certified safety changeover limits.',
       icon: faShieldHalved,
     },
     {
-      title: 'Experienced Handcrafted Execution',
-      description:
-        'From appliance flush mounts to hybrid solar panel connections, our installations are clean and reliable.',
+      title: 'Experienced Execution',
+      description: 'Handcrafted cabinets placement, flush island hob joints, and battery calculations.',
       icon: faWrench,
     },
     {
       title: 'Daily Availability',
-      description:
-        'We are active from 8:00 AM to 10:00 PM daily. Quick WhatsApp answers and fast technician setups.',
+      description: 'Active daily from 8:00 AM to 10:00 PM on WhatsApp and direct line queries.',
       icon: faClock,
     },
     {
       title: 'Nationwide Delivery',
-      description:
-        'Based in Lagos, we provide on-site services and technical equipment supply to customers nationwide.',
+      description: 'Base diagnostics in Lagos with shipping and installers active nationwide.',
       icon: faTruckFast,
     },
   ];
 
+  const numbers = [
+    { value: '5+', label: 'Years of Experience' },
+    { value: '500+', label: 'Projects Completed' },
+    { value: '36+', label: 'State Delivery Routes' },
+    { value: '8am-10pm', label: 'Daily Service Support' },
+  ];
+
   return (
     <section className="py-24 bg-white">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <SectionHeading
-          badge="Why Choose Us"
-          title="Designed for Clients Who Value Neat Workmanship"
-          subtitle="We bridge the gap between technical engineering accuracy and beautiful visual integration."
-          className="mb-16"
-        />
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 space-y-24">
+        {/* Core Values Columns */}
+        <div>
+          <SectionHeading
+            badge="Engineering Standards"
+            title="Why Choose Jimsolutions Technology"
+            subtitle="Bridging the gap between certified technical compliance and neat, visual integration."
+            className="mb-16"
+          />
 
-        <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">
-          {points.map((point, index) => (
-            <Card key={index} className="text-center flex flex-col items-center group p-8">
-              <div className="flex h-14 w-14 items-center justify-center rounded-full bg-orange/10 text-orange group-hover:bg-orange group-hover:text-white transition-all duration-300 mb-6">
-                <FontAwesomeIcon icon={point.icon} className="h-6 w-6" />
-              </div>
-              <h3 className="text-lg font-bold text-navy group-hover:text-orange transition-colors duration-300">
-                {point.title}
-              </h3>
-              <p className="mt-4 text-sm leading-6 text-navy/70">{point.description}</p>
-            </Card>
-          ))}
+          <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">
+            {values.map((val, index) => (
+              <Card
+                key={index}
+                className="flex flex-col items-start p-8 border border-navy/5 bg-gray-50/50"
+              >
+                <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-orange text-white mb-6">
+                  <FontAwesomeIcon icon={val.icon} className="h-5 w-5" />
+                </div>
+                <h3 className="text-lg font-bold text-navy">{val.title}</h3>
+                <p className="mt-3 text-sm text-navy/70 leading-6">{val.description}</p>
+              </Card>
+            ))}
+          </div>
+        </div>
+
+        {/* HBM-Style High Contrast Numbers Block */}
+        <div className="relative rounded-3xl bg-navy text-white py-16 px-8 sm:px-16 overflow-hidden">
+          <div className="absolute inset-0 opacity-10 bg-[radial-gradient(#F97316_1px,transparent_1px)] [background-size:16px_16px]"></div>
+
+          <div className="relative text-center space-y-12">
+            <h3 className="text-3xl font-extrabold sm:text-4xl text-white">Jimsolutions in Numbers</h3>
+
+            <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
+              {numbers.map((num, idx) => (
+                <div key={idx} className="space-y-2">
+                  <p className="text-4xl sm:text-6xl font-extrabold text-orange tracking-tight">
+                    {num.value}
+                  </p>
+                  <p className="text-xs sm:text-sm uppercase tracking-wider text-white/70 font-semibold">
+                    {num.label}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
       </div>
     </section>
