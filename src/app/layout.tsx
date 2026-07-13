@@ -2,6 +2,9 @@ import type { Metadata } from 'next';
 import { Inter, Manrope } from 'next/font/google';
 import '@/lib/fontawesome';
 import './globals.css';
+import Navbar from '@/components/layout/Navbar';
+import Footer from '@/components/layout/Footer';
+import WhatsAppButton from '@/components/layout/WhatsAppButton';
 
 const inter = Inter({
   variable: '--font-inter',
@@ -67,7 +70,10 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${inter.variable} ${manrope.variable} h-full scroll-smooth`}>
       <body className="font-body min-h-full flex flex-col bg-background text-foreground antialiased">
-        {children}
+        <Navbar />
+        <main className="flex-1 flex flex-col">{children}</main>
+        <Footer />
+        <WhatsAppButton />
       </body>
     </html>
   );
