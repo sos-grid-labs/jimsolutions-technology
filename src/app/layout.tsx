@@ -52,6 +52,11 @@ export const metadata: Metadata = {
   ],
   metadataBase: new URL('https://jimsolutionstechnology.com.ng'),
   alternates: { canonical: '/' },
+  icons: {
+    icon: '/favicon.ico',
+    shortcut: '/favicon.ico',
+    apple: '/img/logo/logo.jpg',
+  },
   openGraph: {
     title: 'Jimsolutions Technology | Electrical, Solar & Home Solutions',
     description:
@@ -60,12 +65,24 @@ export const metadata: Metadata = {
     siteName: 'Jimsolutions Technology',
     locale: 'en_NG',
     type: 'website',
+    images: [
+      {
+        url: '/img/logo/logo.jpg',
+        width: 800,
+        height: 800,
+        alt: 'Jimsolutions Technology Logo',
+      },
+    ],
   },
   twitter: {
     card: 'summary_large_image',
     title: 'Jimsolutions Technology | Electrical, Solar & Home Solutions',
     description:
       'Professional electrical wiring, solar energy systems, kitchen installation, and interior design services in Lagos and nationwide. Daily 8am - 10pm.',
+    images: ['/img/logo/logo.jpg'],
+  },
+  verification: {
+    google: 'jZmEtNlxIOPvG8x4kvoO2hb_6H3MmdbkLcwAo-iM11I',
   },
   robots: { index: true, follow: true },
 };

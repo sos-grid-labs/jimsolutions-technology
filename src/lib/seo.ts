@@ -19,13 +19,15 @@ export function createMetadata({
   const url = `${BUSINESS_DETAILS.website}${path}`;
 
   return {
-    title,
+    title: {
+      absolute: title,
+    },
     description,
     alternates: {
       canonical: url,
     },
     openGraph: {
-      title: `${title} | ${BUSINESS_DETAILS.name}`,
+      title,
       description,
       url,
       images: [
@@ -38,7 +40,7 @@ export function createMetadata({
       ],
     },
     twitter: {
-      title: `${title} | ${BUSINESS_DETAILS.name}`,
+      title,
       description,
       images: [ogImage],
     },
