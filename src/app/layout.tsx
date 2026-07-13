@@ -1,20 +1,15 @@
 import type { Metadata } from 'next';
-import { Inter, Manrope } from 'next/font/google';
+import { Barlow } from 'next/font/google';
 import '@/lib/fontawesome';
 import './globals.css';
 import Navbar from '@/components/layout/Navbar';
 import Footer from '@/components/layout/Footer';
 import WhatsAppButton from '@/components/layout/WhatsAppButton';
 
-const inter = Inter({
-  variable: '--font-inter',
+const barlow = Barlow({
+  variable: '--font-barlow',
   subsets: ['latin'],
-  display: 'swap',
-});
-
-const manrope = Manrope({
-  variable: '--font-manrope',
-  subsets: ['latin'],
+  weight: ['400', '500', '600', '700', '800'],
   display: 'swap',
 });
 
@@ -68,7 +63,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${inter.variable} ${manrope.variable} h-full scroll-smooth`}>
+    <html lang="en" className={`${barlow.variable} h-full scroll-smooth`}>
       <body className="font-body min-h-full flex flex-col bg-background text-foreground antialiased">
         <Navbar />
         <main className="flex-1 flex flex-col">{children}</main>

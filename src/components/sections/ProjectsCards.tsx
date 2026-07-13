@@ -26,7 +26,7 @@ export default function ProjectsCards() {
             return (
               <div
                 key={project.id}
-                className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center bg-white rounded-3xl border border-navy/5 shadow-sm overflow-hidden"
+                className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center bg-white rounded-2xl border border-gray-100 shadow-sm overflow-hidden"
               >
                 {/* Image block */}
                 <div

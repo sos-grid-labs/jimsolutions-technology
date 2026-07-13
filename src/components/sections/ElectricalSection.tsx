@@ -34,7 +34,7 @@ export default function ElectricalSection() {
             </div>
 
             {/* Overlapping Overlay Card */}
-            <div className="absolute -top-6 -right-6 bg-white rounded-2xl border border-navy/5 shadow-lg p-6 max-w-xs hidden sm:block">
+            <div className="absolute -top-6 -right-6 bg-white rounded-2xl border border-gray-100 shadow-lg p-6 max-w-xs hidden sm:block">
               <div className="flex items-center gap-3">
                 <div className="flex h-10 w-10 items-center justify-center rounded-full bg-orange/10 text-orange">
                   <FontAwesomeIcon icon={faShieldAlt} className="h-5 w-5" />

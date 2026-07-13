@@ -47,7 +47,7 @@ export default function SolarSection() {
               {keySpecs.map((spec, index) => (
                 <div
                   key={index}
-                  className="bg-white rounded-xl border border-navy/5 p-5 shadow-sm hover:shadow-md transition-shadow duration-300"
+                  className="bg-white rounded-2xl border border-gray-100 p-5 shadow-sm hover:shadow-md transition-shadow duration-300"
                 >
                   <p className="text-xs uppercase tracking-wider text-orange font-bold">
                     {spec.title}
@@ -80,7 +80,7 @@ export default function SolarSection() {
             </div>
 
             {/* Overlapping Overlay Card */}
-            <div className="absolute -bottom-6 -left-6 bg-white rounded-2xl border border-navy/5 shadow-lg p-6 max-w-xs hidden sm:block">
+            <div className="absolute -bottom-6 -left-6 bg-white rounded-2xl border border-gray-100 shadow-lg p-6 max-w-xs hidden sm:block">
               <div className="flex items-center gap-3">
                 <div className="flex h-10 w-10 items-center justify-center rounded-full bg-orange/10 text-orange">
                   <FontAwesomeIcon icon={faBatteryFull} className="h-5 w-5" />

@@ -5,17 +5,8 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {
-  faBars,
-  faXmark,
-  faPhone,
-  faEnvelope,
-  faClock,
-  faMapMarkerAlt,
-  faChevronDown,
-} from '@fortawesome/free-solid-svg-icons';
-import { faWhatsapp } from '@fortawesome/free-brands-svg-icons';
-import { BUSINESS_DETAILS, getWhatsappLink } from '@/lib/constants';
+import { faBars, faXmark, faChevronDown } from '@fortawesome/free-solid-svg-icons';
+import { getWhatsappLink } from '@/lib/constants';
 import Button from '../ui/Button';
 
 export default function Navbar() {
@@ -30,7 +21,6 @@ export default function Navbar() {
     { name: 'Projects', href: '/projects' },
     { name: 'Gallery', href: '/gallery' },
     { name: 'FAQ', href: '/faq' },
-    { name: 'Contact', href: '/contact' },
   ];
 
   const subServices = [
@@ -42,72 +32,33 @@ export default function Navbar() {
     { name: 'Laundry Setup', href: '/services/laundry' },
   ];
 
-  const whatsappMessage = 'Hello Jimsolutions Technology, I would like to make an inquiry.';
+  const whatsappMessage = 'Hello Jimsolutions Technology, I would like to get a quote.';
   const whatsappUrl = getWhatsappLink(whatsappMessage);
 
   return (
-    <header className="sticky top-0 z-40 w-full shadow-sm bg-white">
-      {/* Top HBM-Style Contact Strip */}
-      <div className="bg-navy text-white text-[11px] sm:text-xs py-2 border-b border-white/5 hidden md:block">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 flex justify-between items-center">
-          <div className="flex gap-6">
-            <div className="flex items-center gap-2">
-              <FontAwesomeIcon icon={faPhone} className="text-orange h-3 w-3" />
-              <a
-                href={`tel:${BUSINESS_DETAILS.phone}`}
-                className="hover:text-orange transition-colors"
-              >
-                {BUSINESS_DETAILS.phoneFormatted}
-              </a>
+    <header className="sticky top-0 z-40 w-full shadow-sm bg-white border-b border-navy/5">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="flex h-16 items-center justify-between">
+          {/* Logo on Left */}
+          <Link href="/" className="flex items-center gap-3">
+            <div className="relative h-10 w-10 overflow-hidden rounded-md border border-navy/10">
+              <Image
+                src="/img/logo/logo.jpg"
+                alt="Jimsolutions Technology Logo"
+                fill
+                sizes="40px"
+                className="object-cover"
+                priority
+              />
             </div>
-            <div className="flex items-center gap-2">
-              <FontAwesomeIcon icon={faEnvelope} className="text-orange h-3 w-3" />
-              <a
-                href={`mailto:${BUSINESS_DETAILS.email}`}
-                className="hover:text-orange transition-colors"
-              >
-                {BUSINESS_DETAILS.email}
-              </a>
-            </div>
-          </div>
-          <div className="flex gap-6">
-            <div className="flex items-center gap-2">
-              <FontAwesomeIcon icon={faClock} className="text-orange h-3 w-3" />
-              <span>{BUSINESS_DETAILS.hours}</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <FontAwesomeIcon icon={faMapMarkerAlt} className="text-orange h-3 w-3" />
-              <span>{BUSINESS_DETAILS.serviceArea}</span>
-            </div>
-          </div>
-        </div>
-      </div>
+            <span className="text-lg font-bold tracking-tight text-navy uppercase">
+              Jimsolutions
+            </span>
+          </Link>
 
-      {/* Main Navbar */}
-      <div className="border-b border-navy/5 bg-white/95 backdrop-blur-md">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="flex h-20 items-center justify-between">
-            {/* Logo */}
-            <div className="flex items-center gap-2">
-              <Link href="/" className="flex items-center gap-3">
-                <div className="relative h-12 w-12 overflow-hidden rounded-md border border-navy/10">
-                  <Image
-                    src="/img/logo/logo.jpg"
-                    alt="Jimsolutions Technology Logo"
-                    fill
-                    sizes="48px"
-                    className="object-cover"
-                    priority
-                  />
-                </div>
-                <span className="text-lg font-bold tracking-tight text-navy sm:block hidden uppercase">
-                  Jimsolutions
-                </span>
-              </Link>
-            </div>
-
-            {/* Desktop Nav Links */}
-            <nav className="hidden md:flex items-center gap-x-8">
+          {/* Menu on Right */}
+          <div className="hidden md:flex items-center gap-8">
+            <nav className="flex items-center gap-x-6">
               {navLinks.map((link) => {
                 const isActive =
                   pathname === link.href || (link.hasDropdown && pathname.startsWith(link.href));
@@ -128,18 +79,17 @@ export default function Navbar() {
                         {link.name}
                         <FontAwesomeIcon
                           icon={faChevronDown}
-                          className="h-3 w-3 text-navy/40 group-hover:text-orange transition-colors"
+                          className="h-3 w-3 text-navy/40 group-hover:text-orange"
                         />
                       </button>
 
-                      {/* Dropdown Menu Panel */}
                       {isServicesOpen && (
-                        <div className="absolute top-full left-0 bg-white border border-navy/5 shadow-lg rounded-xl py-3 w-56 space-y-1 z-50 animate-fade-in">
+                        <div className="absolute top-full left-0 bg-white border border-navy/5 shadow-lg rounded-xl py-2 w-52 space-y-0.5 z-50">
                           {subServices.map((sub) => (
                             <Link
                               key={sub.name}
                               href={sub.href}
-                              className="block px-4 py-2 text-xs font-semibold text-navy/80 hover:text-orange hover:bg-gray-50 transition-colors"
+                              className="block px-4 py-2 text-xs font-semibold text-navy/80 hover:text-orange hover:bg-gray-50"
                             >
                               {sub.name}
                             </Link>
@@ -164,24 +114,26 @@ export default function Navbar() {
               })}
             </nav>
 
-            {/* Desktop CTA */}
-            <div className="hidden md:flex items-center gap-4">
-              <Button href={whatsappUrl} variant="secondary" size="md" external>
-                <FontAwesomeIcon icon={faWhatsapp} className="mr-2 h-4 w-4" />
-                Chat on WhatsApp
-              </Button>
-            </div>
+            {/* Prominent Contact button */}
+            <Button
+              href="/contact"
+              variant="primary"
+              size="sm"
+              className="font-bold uppercase tracking-wider bg-orange hover:bg-navy text-white text-xs py-2 px-4 rounded"
+            >
+              Contact Us
+            </Button>
+          </div>
 
-            {/* Mobile Menu Button */}
-            <div className="flex md:hidden">
-              <button
-                onClick={() => setIsOpen(!isOpen)}
-                className="inline-flex items-center justify-center rounded-md p-2.5 text-navy hover:bg-navy/5 transition-all duration-200"
-                aria-label="Toggle menu"
-              >
-                <FontAwesomeIcon icon={isOpen ? faXmark : faBars} className="h-6 w-6" />
-              </button>
-            </div>
+          {/* Mobile Menu Button */}
+          <div className="flex md:hidden">
+            <button
+              onClick={() => setIsOpen(!isOpen)}
+              className="inline-flex items-center justify-center rounded-md p-2 text-navy hover:bg-navy/5"
+              aria-label="Toggle menu"
+            >
+              <FontAwesomeIcon icon={isOpen ? faXmark : faBars} className="h-5 w-5" />
+            </button>
           </div>
         </div>
       </div>
@@ -189,7 +141,7 @@ export default function Navbar() {
       {/* Mobile Menu */}
       {isOpen && (
         <div className="md:hidden border-b border-navy/5 bg-white px-4 py-4 space-y-3">
-          <nav className="flex flex-col space-y-3">
+          <nav className="flex flex-col space-y-2">
             {navLinks.map((link) => {
               const isActive = pathname === link.href;
               return (
@@ -197,7 +149,7 @@ export default function Navbar() {
                   <Link
                     href={link.href}
                     onClick={() => setIsOpen(false)}
-                    className={`text-base font-semibold px-3 py-2 rounded-md hover:bg-navy/5 block transition-colors duration-200 ${
+                    className={`text-base font-semibold px-3 py-1.5 rounded-md hover:bg-navy/5 block ${
                       isActive ? 'text-orange bg-orange/5' : 'text-navy/70 hover:text-navy'
                     }`}
                   >
@@ -210,7 +162,7 @@ export default function Navbar() {
                           key={sub.name}
                           href={sub.href}
                           onClick={() => setIsOpen(false)}
-                          className="block px-3 py-1.5 text-sm font-medium text-navy/60 hover:text-orange"
+                          className="block px-3 py-1 text-sm font-medium text-navy/60 hover:text-orange"
                         >
                           {sub.name}
                         </Link>
@@ -220,20 +172,14 @@ export default function Navbar() {
                 </div>
               );
             })}
-          </nav>
-          <div className="pt-4 border-t border-navy/5 flex flex-col gap-3">
-            <Button
-              href={whatsappUrl}
-              variant="secondary"
-              size="md"
-              external
+            <Link
+              href="/contact"
               onClick={() => setIsOpen(false)}
-              className="w-full"
+              className="text-base font-bold text-center block bg-orange text-white py-2 rounded-md hover:bg-navy"
             >
-              <FontAwesomeIcon icon={faWhatsapp} className="mr-2 h-4 w-4" />
-              Chat on WhatsApp
-            </Button>
-          </div>
+              CONTACT US
+            </Link>
+          </nav>
         </div>
       )}
     </header>

@@ -48,7 +48,10 @@ export default function AppliancesSection() {
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
               {capabilities.map((item, index) => (
-                <Card key={index} className="p-6 bg-white flex gap-4">
+                <Card
+                  key={index}
+                  className="p-6 bg-white flex gap-4 border border-gray-100 shadow-sm rounded-2xl"
+                >
                   <div className="flex h-10 w-10 items-center justify-center rounded-full bg-orange/10 text-orange flex-shrink-0">
                     <FontAwesomeIcon icon={item.icon} className="h-5 w-5" />
                   </div>
