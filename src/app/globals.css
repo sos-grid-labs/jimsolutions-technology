@@ -1,48 +1,363 @@
 @import 'tailwindcss';
 
+/* ─────────────────────────────────────────────
+   DESIGN TOKENS
+   Source of truth for the entire design system.
+   No hardcoded hex values in components.
+   ───────────────────────────────────────────── */
 :root {
-  --background: #ffffff;
-  --foreground: #1a2332; /* Navy dark text */
-  --navy: #0f2d5c;
-  --navy-dark: #0a1f3f;
-  --navy-light: #1e3a6d;
-  --orange: #f97316;
-  --orange-light: #ffedd5;
-  --orange-dark: #ea580c;
-  --font-heading: var(--font-barlow), sans-serif;
-  --font-body: var(--font-barlow), sans-serif;
+  /* Palette — 6 tokens only, no additions per page */
+  --paper: #ffffff;               /* page background */
+  --panel-ink: #031b47;           /* deep navy: headings, dark panels, footer, primary buttons */
+  --graphite: #5b6472;            /* secondary / body text on white */
+  --orange: #f45a02;              /* primary accent: CTAs, active nav, icon badges, highlighted words */
+  --orange-dark: #c24601;         /* accent text / hover on white backgrounds */
+  --live: #3fae6b;                /* status/live indicators only — not decorative */
+  --line: rgba(3, 27, 71, 0.12); /* hairline borders — no box-shadows */
+
+  /* Typography
+     --font-display → Barlow 800 (injected by next/font via --font-display CSS var)
+     --font-mono    → system monospace stack (no external download needed)
+     --font-body    → Inter (injected by next/font via --font-body CSS var)
+  */
+  --font-display: var(--font-display), 'Barlow', sans-serif;
+  --font-mono:    'Consolas', 'SF Mono', 'JetBrains Mono', 'Fira Code',
+                  'Courier New', monospace;
+  --font-body:    var(--font-body), 'Inter', system-ui, sans-serif;
 }
 
+/* ─────────────────────────────────────────────
+   TAILWIND THEME BRIDGE
+   Expose CSS tokens as Tailwind color utilities
+   so we can write bg-paper, text-panel-ink, etc.
+   ───────────────────────────────────────────── */
 @theme {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-
-  /* Brand colors */
-  --color-navy: var(--navy);
-  --color-navy-dark: var(--navy-dark);
-  --color-navy-light: var(--navy-light);
-  --color-orange: var(--orange);
-  --color-orange-light: var(--orange-light);
+  --color-paper:       var(--paper);
+  --color-panel-ink:   var(--panel-ink);
+  --color-graphite:    var(--graphite);
+  --color-orange:      var(--orange);
   --color-orange-dark: var(--orange-dark);
+  --color-live:        var(--live);
 
-  /* Typography */
-  --font-heading: var(--font-heading);
-  --font-body: var(--font-body);
+  /* Keep legacy navy/orange aliases so existing components
+     don't break while components are being migrated */
+  --color-navy:        var(--panel-ink);
+  --color-background:  var(--paper);
+  --color-foreground:  var(--panel-ink);
+
+  --font-display: var(--font-display);
+  --font-mono:    var(--font-mono);
+  --font-body:    var(--font-body);
+}
+
+/* ─────────────────────────────────────────────
+   BASE STYLES
+   ───────────────────────────────────────────── */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  background: var(--paper);
+  color: var(--panel-ink);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
+  background: var(--paper);
+  color: var(--panel-ink);
   font-family: var(--font-body);
+  font-size: 1rem;           /* 16px base */
+  line-height: 1.6;
 }
 
+/* Display headings — Big Shoulders Display, uppercase, tight */
 h1,
 h2,
-h3,
+h3 {
+  font-family: var(--font-display);
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: -0.01em;
+  line-height: 1;
+  color: var(--panel-ink);
+}
+
 h4,
 h5,
 h6 {
-  font-family: var(--font-heading);
-  font-weight: 700;
-  color: var(--navy);
+  font-family: var(--font-body);
+  font-weight: 600;
+  color: var(--panel-ink);
 }
+
+/* Mono utility — eyebrows, labels, stats, captions, spec readouts */
+.font-mono,
+[data-mono] {
+  font-family: var(--font-mono);
+  letter-spacing: 0.06em;
+}
+
+/* ─────────────────────────────────────────────
+   HAIRLINE BORDERS
+   Use --line everywhere instead of box-shadows.
+   ───────────────────────────────────────────── */
+.border-hairline {
+  border: 1px solid var(--line);
+}
+
+.border-t-hairline { border-top: 1px solid var(--line); }
+.border-b-hairline { border-bottom: 1px solid var(--line); }
+.border-l-hairline { border-left: 1px solid var(--line); }
+.border-r-hairline { border-right: 1px solid var(--line); }
+
+/* ─────────────────────────────────────────────
+   SIGNATURE ANIMATIONS
+   ───────────────────────────────────────────── */
+
+/* Live status dot pulse */
+@keyframes status-pulse {
+  0%, 100% { opacity: 1;    transform: scale(1); }
+  50%       { opacity: 0.5; transform: scale(0.85); }
+}
+
+.animate-status-pulse {
+  animation: status-pulse 2s ease-in-out infinite;
+}
+
+/* CTA underline sweep — orange bar grows left→right on hover */
+.cta-sweep {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+}
+
+.cta-sweep::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0%;
+  height: 2px;
+  background: var(--orange);
+  transition: width 250ms ease;
+}
+
+.cta-sweep:hover::after {
+  width: 100%;
+}
+
+/* Corner bracket draw-in (used in FramedImage) */
+@keyframes bracket-draw {
+  from { stroke-dashoffset: 30; opacity: 0; }
+  to   { stroke-dashoffset: 0;  opacity: 1; }
+}
+
+.animate-bracket {
+  stroke-dasharray: 30;
+  stroke-dashoffset: 30;
+  animation: bracket-draw 0.4s ease forwards;
+}
+
+/* ─────────────────────────────────────────────
+   ICON BADGE
+   Solid-color square/circle with white icon inside.
+   Alternate navy / orange across a row for rhythm.
+   ───────────────────────────────────────────── */
+.icon-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;        /* 40px */
+  height: 2.5rem;
+  flex-shrink: 0;
+  color: #ffffff;
+}
+
+.icon-badge-navy  { background: var(--panel-ink); }
+.icon-badge-orange { background: var(--orange); }
+
+/* ─────────────────────────────────────────────
+   SECTION SPACING
+   Consistent vertical rhythm across all pages.
+   ───────────────────────────────────────────── */
+.section-pad {
+  padding-top: 5rem;    /* 80px */
+  padding-bottom: 5rem;
+}
+
+@media (min-width: 1024px) {
+  .section-pad {
+    padding-top: 7rem;  /* 112px */
+    padding-bottom: 7rem;
+  }
+}
+
+/* ─────────────────────────────────────────────
+   UTILITY: CONTAINER
+   ───────────────────────────────────────────── */
+.site-container {
+  width: 100%;
+  max-width: 1280px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1.25rem;
+  padding-right: 1.25rem;
+}
+
+@media (min-width: 640px) {
+  .site-container {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .site-container {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}
+
+/* ─────────────────────────────────────────────
+   CSS-ONLY HOVER STATES
+   Used in Server Components where JS event
+   handlers cannot be passed as props.
+   ───────────────────────────────────────────── */
+
+/* Footer nav links */
+.footer-nav-link:hover {
+  color: #ffffff !important;
+}
+
+/* Footer contact rows */
+.footer-contact-row {
+  display: block;
+  opacity: 0.9;
+  transition: opacity 150ms;
+}
+.footer-contact-row:hover {
+  opacity: 1;
+}
+
+/* Nav dropdown items */
+.nav-dropdown-item {
+  display: block;
+  padding: 0.625rem 1rem;
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: var(--panel-ink);
+  border-bottom: 1px solid var(--line);
+  transition: color 150ms, background 150ms;
+}
+.nav-dropdown-item:hover {
+  color: var(--orange);
+  background: #f9f9f9;
+}
+
+/* Nav links */
+.nav-link {
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--panel-ink);
+  transition: color 150ms;
+}
+.nav-link:hover,
+.nav-link[data-active='true'] {
+  color: var(--orange);
+}
+
+/* Nav CTA button */
+.nav-cta {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.625rem 1.25rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #ffffff;
+  background: var(--panel-ink);
+  border: 1px solid var(--panel-ink);
+  transition: background 200ms, border-color 200ms;
+}
+.nav-cta:hover {
+  background: var(--orange);
+  border-color: var(--orange);
+}
+
+/* ─────────────────────────────────────────────
+   SPEC STRIP — responsive grid
+   ───────────────────────────────────────────── */
+.spec-strip-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+@media (min-width: 640px) {
+  .spec-strip-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+/* ─────────────────────────────────────────────
+   HERO SLIDER
+   ───────────────────────────────────────────── */
+@keyframes hero-fade-in {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.hero-content-animate {
+  animation: hero-fade-in 0.7s ease both;
+}
+
+/* Hero CTA buttons */
+.hero-cta-primary {
+  transition: background 200ms, border-color 200ms;
+}
+.hero-cta-primary:hover {
+  background: var(--panel-ink) !important;
+  border-color: var(--panel-ink) !important;
+}
+
+.hero-cta-secondary {
+  transition: background 200ms, border-color 200ms, color 200ms;
+}
+.hero-cta-secondary:hover {
+  background: rgba(255,255,255,0.12);
+  border-color: rgba(255,255,255,0.7);
+}
+
+/* Section CTA hover rules */
+.project-cta:hover {
+  background: var(--panel-ink);
+  color: #ffffff;
+  border-color: var(--panel-ink);
+}
+
+.service-learn-more:hover {
+  color: var(--orange-dark);
+}
+
+.final-cta-primary {
+  transition: background 200ms, border-color 200ms;
+}
+.final-cta-primary:hover {
+  background: var(--panel-ink) !important;
+  border-color: var(--panel-ink) !important;
+}
+
+.final-cta-secondary {
+  transition: background 200ms, border-color 200ms;
+}
+.final-cta-secondary:hover {
+  background: rgba(255,255,255,0.1);
+  border-color: rgba(255,255,255,0.5) !important;
+}
+

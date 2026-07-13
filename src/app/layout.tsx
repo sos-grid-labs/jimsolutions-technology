@@ -1,17 +1,35 @@
 import type { Metadata } from 'next';
-import { Barlow } from 'next/font/google';
+import { Barlow, Inter } from 'next/font/google';
 import '@/lib/fontawesome';
 import './globals.css';
 import Navbar from '@/components/layout/Navbar';
 import Footer from '@/components/layout/Footer';
 import WhatsAppButton from '@/components/layout/WhatsAppButton';
 
-const barlow = Barlow({
-  variable: '--font-barlow',
+/**
+ * Display font — Barlow ExtraBold/Black used uppercase with tight tracking
+ * to replicate the "Big Shoulders Display" look within the sandbox env.
+ * CSS variable: --font-display
+ */
+const barlowDisplay = Barlow({
+  variable: '--font-display',
   subsets: ['latin'],
-  weight: ['400', '500', '600', '700', '800'],
+  weight: ['700', '800'],
   display: 'swap',
 });
+
+/**
+ * Body font — Inter.
+ * CSS variable: --font-body
+ */
+const inter = Inter({
+  variable: '--font-body',
+  subsets: ['latin'],
+  weight: ['400', '500', '600'],
+  display: 'swap',
+});
+
+// --font-mono is set to a system monospace stack in globals.css
 
 export const metadata: Metadata = {
   title: {
@@ -33,9 +51,7 @@ export const metadata: Metadata = {
     'electrical contractor Nigeria',
   ],
   metadataBase: new URL('https://jimsolutionstechnology.com.ng'),
-  alternates: {
-    canonical: '/',
-  },
+  alternates: { canonical: '/' },
   openGraph: {
     title: 'Jimsolutions Technology | Electrical, Solar & Home Solutions',
     description:
@@ -51,20 +67,18 @@ export const metadata: Metadata = {
     description:
       'Professional electrical wiring, solar energy systems, kitchen installation, and interior design services in Lagos and nationwide. Daily 8am - 10pm.',
   },
-  robots: {
-    index: true,
-    follow: true,
-  },
+  robots: { index: true, follow: true },
 };
 
 export default function RootLayout({
   children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+}: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en" className={`${barlow.variable} h-full scroll-smooth`}>
-      <body className="font-body min-h-full flex flex-col bg-background text-foreground antialiased">
+    <html
+      lang="en"
+      className={`${barlowDisplay.variable} ${inter.variable} h-full scroll-smooth`}
+    >
+      <body className="min-h-full flex flex-col antialiased">
         <Navbar />
         <main className="flex-1 flex flex-col">{children}</main>
         <Footer />

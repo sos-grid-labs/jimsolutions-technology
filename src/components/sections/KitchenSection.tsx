@@ -1,9 +1,16 @@
-import Image from 'next/image';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faUtensils, faFolderOpen } from '@fortawesome/free-solid-svg-icons';
+import { faUtensils, faScrewdriverWrench } from '@fortawesome/free-solid-svg-icons';
 import { faWhatsapp } from '@fortawesome/free-brands-svg-icons';
 import { getWhatsappLink } from '@/lib/constants';
-import Button from '../ui/Button';
+import SectionHeading from '../ui/SectionHeading';
+import FramedImage from '../ui/FramedImage';
+
+const features = [
+  'Custom cabinet design and flush joint alignment',
+  'Island induction hob and downdraft extractor mounting',
+  'Built-in oven, microwave, and dishwasher integration',
+  'Gas and electrical cooktop load balancing',
+];
 
 export default function KitchenSection() {
   const whatsappUrl = getWhatsappLink(
@@ -11,64 +18,82 @@ export default function KitchenSection() {
   );
 
   return (
-    <section className="py-24 bg-white overflow-hidden">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
-          {/* Text Content */}
+    <section
+      className="w-full"
+      style={{ background: 'var(--paper)', borderBottom: '1px solid var(--line)' }}
+    >
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-20 lg:py-28">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+
+          {/* Content left */}
           <div className="lg:col-span-7 space-y-8">
-            <div>
-              <span className="inline-flex items-center gap-2 rounded-md bg-orange/10 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-orange mb-4">
-                <FontAwesomeIcon icon={faUtensils} className="h-3 w-3" />
-                Kitchen Setup
-              </span>
-              <h2 className="text-3xl font-extrabold sm:text-5xl text-navy tracking-tight leading-tight">
-                Handcrafted Cabinets. <br />
-                <span className="text-orange">Flush Island Cooktops.</span>
-              </h2>
-              <p className="mt-4 text-base text-navy/70 leading-7 max-w-xl">
-                We bridge the gap between technical engineering accuracy and beautiful visual
-                integration. Our team designs layout flows, mounts downdraft extractors, installs
-                custom cabinet doors, and balances gas and electrical cooktop integrations.
-              </p>
+            <SectionHeading
+              eyebrow="Kitchen Installation"
+              title="Handcrafted Cabinets. Flush Cooktops."
+              subtitle="We bridge engineering precision and beautiful visual integration — designing layout flows, mounting extractors, and installing custom cabinet doors."
+              align="left"
+            />
+
+            {/* Feature rows */}
+            <div style={{ border: '1px solid var(--line)' }}>
+              {features.map((item, i) => (
+                <div
+                  key={i}
+                  className="flex items-center gap-4 px-5 py-4"
+                  style={{ borderBottom: i < features.length - 1 ? '1px solid var(--line)' : undefined }}
+                >
+                  <div
+                    className="flex items-center justify-center flex-shrink-0"
+                    style={{
+                      width: '24px',
+                      height: '24px',
+                      background: i % 2 === 0 ? 'var(--panel-ink)' : 'var(--orange)',
+                    }}
+                  >
+                    <FontAwesomeIcon
+                      icon={i % 2 === 0 ? faUtensils : faScrewdriverWrench}
+                      style={{ width: '10px', height: '10px', color: '#ffffff' }}
+                    />
+                  </div>
+                  <span className="text-sm font-medium" style={{ color: 'var(--panel-ink)' }}>
+                    {item}
+                  </span>
+                </div>
+              ))}
             </div>
 
-            <div className="border-t border-navy/5 pt-8 flex gap-6">
-              <div className="flex gap-4 items-start">
-                <div className="flex h-10 w-10 items-center justify-center rounded-full bg-orange/10 text-orange flex-shrink-0">
-                  <FontAwesomeIcon icon={faFolderOpen} className="h-5 w-5" />
-                </div>
-                <div>
-                  <h4 className="font-bold text-navy text-base">Custom Joint Alignment</h4>
-                  <p className="text-xs text-navy/60 mt-1 leading-5">
-                    Ensuring completely flush joints for hobs, built-in cookers, and sinks.
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            <div className="flex flex-wrap gap-4 items-center">
-              <Button href={whatsappUrl} variant="primary" size="lg" external>
-                <FontAwesomeIcon icon={faWhatsapp} className="mr-2 h-5 w-5" />
+            <div className="flex flex-wrap gap-4">
+              <a
+                href={whatsappUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 px-6 py-3.5 font-bold uppercase tracking-wider text-sm text-white"
+                style={{ background: 'var(--panel-ink)', border: '1px solid var(--panel-ink)' }}
+              >
+                <FontAwesomeIcon icon={faWhatsapp} style={{ width: '15px', height: '15px' }} />
                 Get Kitchen Quote
-              </Button>
-              <Button href="/services/kitchen" variant="outline" size="lg">
-                View Kitchen Specs &rarr;
-              </Button>
+              </a>
+              <a
+                href="/services/kitchen"
+                className="inline-flex items-center px-6 py-3.5 font-bold uppercase tracking-wider text-sm"
+                style={{ color: 'var(--panel-ink)', border: '1px solid var(--line)' }}
+              >
+                View Full Scope
+              </a>
             </div>
           </div>
 
-          {/* Overlapping Image Composition on Right */}
-          <div className="lg:col-span-5 relative">
-            <div className="aspect-[4/5] relative rounded-2xl overflow-hidden border border-navy/10 shadow-xl bg-navy">
-              <Image
-                src="/img/services/kitchens.jpg"
-                alt="Modern Kitchen Cabinetry and Hob Layout"
-                fill
-                sizes="(max-w-1024px) 100vw, 40vw"
-                className="object-cover opacity-90"
-              />
-            </div>
+          {/* Image right */}
+          <div className="lg:col-span-5">
+            <FramedImage
+              src="/img/services/kitchens.jpg"
+              alt="Modern Kitchen Cabinetry and Hob Layout"
+              caption="FIG. 03 — KITCHEN FIT-OUT, VICTORIA ISLAND"
+              aspect="aspect-[4/5]"
+              sizes="(max-width: 1024px) 100vw, 40vw"
+            />
           </div>
+
         </div>
       </div>
     </section>

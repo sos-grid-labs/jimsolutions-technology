@@ -1,93 +1,285 @@
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faPhone, faShieldAlt, faCheckCircle } from '@fortawesome/free-solid-svg-icons';
-import { faWhatsapp } from '@fortawesome/free-brands-svg-icons';
-import { BUSINESS_DETAILS, getWhatsappLink } from '@/lib/constants';
-import Button from '../ui/Button';
+'use client';
+
+import { useState, useEffect, useCallback } from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import {
+  faChevronLeft,
+  faChevronRight,
+  faAward,
+  faBriefcase,
+  faMap,
+  faHeadset,
+  faBolt,
+} from '@fortawesome/free-solid-svg-icons';
+import { faWhatsapp } from '@fortawesome/free-brands-svg-icons';
+import { getWhatsappLink } from '@/lib/constants';
+import SpecStrip, { SpecItem } from '../ui/SpecStrip';
+
+/* ── Slider data ──────────────────────────────────────────────────────────── */
+const slides = [
+  {
+    image: '/img/services/electrical.jpg',
+    caption: 'FIG. 01 — WIRING INSTALLATION, LAGOS',
+    eyebrow: 'ELECTRICAL ENGINEERING',
+    headline: ['Precision Wiring.', 'Built to Last.'],
+    accent: 'Built to Last.',
+    body: 'Complete electrical installations engineered to Nigerian Standards — from consumer units to industrial panels. Every circuit tested, certified, and safe.',
+    cta: { label: 'Get a Quote', href: getWhatsappLink('Hi, I need an electrical installation quote.'), external: true },
+    cta2: { label: 'Our Services', href: '/services' },
+  },
+  {
+    image: '/img/services/solar.jpg',
+    caption: 'FIG. 02 — SOLAR ARRAY, ABUJA',
+    eyebrow: 'SOLAR & INVERTER SYSTEMS',
+    headline: ['Clean Energy.', 'Zero Blackouts.'],
+    accent: 'Zero Blackouts.',
+    body: 'Grid-tied and off-grid solar installations with branded inverters and battery banks. Designed for Lagos heat, sized for your actual load.',
+    cta: { label: 'Get a Quote', href: getWhatsappLink('Hi, I need a solar installation quote.'), external: true },
+    cta2: { label: 'Solar Services', href: '/services/solar' },
+  },
+  {
+    image: '/img/services/kitchens.jpg',
+    caption: 'FIG. 03 — KITCHEN FIT-OUT, LEKKI',
+    eyebrow: 'KITCHEN & INTERIOR DESIGN',
+    headline: ['Crafted Spaces.', 'Engineered Finish.'],
+    accent: 'Engineered Finish.',
+    body: 'Built-in kitchens, branded appliances, laundry rooms, and full interior fit-outs. One team, one invoice, zero coordination stress.',
+    cta: { label: 'Get a Quote', href: getWhatsappLink('Hi, I need a kitchen or interior design quote.'), external: true },
+    cta2: { label: 'View Projects', href: '/projects' },
+  },
+];
+
+/* ── Spec strip data ──────────────────────────────────────────────────────── */
+const specItems: SpecItem[] = [
+  { value: '5+',      label: 'Years of Experience',   icon: faAward    },
+  { value: '500+',    label: 'Projects Completed',    icon: faBriefcase },
+  { value: '36',      label: 'States Reached',        icon: faMap      },
+  { value: '8am–10pm',label: 'Daily Live Support',    icon: faHeadset  },
+  { value: '<2 hrs',  label: 'Avg. Response Time',    icon: faBolt     },
+];
+
+/* ─────────────────────────────────────────────────────────────────────────── */
 
 export default function Hero() {
-  const whatsappUrl = getWhatsappLink(
-    'Hello Jimsolutions Technology, I would like to request an engineering consultation and quote.',
+  const [current, setCurrent] = useState(0);
+  const [animating, setAnimating] = useState(false);
+
+  const go = useCallback(
+    (next: number) => {
+      if (animating) return;
+      setAnimating(true);
+      setTimeout(() => {
+        setCurrent((next + slides.length) % slides.length);
+        setAnimating(false);
+      }, 300);
+    },
+    [animating],
   );
 
-  const trustIndicators = [
-    'NERC Safety Compliant',
-    'Lagos base & Nationwide Service',
-    '8am - 10pm Daily Support',
-  ];
+  /* Auto-rotate every 6 seconds */
+  useEffect(() => {
+    const t = setInterval(() => go(current + 1), 6000);
+    return () => clearInterval(t);
+  }, [current, go]);
+
+  const slide = slides[current];
 
   return (
-    <section className="relative bg-white py-20 lg:py-28 overflow-hidden border-b border-gray-100">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 gap-12 lg:grid-cols-12 lg:gap-16 items-center">
-          {/* Left Panel: Content */}
-          <div className="space-y-8 lg:col-span-7">
-            <span className="inline-flex items-center gap-2 rounded-md bg-[#0F2D5C]/5 px-3.5 py-1.5 text-sm font-semibold uppercase tracking-wider text-[#0F2D5C]">
-              <FontAwesomeIcon icon={faShieldAlt} className="h-4 w-4 text-[#F97316]" />
-              Engineering Excellence
-            </span>
+    <section>
+      {/* ── Full-bleed slider ──────────────────────────────────────────── */}
+      <div
+        className="relative w-full overflow-hidden"
+        style={{ height: 'clamp(520px, 80vh, 860px)' }}
+      >
+        {/* Background image */}
+        <Image
+          key={current}
+          src={slide.image}
+          alt={slide.eyebrow}
+          fill
+          sizes="100vw"
+          className="object-cover transition-opacity duration-500"
+          style={{ opacity: animating ? 0 : 1 }}
+          priority={current === 0}
+        />
 
-            <h1 className="text-4xl sm:text-6xl font-extrabold text-[#0F2D5C] tracking-tight leading-[1.1] font-heading">
-              Smart Technology. <br />
-              <span className="text-[#F97316]">Reliable Engineering.</span> <br />
-              Stable Home Solutions.
-            </h1>
+        {/* Dark gradient overlay — left-weighted so text is readable */}
+        <div
+          className="absolute inset-0"
+          style={{
+            background:
+              'linear-gradient(to right, rgba(3,27,71,0.88) 0%, rgba(3,27,71,0.55) 55%, rgba(3,27,71,0.2) 100%)',
+          }}
+        />
 
-            <p className="text-lg sm:text-xl text-[#374151] leading-relaxed max-w-xl">
-              We deliver premium engineering, custom wiring, clean solar backups, and professional
-              home appliance installations. Handcrafted setups engineered for lifetime performance.
-            </p>
-
-            <div className="flex flex-col sm:flex-row gap-4 items-stretch sm:items-center">
-              <Button
-                href={whatsappUrl}
-                variant="primary"
-                size="lg"
-                className="text-center justify-center font-bold uppercase tracking-wider bg-[#F97316] hover:bg-[#0F2D5C] text-white px-8 py-4 rounded"
-                external
+        {/* ── Slide content ─────────────────────────────────────────────── */}
+        <div
+          className="absolute inset-0 flex items-center"
+          key={`content-${current}`}
+        >
+          <div className="mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8">
+            <div
+              className="hero-content-animate max-w-2xl"
+              style={{ opacity: animating ? 0 : 1 }}
+            >
+              {/* Eyebrow — mono, orange */}
+              <p
+                className="mb-5 uppercase"
+                style={{
+                  fontFamily: 'var(--font-mono)',
+                  fontSize: '11px',
+                  letterSpacing: '0.18em',
+                  color: 'var(--orange)',
+                }}
               >
-                <FontAwesomeIcon icon={faWhatsapp} className="mr-2 h-5 w-5" />
-                Chat on WhatsApp
-              </Button>
-              <Button
-                href={`tel:${BUSINESS_DETAILS.phone}`}
-                variant="outline"
-                size="lg"
-                className="border-[#0F2D5C]/20 text-[#0F2D5C] hover:bg-[#0F2D5C]/5 text-center justify-center font-bold uppercase tracking-wider px-8 py-4 rounded"
+                {slide.eyebrow}
+              </p>
+
+              {/* Headline — Big Shoulders Display, white, tight */}
+              <h1
+                className="mb-6 font-black uppercase leading-none"
+                style={{
+                  fontFamily: 'var(--font-display)',
+                  fontSize: 'clamp(3rem, 6vw, 5.5rem)',
+                  color: '#ffffff',
+                  letterSpacing: '-0.01em',
+                }}
               >
-                <FontAwesomeIcon icon={faPhone} className="mr-2 h-4 w-4" />
-                Call Direct
-              </Button>
-            </div>
+                {slide.headline.map((line, i) => (
+                  <span key={i} className="block">
+                    {line === slide.accent ? (
+                      <span style={{ color: 'var(--orange)' }}>{line}</span>
+                    ) : (
+                      line
+                    )}
+                  </span>
+                ))}
+              </h1>
 
-            {/* Trust Indicators */}
-            <div className="pt-6 border-t border-gray-100 flex flex-wrap gap-x-6 gap-y-3 text-sm text-[#374151] font-semibold">
-              {trustIndicators.map((indicator, idx) => (
-                <div key={idx} className="flex items-center gap-2">
-                  <FontAwesomeIcon
-                    icon={faCheckCircle}
-                    className="text-[#F97316] h-4 w-4 flex-shrink-0"
-                  />
-                  <span>{indicator}</span>
-                </div>
-              ))}
-            </div>
-          </div>
+              {/* Body — Inter */}
+              <p
+                className="mb-8 leading-relaxed"
+                style={{
+                  fontFamily: 'var(--font-body)',
+                  fontSize: '1.0625rem',
+                  color: 'rgba(255,255,255,0.78)',
+                  maxWidth: '52ch',
+                }}
+              >
+                {slide.body}
+              </p>
 
-          {/* Right Panel: Image */}
-          <div className="relative lg:col-span-5">
-            <div className="aspect-[4/5] relative rounded-2xl overflow-hidden border border-gray-200 shadow-xl bg-gray-50">
-              <Image
-                src="/img/services/electrical.jpg"
-                alt="Jimsolutions Engineering Worksite"
-                fill
-                sizes="(max-w-1024px) 100vw, 40vw"
-                className="object-cover"
-                priority
-              />
+              {/* CTAs */}
+              <div className="flex flex-wrap gap-4">
+                <a
+                  href={slide.cta.href}
+                  target={slide.cta.external ? '_blank' : undefined}
+                  rel={slide.cta.external ? 'noopener noreferrer' : undefined}
+                  className="hero-cta-primary inline-flex items-center gap-2 px-7 py-3.5 font-bold uppercase tracking-wider text-sm text-white"
+                  style={{ background: 'var(--orange)', border: '1px solid var(--orange)' }}
+                >
+                  <FontAwesomeIcon icon={faWhatsapp} style={{ width: '16px', height: '16px' }} />
+                  {slide.cta.label}
+                </a>
+                <Link
+                  href={slide.cta2.href}
+                  className="hero-cta-secondary inline-flex items-center px-7 py-3.5 font-bold uppercase tracking-wider text-sm"
+                  style={{
+                    color: '#ffffff',
+                    border: '1px solid rgba(255,255,255,0.4)',
+                    background: 'transparent',
+                  }}
+                >
+                  {slide.cta2.label}
+                </Link>
+              </div>
             </div>
           </div>
         </div>
+
+        {/* ── Slide number indicator ────────────────────────────────────── */}
+        <div
+          className="absolute bottom-8 left-1/2 -translate-x-1/2 flex items-center gap-2"
+          aria-hidden="true"
+        >
+          {slides.map((_, i) => (
+            <button
+              key={i}
+              onClick={() => go(i)}
+              style={{
+                width: i === current ? '24px' : '6px',
+                height: '6px',
+                background: i === current ? 'var(--orange)' : 'rgba(255,255,255,0.4)',
+                border: 'none',
+                cursor: 'pointer',
+                transition: 'width 300ms, background 300ms',
+                padding: 0,
+              }}
+              aria-label={`Go to slide ${i + 1}`}
+            />
+          ))}
+        </div>
+
+        {/* ── Caption tag — bottom left ─────────────────────────────────── */}
+        <div
+          className="absolute bottom-0 left-0"
+          style={{ background: 'rgba(3,27,71,0.75)', padding: '6px 14px' }}
+        >
+          <span
+            style={{
+              fontFamily: 'var(--font-mono)',
+              fontSize: '9px',
+              letterSpacing: '0.12em',
+              color: 'rgba(255,255,255,0.6)',
+              textTransform: 'uppercase',
+            }}
+          >
+            {slide.caption}
+          </span>
+        </div>
+
+        {/* ── Arrow controls ────────────────────────────────────────────── */}
+        <button
+          onClick={() => go(current - 1)}
+          className="absolute left-4 top-1/2 -translate-y-1/2 flex items-center justify-center"
+          style={{
+            width: '44px',
+            height: '44px',
+            background: 'rgba(3,27,71,0.5)',
+            border: '1px solid rgba(255,255,255,0.15)',
+            color: '#ffffff',
+            cursor: 'pointer',
+          }}
+          aria-label="Previous slide"
+        >
+          <FontAwesomeIcon icon={faChevronLeft} style={{ width: '14px', height: '14px' }} />
+        </button>
+        <button
+          onClick={() => go(current + 1)}
+          className="absolute right-4 top-1/2 -translate-y-1/2 flex items-center justify-center"
+          style={{
+            width: '44px',
+            height: '44px',
+            background: 'rgba(3,27,71,0.5)',
+            border: '1px solid rgba(255,255,255,0.15)',
+            color: '#ffffff',
+            cursor: 'pointer',
+          }}
+          aria-label="Next slide"
+        >
+          <FontAwesomeIcon icon={faChevronRight} style={{ width: '14px', height: '14px' }} />
+        </button>
+      </div>
+
+      {/* ── Spec strip — pinned directly below hero ───────────────────────── */}
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <SpecStrip
+          items={specItems.slice(0, 5)}
+          theme="light"
+          className="-mt-px"   /* flush against the hero bottom edge */
+        />
       </div>
     </section>
   );

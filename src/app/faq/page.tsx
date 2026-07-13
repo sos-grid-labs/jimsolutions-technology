@@ -7,7 +7,6 @@ import SchemaScript from '@/components/ui/SchemaScript';
 import { FAQS } from '@/data/faqs';
 import { getWhatsappLink } from '@/lib/constants';
 import FAQAccordion from '@/components/sections/FAQAccordion';
-import Button from '@/components/ui/Button';
 
 export const metadata: Metadata = createMetadata({
   title: 'Frequently Asked Questions | Jimsolutions Technology',
@@ -33,13 +32,37 @@ export default function FAQPage() {
       <SchemaScript schema={breadcrumbSchema} />
 
       {/* Page Header */}
-      <section className="bg-navy py-20 lg:py-28 text-white text-center relative overflow-hidden">
-        <div className="absolute inset-0 opacity-10 bg-[radial-gradient(#F97316_1px,transparent_1px)] [background-size:16px_16px]"></div>
+      <section
+        className="py-20 lg:py-24 text-center relative overflow-hidden"
+        style={{ background: 'var(--panel-ink)', borderBottom: '2px solid var(--orange)' }}
+      >
         <div className="mx-auto max-w-7xl px-4 relative space-y-4">
-          <h1 className="text-4xl sm:text-6xl font-extrabold tracking-tight font-heading leading-tight">
+          <p
+            className="uppercase"
+            style={{
+              fontFamily: 'var(--font-mono)',
+              fontSize: '11px',
+              letterSpacing: '0.18em',
+              color: 'var(--orange)',
+            }}
+          >
+            RESOURCE CENTRE
+          </p>
+          <h1
+            className="font-black uppercase leading-none"
+            style={{
+              fontFamily: 'var(--font-display)',
+              fontSize: 'clamp(2.5rem, 5vw, 4.5rem)',
+              color: '#ffffff',
+              letterSpacing: '-0.01em',
+            }}
+          >
             Frequently Asked Questions
           </h1>
-          <p className="text-lg sm:text-xl text-white/80 max-w-2xl mx-auto leading-relaxed font-medium">
+          <p
+            className="text-base sm:text-lg max-w-2xl mx-auto leading-relaxed"
+            style={{ color: 'rgba(255,255,255,0.7)', fontFamily: 'var(--font-body)' }}
+          >
             Everything you need to know about our workflow, service coverage, and installations.
           </p>
         </div>
@@ -49,21 +72,51 @@ export default function FAQPage() {
       <FAQAccordion />
 
       {/* Conversion Banner */}
-      <section className="py-24 bg-navy text-white text-center border-t border-white/5 relative overflow-hidden">
-        <div className="absolute inset-0 opacity-5 bg-[radial-gradient(#F97316_1px,transparent_1px)] [background-size:16px_16px]"></div>
-        <div className="mx-auto max-w-3xl px-4 relative space-y-8">
-          <h2 className="text-3xl sm:text-5xl font-extrabold tracking-tight leading-tight font-heading">
+      <section
+        className="py-20 lg:py-24 text-center relative overflow-hidden"
+        style={{ background: 'var(--panel-ink)', borderTop: '2px solid var(--orange)' }}
+      >
+        <div className="mx-auto max-w-3xl px-4 relative space-y-6">
+          <p
+            className="uppercase"
+            style={{
+              fontFamily: 'var(--font-mono)',
+              fontSize: '11px',
+              letterSpacing: '0.18em',
+              color: 'var(--orange)',
+            }}
+          >
+            DIRECT Operational Channels
+          </p>
+          <h2
+            className="font-black uppercase leading-none"
+            style={{
+              fontFamily: 'var(--font-display)',
+              fontSize: 'clamp(2rem, 4vw, 3.5rem)',
+              color: '#ffffff',
+              letterSpacing: '-0.01em',
+            }}
+          >
             Still Have Questions?
           </h2>
-          <p className="text-lg sm:text-xl text-white/80 max-w-xl mx-auto leading-relaxed">
+          <p
+            className="text-base sm:text-lg leading-relaxed max-w-xl mx-auto"
+            style={{ color: 'rgba(255,255,255,0.7)' }}
+          >
             Get in touch directly with our engineering team. We are available daily from 8:00 AM to
             10:00 PM on WhatsApp.
           </p>
           <div className="pt-4">
-            <Button href={whatsappUrl} variant="primary" size="lg" external>
-              <FontAwesomeIcon icon={faWhatsapp} className="mr-2 h-5 w-5" />
+            <a
+              href={whatsappUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-6 py-3.5 font-bold uppercase tracking-wider text-sm text-white"
+              style={{ background: 'var(--orange)', border: '1px solid var(--orange)' }}
+            >
+              <FontAwesomeIcon icon={faWhatsapp} style={{ width: '15px', height: '15px' }} />
               Chat with an Engineer
-            </Button>
+            </a>
           </div>
         </div>
       </section>

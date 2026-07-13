@@ -1,76 +1,118 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import Card from '../ui/Card';
+import FramedImage from '../ui/FramedImage';
 import SectionHeading from '../ui/SectionHeading';
 
+/**
+ * HomeGallery — REDESIGN-PROMPT design system
+ *
+ * 4-item photo grid using FramedImage — corner brackets on every image.
+ * Hairline-bordered grid, no rounded corners, no drop shadows.
+ * Mono category tag replaces the rounded pill.
+ */
+const items = [
+  {
+    src: '/img/projects/solar-system.jpg',
+    alt: 'High Voltage Solar Inverter Setup',
+    caption: 'FIG. 05 — SOLAR & INVERTER, LEKKI',
+    tag: 'Solar & Inverter',
+  },
+  {
+    src: '/img/projects/electrical-upgrade.jpg',
+    alt: 'Safety Compliant Main Breaker Panel',
+    caption: 'FIG. 06 — ELECTRICAL PANEL, IKEJA',
+    tag: 'Electrical',
+  },
+  {
+    src: '/img/projects/kitchen-integration.jpg',
+    alt: 'Integrated Oven and Island Hob',
+    caption: 'FIG. 07 — KITCHEN FIT-OUT, VICTORIA ISLAND',
+    tag: 'Kitchen',
+  },
+  {
+    src: '/img/projects/laundry-setup.jpg',
+    alt: 'Clean Stacked Washer and Dryer Setup',
+    caption: 'FIG. 08 — LAUNDRY SETUP, IKOYI',
+    tag: 'Laundry',
+  },
+];
+
 export default function HomeGallery() {
-  const items = [
-    {
-      src: '/img/projects/solar-system.jpg',
-      alt: 'High Voltage Solar Inverter Setup',
-      tag: 'Solar & Inverter',
-    },
-    {
-      src: '/img/projects/electrical-upgrade.jpg',
-      alt: 'Safety Compliant Main Breaker Panel',
-      tag: 'Electrical',
-    },
-    {
-      src: '/img/projects/kitchen-integration.jpg',
-      alt: 'Integrated Oven and Island Hob',
-      tag: 'Kitchen',
-    },
-    {
-      src: '/img/projects/laundry-setup.jpg',
-      alt: 'Clean Stacked Washer and Dryer Setup',
-      tag: 'Laundry',
-    },
-  ];
-
   return (
-    <section className="py-24 bg-white">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <SectionHeading
-          badge="On-Site Photos"
-          title="Project Gallery Showcase"
-          subtitle="Real installation finishes executed on site. No templates, no shortcuts."
-          className="mb-16"
-        />
-
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          {items.map((item, idx) => (
-            <Card
-              key={idx}
-              className="p-0 overflow-hidden border border-navy/5 group shadow-sm rounded-2xl"
-            >
-              <div className="relative aspect-[4/3] w-full overflow-hidden">
-                <Image
-                  src={item.src}
-                  alt={item.alt}
-                  fill
-                  sizes="(max-w-768px) 100vw, 25vw"
-                  className="object-cover group-hover:scale-105 transition-transform duration-300"
-                />
-                <div className="absolute top-4 left-4">
-                  <span className="inline-flex items-center rounded-full bg-navy/90 text-white px-2.5 py-0.5 text-xs font-semibold backdrop-blur-sm">
-                    {item.tag}
-                  </span>
-                </div>
-              </div>
-              <div className="p-4">
-                <p className="font-bold text-navy text-sm leading-tight line-clamp-1">{item.alt}</p>
-              </div>
-            </Card>
-          ))}
-        </div>
-
-        <div className="text-center mt-12">
+    <section
+      className="w-full"
+      style={{ background: 'var(--paper)', borderBottom: '1px solid var(--line)' }}
+    >
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-20 lg:py-28">
+        <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-8 mb-14">
+          <SectionHeading
+            eyebrow="On-Site Photos"
+            index={`0${items.length} INSTALLATIONS`}
+            title="Project Gallery"
+            subtitle="Real installation finishes executed on site. No templates, no shortcuts."
+            align="left"
+          />
           <Link
             href="/gallery"
-            className="inline-flex items-center font-bold text-orange hover:text-navy transition-colors text-sm"
+            className="self-start lg:self-end flex-shrink-0"
+            style={{
+              fontFamily: 'var(--font-mono)',
+              fontSize: '10px',
+              letterSpacing: '0.14em',
+              textTransform: 'uppercase',
+              color: 'var(--orange)',
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: '6px',
+              paddingBottom: '2px',
+              borderBottom: '1px solid var(--orange)',
+            }}
           >
-            View All Gallery Photos &rarr;
+            View Full Gallery <span aria-hidden="true">→</span>
           </Link>
+        </div>
+
+        {/* 4-up hairline grid */}
+        <div
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4"
+          style={{ border: '1px solid var(--line)' }}
+        >
+          {items.map((item, idx) => (
+            <div
+              key={idx}
+              style={{
+                borderRight: idx < items.length - 1 ? '1px solid var(--line)' : undefined,
+              }}
+            >
+              <FramedImage
+                src={item.src}
+                alt={item.alt}
+                caption={item.caption}
+                aspect="aspect-square"
+                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+              />
+              {/* Mono tag below image */}
+              <div
+                className="px-4 py-3"
+                style={{
+                  borderTop: '1px solid var(--line)',
+                  background: '#ffffff',
+                }}
+              >
+                <span
+                  style={{
+                    fontFamily: 'var(--font-mono)',
+                    fontSize: '9px',
+                    letterSpacing: '0.12em',
+                    textTransform: 'uppercase',
+                    color: 'var(--graphite)',
+                  }}
+                >
+                  {item.tag}
+                </span>
+              </div>
+            </div>
+          ))}
         </div>
       </div>
     </section>

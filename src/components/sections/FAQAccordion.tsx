@@ -2,49 +2,98 @@
 
 import { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faChevronDown, faChevronUp } from '@fortawesome/free-solid-svg-icons';
+import { faChevronDown } from '@fortawesome/free-solid-svg-icons';
 import { FAQS } from '@/data/faqs';
 import SectionHeading from '../ui/SectionHeading';
 
+/**
+ * FAQAccordion — REDESIGN-PROMPT design system
+ *
+ * Hairline-bordered accordion rows. No rounded corners, no card shadows.
+ * Active row: left orange border accent + panel-ink background tint.
+ * Question: display font uppercase. Answer: body font graphite.
+ */
 export default function FAQAccordion() {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
-  const toggle = (index: number) => {
-    setOpenIndex(openIndex === index ? null : index);
-  };
-
   return (
-    <section className="py-24 bg-gray-50">
-      <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+    <section
+      className="w-full"
+      style={{ background: '#f8f9fc', borderTop: '1px solid var(--line)' }}
+    >
+      <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 py-20 lg:py-28">
         <SectionHeading
-          badge="FAQ"
-          title="Frequently Asked Questions"
-          subtitle="Quick answers to common questions about our technical services, service areas, and operations."
-          className="mb-16"
+          eyebrow="FAQ"
+          index={`${String(FAQS.length).padStart(2, '0')} QUESTIONS`}
+          title="Frequently Asked"
+          subtitle="Quick answers about our services, coverage area, and daily operations."
+          align="left"
+          className="mb-14"
         />
 
-        <div className="space-y-4">
+        <div style={{ border: '1px solid var(--line)' }}>
           {FAQS.map((faq, index) => {
             const isOpen = openIndex === index;
             return (
               <div
                 key={index}
-                className="bg-white rounded-lg border border-navy/5 overflow-hidden transition-all duration-200"
+                style={{
+                  borderBottom: index < FAQS.length - 1 ? '1px solid var(--line)' : undefined,
+                  borderLeft: isOpen ? '3px solid var(--orange)' : '3px solid transparent',
+                  transition: 'border-color 200ms',
+                }}
               >
                 <button
-                  onClick={() => toggle(index)}
-                  className="w-full text-left px-6 py-5 flex items-center justify-between gap-4 font-bold text-navy hover:text-orange transition-colors duration-200"
+                  onClick={() => setOpenIndex(isOpen ? null : index)}
+                  className="w-full text-left flex items-start justify-between gap-6 px-6 py-5"
+                  style={{
+                    background: isOpen ? 'rgba(3,27,71,0.03)' : '#ffffff',
+                    cursor: 'pointer',
+                    border: 'none',
+                  }}
+                  aria-expanded={isOpen}
                 >
-                  <span>{faq.question}</span>
+                  <span
+                    className="font-semibold leading-snug"
+                    style={{
+                      fontFamily: 'var(--font-body)',
+                      fontSize: '0.9375rem',
+                      color: isOpen ? 'var(--orange)' : 'var(--panel-ink)',
+                      transition: 'color 200ms',
+                    }}
+                  >
+                    {faq.question}
+                  </span>
+
                   <FontAwesomeIcon
-                    icon={isOpen ? faChevronUp : faChevronDown}
-                    className="h-4 w-4 text-orange flex-shrink-0"
+                    icon={faChevronDown}
+                    style={{
+                      width: '14px',
+                      height: '14px',
+                      flexShrink: 0,
+                      color: isOpen ? 'var(--orange)' : 'var(--graphite)',
+                      transform: isOpen ? 'rotate(180deg)' : 'rotate(0deg)',
+                      transition: 'transform 250ms, color 200ms',
+                      marginTop: '3px',
+                    }}
                   />
                 </button>
 
                 {isOpen && (
-                  <div className="px-6 pb-6 text-sm text-navy/70 leading-6 border-t border-navy/5 pt-4 bg-gray-50/50">
-                    {faq.answer}
+                  <div
+                    className="px-6 pb-6"
+                    style={{
+                      background: 'rgba(3,27,71,0.02)',
+                      borderTop: '1px solid var(--line)',
+                      paddingTop: '1.25rem',
+                    }}
+                  >
+                    <p
+                      className="text-sm leading-7"
+                      style={{ color: 'var(--graphite)' }}
+                    >
+                      {faq.answer}
+                    </p>
                   </div>
                 )}
               </div>

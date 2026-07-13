@@ -1,97 +1,117 @@
-import Image from 'next/image';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {
-  faSun,
-  faBatteryFull,
-  faChargingStation,
-  faCheck,
-} from '@fortawesome/free-solid-svg-icons';
+import { faSolarPanel, faBatteryFull } from '@fortawesome/free-solid-svg-icons';
+import { faWhatsapp } from '@fortawesome/free-brands-svg-icons';
 import { getWhatsappLink } from '@/lib/constants';
-import Button from '../ui/Button';
+import SectionHeading from '../ui/SectionHeading';
+import FramedImage from '../ui/FramedImage';
+
+const keySpecs = [
+  { label: 'Inverter Capacities', value: '3.5kVA / 5kVA / 10kVA+' },
+  { label: 'Battery Options', value: 'Lithium-ion & Tubular Gel' },
+  { label: 'Panel Type', value: 'Monocrystalline Tier-1' },
+  { label: 'Typical Load Coverage', value: 'Fridges, lighting, pumps, TVs' },
+];
 
 export default function SolarSection() {
   const whatsappUrl = getWhatsappLink(
     'Hello Jimsolutions Technology, I would like to request a solar load assessment and quote.',
   );
 
-  const keySpecs = [
-    { title: 'Inverter Capacities', desc: '3.5kVA / 5kVA / 10kVA+ hybrid setups' },
-    { title: 'Battery Sizing', desc: 'Premium Lithium-ion & Tubular gel options' },
-    { title: 'Solar Array Sizing', desc: 'Monocrystalline tier-1 high-efficiency panels' },
-    { title: 'Typical Load Coverage', desc: 'Refrigerators, lighting, pumping machines, and TVs' },
-  ];
-
   return (
-    <section className="py-24 bg-gray-50 border-t border-b border-navy/5 overflow-hidden">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
-          {/* Text Content */}
+    <section
+      className="w-full"
+      style={{ background: '#f8f9fc', borderTop: '1px solid var(--line)', borderBottom: '1px solid var(--line)' }}
+    >
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-20 lg:py-28">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+
+          {/* Content left */}
           <div className="lg:col-span-7 space-y-8">
-            <div>
-              <span className="inline-flex items-center gap-2 rounded-md bg-orange/10 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-orange mb-4">
-                <FontAwesomeIcon icon={faSun} className="h-3 w-3 animate-spin" />
-                Sustainable Clean Energy
-              </span>
-              <h2 className="text-3xl font-extrabold sm:text-5xl text-navy tracking-tight leading-tight">
-                Sustainable Energy Backups. <br />
-                <span className="text-orange">Zero Interrupted Power.</span>
-              </h2>
-              <p className="mt-4 text-base text-navy/70 leading-7 max-w-xl">
-                Nigeria's grid is unpredictable. We design custom solar and inverter battery backup
-                power solutions that are load-balanced to secure your home operations. No loud
-                generator noise, no fuel costs—just clean, steady electricity.
-              </p>
+            <SectionHeading
+              eyebrow="Solar & Inverter Systems"
+              title="Zero Downtime. Clean Energy."
+              subtitle="Nigeria's grid is unpredictable. We design custom solar and inverter backup systems load-balanced to secure your home. No generator noise, no fuel costs."
+              align="left"
+            />
+
+            {/* Spec grid — 2×2 hairline bordered */}
+            <div
+              className="grid grid-cols-2"
+              style={{ border: '1px solid var(--line)' }}
+            >
+              {keySpecs.map((spec, i) => {
+                const badgeBg = i % 2 === 0 ? 'var(--panel-ink)' : 'var(--orange)';
+                return (
+                  <div
+                    key={i}
+                    className="p-5"
+                    style={{
+                      borderRight: i % 2 === 0 ? '1px solid var(--line)' : undefined,
+                      borderBottom: i < 2 ? '1px solid var(--line)' : undefined,
+                      background: '#ffffff',
+                    }}
+                  >
+                    <div
+                      className="flex items-center justify-center mb-3 flex-shrink-0"
+                      style={{ width: '28px', height: '28px', background: badgeBg }}
+                    >
+                      <FontAwesomeIcon
+                        icon={i < 2 ? faSolarPanel : faBatteryFull}
+                        style={{ width: '12px', height: '12px', color: '#ffffff' }}
+                      />
+                    </div>
+                    <p
+                      style={{
+                        fontFamily: 'var(--font-mono)',
+                        fontSize: '9px',
+                        letterSpacing: '0.12em',
+                        textTransform: 'uppercase',
+                        color: 'var(--graphite)',
+                        marginBottom: '4px',
+                      }}
+                    >
+                      {spec.label}
+                    </p>
+                    <p className="text-sm font-semibold" style={{ color: 'var(--panel-ink)' }}>
+                      {spec.value}
+                    </p>
+                  </div>
+                );
+              })}
             </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 pt-4">
-              {keySpecs.map((spec, index) => (
-                <div
-                  key={index}
-                  className="bg-white rounded-2xl border border-gray-100 p-5 shadow-sm hover:shadow-md transition-shadow duration-300"
-                >
-                  <p className="text-xs uppercase tracking-wider text-orange font-bold">
-                    {spec.title}
-                  </p>
-                  <p className="text-sm font-semibold text-navy mt-1">{spec.desc}</p>
-                </div>
-              ))}
-            </div>
-
-            <div className="flex flex-wrap gap-4 items-center">
-              <Button href={whatsappUrl} variant="secondary" size="lg" external>
-                Get a Solar Sizing Quote
-              </Button>
-              <Button href="/services/solar" variant="outline" size="lg">
-                View Solar Specs &rarr;
-              </Button>
+            <div className="flex flex-wrap gap-4">
+              <a
+                href={whatsappUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 px-6 py-3.5 font-bold uppercase tracking-wider text-sm text-white"
+                style={{ background: 'var(--orange)', border: '1px solid var(--orange)' }}
+              >
+                <FontAwesomeIcon icon={faWhatsapp} style={{ width: '15px', height: '15px' }} />
+                Get Solar Sizing Quote
+              </a>
+              <a
+                href="/services/solar"
+                className="inline-flex items-center px-6 py-3.5 font-bold uppercase tracking-wider text-sm"
+                style={{ color: 'var(--panel-ink)', border: '1px solid var(--line)' }}
+              >
+                View Full Solar Specs
+              </a>
             </div>
           </div>
 
-          {/* Overlapping Image Composition */}
-          <div className="lg:col-span-5 relative">
-            <div className="aspect-[4/5] relative rounded-2xl overflow-hidden border border-navy/10 shadow-xl bg-navy">
-              <Image
-                src="/img/projects/solar-system.jpg"
-                alt="Premium Solar Inverter Array"
-                fill
-                sizes="(max-w-1024px) 100vw, 40vw"
-                className="object-cover opacity-90"
-              />
-            </div>
-
-            {/* Overlapping Overlay Card */}
-            <div className="absolute -bottom-6 -left-6 bg-white rounded-2xl border border-gray-100 shadow-lg p-6 max-w-xs hidden sm:block">
-              <div className="flex items-center gap-3">
-                <div className="flex h-10 w-10 items-center justify-center rounded-full bg-orange/10 text-orange">
-                  <FontAwesomeIcon icon={faBatteryFull} className="h-5 w-5" />
-                </div>
-                <div>
-                  <p className="text-sm font-bold text-navy">Lithium Smart Setup</p>
-                  <p className="text-xs text-navy/60">Rapid charging, 10+ year lifespan</p>
-                </div>
-              </div>
-            </div>
+          {/* Image right */}
+          <div className="lg:col-span-5">
+            <FramedImage
+              src="/img/projects/solar-system.jpg"
+              alt="Premium Solar Inverter Array"
+              caption="FIG. 02 — SOLAR ARRAY, LEKKI"
+              aspect="aspect-[4/5]"
+              sizes="(max-width: 1024px) 100vw, 40vw"
+            />
           </div>
+
         </div>
       </div>
     </section>

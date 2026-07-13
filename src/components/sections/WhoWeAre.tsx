@@ -1,75 +1,133 @@
 import Image from 'next/image';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCheck } from '@fortawesome/free-solid-svg-icons';
-import Button from '../ui/Button';
+import { getWhatsappLink } from '@/lib/constants';
+import SectionHeading from '../ui/SectionHeading';
+import FramedImage from '../ui/FramedImage';
 
+/**
+ * WhoWeAre — REDESIGN-PROMPT.md §3
+ *
+ * Substantial "Who we are" narrative section (not a headline-only teaser).
+ * Left: FramedImage with corner brackets + caption.
+ * Right: SectionHeading + long paragraph + checklist + CTA.
+ * No rounded corners, no shadows. White bg.
+ */
 export default function WhoWeAre() {
+  const whatsappUrl = getWhatsappLink(
+    'Hello Jimsolutions Technology, I would like to learn more about your services and request a quote.',
+  );
+
   const points = [
-    'Safety compliant wiring using NERC standards',
-    'Custom solar energy calculations for stable power backups',
-    'Flush built-in kitchen appliance cabinet integrations',
-    'Comprehensive utility space setups active nationwide',
+    'Safety-compliant wiring per NERC guidelines, zero exposed conduits',
+    'Custom solar energy load calculations for stable backup power',
+    'Flush built-in kitchen and appliance cabinet integrations',
+    'Comprehensive utility space setups — Lagos base, nationwide reach',
   ];
 
   return (
-    <section className="py-24 bg-gray-50 border-t border-b border-navy/5">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <section
+      className="w-full"
+      style={{
+        background: 'var(--paper)',
+        borderTop: '1px solid var(--line)',
+        borderBottom: '1px solid var(--line)',
+      }}
+    >
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-20 lg:py-28">
         <div className="grid grid-cols-1 gap-12 lg:grid-cols-12 lg:gap-16 items-center">
-          {/* Image Left */}
-          <div className="relative lg:col-span-5">
-            <div className="aspect-[4/3] relative rounded-2xl overflow-hidden border border-navy/10 shadow-lg">
-              <Image
-                src="/img/services/solar.jpg"
-                alt="Jimsolutions Solar Panel Setup"
-                fill
-                sizes="(max-w-1024px) 100vw, 40vw"
-                className="object-cover"
-              />
-            </div>
+
+          {/* Left: FramedImage */}
+          <div className="lg:col-span-5">
+            <FramedImage
+              src="/img/services/solar.jpg"
+              alt="Jimsolutions Solar Panel Installation"
+              caption="FIG. 04 — SOLAR ARRAY INSTALLATION, LAGOS"
+              aspect="aspect-[4/5]"
+              sizes="(max-width: 1024px) 100vw, 40vw"
+            />
           </div>
 
-          {/* Content Right */}
-          <div className="space-y-6 lg:col-span-7">
-            <span className="inline-flex items-center gap-2 rounded-md bg-[#0F2D5C]/5 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-[#0F2D5C]">
-              Who We Are
-            </span>
+          {/* Right: Content */}
+          <div className="lg:col-span-7 space-y-8">
+            <SectionHeading
+              eyebrow="Who We Are"
+              title="Nigeria's Trusted Technical Solutions Company"
+              subtitle={undefined}
+              align="left"
+            />
 
-            <h2 className="text-3xl sm:text-5xl font-extrabold text-[#0F2D5C] tracking-tight leading-[1.15] font-heading">
-              Nigeria's Foremost Technical <br />
-              <span className="text-[#F97316]">Home & Power Solutions</span> Company.
-            </h2>
+            <div className="space-y-4">
+              <p
+                className="text-base leading-relaxed"
+                style={{ color: 'var(--graphite)', maxWidth: '58ch' }}
+              >
+                Jimsolutions Technology provides professional engineering, electrical safety wiring,
+                hybrid solar backups, cabinet kitchens, and laundry utility setups. Based in Lagos,
+                we provide on-site sizing and technician coordination across all 36 states.
+              </p>
+              <p
+                className="text-base leading-relaxed"
+                style={{ color: 'var(--graphite)', maxWidth: '58ch' }}
+              >
+                Every project is treated as a craft. We use premium materials, follow a strict
+                clean-up policy, and ensure every installation is inspected before handover. Our
+                engineers are available daily from 8:00 AM to 10:00 PM.
+              </p>
+            </div>
 
-            <p className="text-lg text-[#374151] leading-relaxed">
-              Jimsolutions Technology provides professional engineering, electrical safety wiring,
-              hybrid solar backups, cabinet kitchens, and laundry utility setups. Based in Lagos, we
-              provide on-site sizing and technician coordination nationwide.
-            </p>
-
+            {/* Checklist */}
             <ul className="space-y-3 pt-2">
-              {points.map((point, index) => (
-                <li
-                  key={index}
-                  className="flex items-start gap-3 text-base text-[#374151] font-semibold"
-                >
-                  <span className="flex h-6 w-6 items-center justify-center rounded-full bg-[#F97316]/10 text-[#F97316] flex-shrink-0 mt-0.5">
-                    <FontAwesomeIcon icon={faCheck} className="h-3 w-3" />
+              {points.map((point, i) => (
+                <li key={i} className="flex items-start gap-3">
+                  {/* Alternating badge colours */}
+                  <div
+                    className="flex items-center justify-center flex-shrink-0 mt-0.5"
+                    style={{
+                      width: '22px',
+                      height: '22px',
+                      background: i % 2 === 0 ? 'var(--orange)' : 'var(--panel-ink)',
+                    }}
+                  >
+                    <FontAwesomeIcon
+                      icon={faCheck}
+                      style={{ width: '10px', height: '10px', color: '#ffffff' }}
+                    />
+                  </div>
+                  <span
+                    className="text-sm leading-snug font-medium"
+                    style={{ color: 'var(--panel-ink)' }}
+                  >
+                    {point}
                   </span>
-                  <span>{point}</span>
                 </li>
               ))}
             </ul>
 
-            <div className="pt-4">
-              <Button
+            {/* CTA */}
+            <div className="pt-2 flex flex-wrap gap-4">
+              <a
                 href="/about"
-                variant="primary"
-                size="lg"
-                className="bg-[#F97316] hover:bg-[#0F2D5C] text-white"
+                className="nav-cta"
               >
                 Learn More About Us
-              </Button>
+              </a>
+              <a
+                href={whatsappUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center px-5 py-3 text-xs font-bold uppercase tracking-wider transition-colors duration-200"
+                style={{
+                  fontFamily: 'var(--font-body)',
+                  color: 'var(--panel-ink)',
+                  border: '1px solid var(--line)',
+                }}
+              >
+                Get a Quote
+              </a>
             </div>
           </div>
+
         </div>
       </div>
     </section>

@@ -1,10 +1,17 @@
-import Image from 'next/image';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCheckCircle } from '@fortawesome/free-solid-svg-icons';
+import { faCheck, faPhone } from '@fortawesome/free-solid-svg-icons';
+import { faWhatsapp } from '@fortawesome/free-brands-svg-icons';
 import { BUSINESS_DETAILS, getWhatsappLink } from '@/lib/constants';
 import SectionHeading from '../ui/SectionHeading';
-import Button from '../ui/Button';
+import FramedImage from '../ui/FramedImage';
 
+/**
+ * AboutPreview — REDESIGN-PROMPT design system
+ *
+ * Two-column section: text narrative left, FramedImage right.
+ * FramedImage shows the corner-bracket signature on the about photo.
+ * Checklist uses alternating icon badges.
+ */
 export default function AboutPreview() {
   const whatsappUrl = getWhatsappLink(
     'Hello Jimsolutions Technology, I read about your clean workmanship promise and would like to get a quote.',
@@ -12,78 +19,101 @@ export default function AboutPreview() {
 
   const points = [
     'Clean, compliant wiring with zero exposed conduits',
-    'Custom load calculations for optimized solar energy backup systems',
-    'Perfect cabinets layout & kitchen appliance integration',
-    'Lagos based with verified nationwide technical service coverage',
+    'Custom load calculations for solar energy backup systems',
+    'Perfect cabinet layout & kitchen appliance integration',
+    'Lagos-based with verified nationwide technical coverage',
   ];
 
   return (
-    <section className="py-24 bg-gray-50">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 gap-12 lg:grid-cols-2 items-center">
-          {/* Text block */}
-          <div className="space-y-6">
-            <SectionHeading
-              badge="About Jimsolutions"
-              title="Handcrafted Quality For Stable Power And Clean Homes"
-              align="left"
-              className="mb-6"
-            />
-            <p className="text-base text-navy/70 leading-7">
-              Jimsolutions Technology is a professional engineering company serving Lagos and
-              nationwide. We believe technical installations should be neat, safe, and built to look
-              good. We manage projects from technical solar energy audit sizing to built-in ovens
-              placements, cabinets, and appliances setup.
-            </p>
-            <p className="text-base text-navy/70 leading-7">
-              Our engineering team is available daily from{' '}
-              <span className="font-semibold text-navy">{BUSINESS_DETAILS.hours}</span>. We work
-              with premium materials and follow a strict clean-up policy after completing on-site
-              installations.
-            </p>
+    <section
+      className="w-full"
+      style={{ background: '#f8f9fc', borderBottom: '1px solid var(--line)' }}
+    >
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-20 lg:py-28">
+        <div className="grid grid-cols-1 gap-12 lg:grid-cols-2 lg:gap-16 items-center">
 
-            <ul className="space-y-3 pt-4">
-              {points.map((point, index) => (
-                <li key={index} className="flex items-start gap-3 text-sm text-navy/80">
-                  <FontAwesomeIcon
-                    icon={faCheckCircle}
-                    className="h-5 w-5 text-orange flex-shrink-0 mt-0.5"
-                  />
-                  <span>{point}</span>
+          {/* Text block */}
+          <div className="space-y-8 order-2 lg:order-1">
+            <SectionHeading
+              eyebrow="About Jimsolutions"
+              title="Handcrafted Quality. Engineered to Last."
+              subtitle={undefined}
+              align="left"
+            />
+
+            <div className="space-y-4">
+              <p className="text-base leading-relaxed" style={{ color: 'var(--graphite)', maxWidth: '55ch' }}>
+                Jimsolutions Technology is a professional engineering company serving Lagos and
+                nationwide. We believe technical installations should be neat, safe, and built to
+                look good.
+              </p>
+              <p className="text-base leading-relaxed" style={{ color: 'var(--graphite)', maxWidth: '55ch' }}>
+                Our team manages projects from solar energy audit sizing to built-in appliance
+                placement, cabinets, and complete interior fit-outs. Available daily from{' '}
+                <span style={{ color: 'var(--panel-ink)', fontWeight: 600 }}>
+                  {BUSINESS_DETAILS.hours}
+                </span>.
+              </p>
+            </div>
+
+            {/* Checklist */}
+            <ul className="space-y-3">
+              {points.map((point, i) => (
+                <li key={i} className="flex items-start gap-3">
+                  <div
+                    className="flex items-center justify-center flex-shrink-0 mt-0.5"
+                    style={{
+                      width: '22px',
+                      height: '22px',
+                      background: i % 2 === 0 ? 'var(--panel-ink)' : 'var(--orange)',
+                    }}
+                  >
+                    <FontAwesomeIcon
+                      icon={faCheck}
+                      style={{ width: '10px', height: '10px', color: '#ffffff' }}
+                    />
+                  </div>
+                  <span className="text-sm leading-snug font-medium" style={{ color: 'var(--panel-ink)' }}>
+                    {point}
+                  </span>
                 </li>
               ))}
             </ul>
 
-            <div className="pt-6">
-              <Button href={whatsappUrl} variant="primary" size="lg" external>
+            {/* CTAs */}
+            <div className="pt-2 flex flex-wrap gap-4">
+              <a
+                href={whatsappUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 px-6 py-3.5 font-bold uppercase tracking-wider text-sm text-white"
+                style={{ background: 'var(--orange)', border: '1px solid var(--orange)' }}
+              >
+                <FontAwesomeIcon icon={faWhatsapp} style={{ width: '15px', height: '15px' }} />
                 Get a Custom Quote
-              </Button>
+              </a>
+              <a
+                href={`tel:${BUSINESS_DETAILS.phone}`}
+                className="inline-flex items-center gap-2 px-6 py-3.5 font-bold uppercase tracking-wider text-sm"
+                style={{ color: 'var(--panel-ink)', border: '1px solid var(--line)' }}
+              >
+                <FontAwesomeIcon icon={faPhone} style={{ width: '13px', height: '13px', color: 'var(--orange)' }} />
+                {BUSINESS_DETAILS.phoneFormatted}
+              </a>
             </div>
           </div>
 
-          {/* Image & Stats block */}
-          <div className="relative">
-            <div className="aspect-[4/3] relative rounded-lg overflow-hidden border border-navy/5 shadow-lg">
-              <Image
-                src="/img/services/electrical.jpg"
-                alt="Jimsolutions Technical Team Work"
-                fill
-                sizes="(max-w-1024px) 100vw, 50vw"
-                className="object-cover hover:scale-105 transition-transform duration-500"
-              />
-            </div>
-
-            {/* Quick Badge */}
-            <div className="absolute -bottom-6 -left-6 bg-white rounded-lg border border-navy/5 shadow-md p-6 max-w-xs hidden sm:block">
-              <p className="text-3xl font-extrabold text-orange">8am - 10pm</p>
-              <p className="text-xs uppercase tracking-wider text-navy font-bold mt-1">
-                Available Daily
-              </p>
-              <p className="text-xs text-navy/60 mt-2">
-                Serving Lagos & nationwide client requests
-              </p>
-            </div>
+          {/* FramedImage block */}
+          <div className="order-1 lg:order-2">
+            <FramedImage
+              src="/img/services/electrical.jpg"
+              alt="Jimsolutions Technical Team at Work"
+              caption="FIG. 09 — ELECTRICAL INSTALLATION, LAGOS"
+              aspect="aspect-[4/3]"
+              sizes="(max-width: 1024px) 100vw, 50vw"
+            />
           </div>
+
         </div>
       </div>
     </section>

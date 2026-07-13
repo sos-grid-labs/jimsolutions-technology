@@ -2,49 +2,90 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPhone } from '@fortawesome/free-solid-svg-icons';
 import { faWhatsapp } from '@fortawesome/free-brands-svg-icons';
 import { BUSINESS_DETAILS, getWhatsappLink } from '@/lib/constants';
-import Button from '../ui/Button';
 
+/**
+ * FinalCTA — REDESIGN-PROMPT.md §8
+ *
+ * Full-width navy band, short headline in display font, two action buttons.
+ * Left-aligned content (not centred). No radial dot pattern.
+ * Orange top accent line. Mono eyebrow. Hairline bordered CTA buttons.
+ */
 export default function FinalCTA() {
   const whatsappUrl = getWhatsappLink(
     'Hello Jimsolutions Technology, I would like to get a quote and schedule an engineering consultation.',
   );
 
   return (
-    <section className="relative py-24 overflow-hidden bg-navy text-white text-center">
-      {/* Background radial highlight */}
-      <div className="absolute inset-0 opacity-10 bg-[radial-gradient(#F97316_1px,transparent_1px)] [background-size:16px_16px]"></div>
+    <section
+      className="w-full"
+      style={{ background: 'var(--panel-ink)', borderTop: '2px solid var(--orange)' }}
+    >
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-20 lg:py-24">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
 
-      <div className="relative mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 space-y-8">
-        <h2 className="text-3xl font-extrabold sm:text-5xl tracking-tight leading-tight">
-          Ready to Start Your <br />
-          <span className="text-orange">Installation Setup?</span>
-        </h2>
+          {/* Headline block */}
+          <div className="lg:col-span-7">
+            <p
+              className="mb-4 uppercase"
+              style={{
+                fontFamily: 'var(--font-mono)',
+                fontSize: '11px',
+                letterSpacing: '0.18em',
+                color: 'var(--orange)',
+              }}
+            >
+              Get Started Today
+            </p>
+            <h2
+              className="font-black uppercase leading-none"
+              style={{
+                fontFamily: 'var(--font-display)',
+                fontSize: 'clamp(2.25rem, 5vw, 4rem)',
+                color: '#ffffff',
+                letterSpacing: '-0.01em',
+              }}
+            >
+              Ready to Start Your{' '}
+              <span style={{ color: 'var(--orange)' }}>Installation?</span>
+            </h2>
+            <p
+              className="mt-5 text-base leading-relaxed"
+              style={{ color: 'rgba(255,255,255,0.65)', maxWidth: '52ch' }}
+            >
+              Avoid inverter overloading and unsafe wiring. Connect with a certified engineer
+              today for a custom load audit and fit-out quote. We respond within 2 hours.
+            </p>
+          </div>
 
-        <p className="text-lg text-white/80 max-w-2xl mx-auto leading-relaxed">
-          Avoid inverter overloading and unsafe wiring. Connect with a certified technical expert
-          today for a custom load audit and cabinetry fit-out layout quote.
-        </p>
+          {/* CTA buttons */}
+          <div className="lg:col-span-5 flex flex-col sm:flex-row lg:flex-col gap-4">
+            <a
+              href={whatsappUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="final-cta-primary inline-flex items-center justify-center gap-3 px-7 py-4 font-bold uppercase tracking-wider text-sm text-white"
+              style={{
+                background: 'var(--orange)',
+                border: '1px solid var(--orange)',
+              }}
+            >
+              <FontAwesomeIcon icon={faWhatsapp} style={{ width: '18px', height: '18px' }} />
+              Chat on WhatsApp
+            </a>
+            <a
+              href={`tel:${BUSINESS_DETAILS.phone}`}
+              className="final-cta-secondary inline-flex items-center justify-center gap-3 px-7 py-4 font-bold uppercase tracking-wider text-sm"
+              style={{
+                color: '#ffffff',
+                border: '1px solid rgba(255,255,255,0.25)',
+                background: 'transparent',
+              }}
+            >
+              <FontAwesomeIcon icon={faPhone} style={{ width: '14px', height: '14px' }} />
+              {BUSINESS_DETAILS.phoneFormatted}
+            </a>
+          </div>
 
-        <div className="mx-auto flex flex-col sm:flex-row gap-4 justify-center items-stretch sm:items-center max-w-md">
-          <Button
-            href={whatsappUrl}
-            variant="secondary"
-            size="lg"
-            className="w-full uppercase font-bold"
-            external
-          >
-            <FontAwesomeIcon icon={faWhatsapp} className="mr-2 h-5 w-5" />
-            Chat on WhatsApp
-          </Button>
-          <Button
-            href={`tel:${BUSINESS_DETAILS.phone}`}
-            variant="outline"
-            size="lg"
-            className="w-full border-white/30 text-white hover:bg-white/10 uppercase font-bold"
-          >
-            <FontAwesomeIcon icon={faPhone} className="mr-2 h-4 w-4" />
-            Call Direct
-          </Button>
         </div>
       </div>
     </section>

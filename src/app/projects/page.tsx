@@ -22,13 +22,37 @@ export default function ProjectsPage() {
       <SchemaScript schema={breadcrumbSchema} />
 
       {/* Page Header */}
-      <section className="bg-navy py-20 lg:py-28 text-white text-center relative overflow-hidden">
-        <div className="absolute inset-0 opacity-10 bg-[radial-gradient(#F97316_1px,transparent_1px)] [background-size:16px_16px]"></div>
+      <section
+        className="py-20 lg:py-24 text-center relative overflow-hidden"
+        style={{ background: 'var(--panel-ink)', borderBottom: '2px solid var(--orange)' }}
+      >
         <div className="mx-auto max-w-7xl px-4 relative space-y-4">
-          <h1 className="text-4xl sm:text-6xl font-extrabold tracking-tight font-heading leading-tight">
+          <p
+            className="uppercase"
+            style={{
+              fontFamily: 'var(--font-mono)',
+              fontSize: '11px',
+              letterSpacing: '0.18em',
+              color: 'var(--orange)',
+            }}
+          >
+            CASE STUDIES
+          </p>
+          <h1
+            className="font-black uppercase leading-none"
+            style={{
+              fontFamily: 'var(--font-display)',
+              fontSize: 'clamp(2.5rem, 5vw, 4.5rem)',
+              color: '#ffffff',
+              letterSpacing: '-0.01em',
+            }}
+          >
             Completed Projects
           </h1>
-          <p className="text-lg sm:text-xl text-white/80 max-w-2xl mx-auto leading-relaxed font-medium">
+          <p
+            className="text-base sm:text-lg max-w-2xl mx-auto leading-relaxed"
+            style={{ color: 'rgba(255,255,255,0.7)', fontFamily: 'var(--font-body)' }}
+          >
             Real workmanship outcomes showing how we design clean solutions.
           </p>
         </div>

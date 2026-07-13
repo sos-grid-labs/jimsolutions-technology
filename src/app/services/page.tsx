@@ -5,8 +5,7 @@ import { createMetadata } from '@/lib/seo';
 import { getBreadcrumbSchema } from '@/lib/schema';
 import SchemaScript from '@/components/ui/SchemaScript';
 import ServicesGrid from '@/components/sections/ServicesGrid';
-import { BUSINESS_DETAILS, getWhatsappLink } from '@/lib/constants';
-import Button from '@/components/ui/Button';
+import { getWhatsappLink } from '@/lib/constants';
 
 export const metadata: Metadata = createMetadata({
   title: 'Services | Electrical, Solar, Appliances, Kitchens & Interiors',
@@ -30,13 +29,37 @@ export default function ServicesPage() {
       <SchemaScript schema={breadcrumbSchema} />
 
       {/* Page Header */}
-      <section className="bg-navy py-20 lg:py-28 text-white text-center relative overflow-hidden">
-        <div className="absolute inset-0 opacity-10 bg-[radial-gradient(#F97316_1px,transparent_1px)] [background-size:16px_16px]"></div>
+      <section
+        className="py-20 lg:py-24 text-center relative overflow-hidden"
+        style={{ background: 'var(--panel-ink)', borderBottom: '2px solid var(--orange)' }}
+      >
         <div className="mx-auto max-w-7xl px-4 relative space-y-4">
-          <h1 className="text-4xl sm:text-6xl font-extrabold tracking-tight font-heading leading-tight">
+          <p
+            className="uppercase"
+            style={{
+              fontFamily: 'var(--font-mono)',
+              fontSize: '11px',
+              letterSpacing: '0.18em',
+              color: 'var(--orange)',
+            }}
+          >
+            OUR EXPERTISE
+          </p>
+          <h1
+            className="font-black uppercase leading-none"
+            style={{
+              fontFamily: 'var(--font-display)',
+              fontSize: 'clamp(2.5rem, 5vw, 4.5rem)',
+              color: '#ffffff',
+              letterSpacing: '-0.01em',
+            }}
+          >
             Our Services
           </h1>
-          <p className="text-lg sm:text-xl text-white/80 max-w-2xl mx-auto leading-relaxed font-medium">
+          <p
+            className="text-base sm:text-lg max-w-2xl mx-auto leading-relaxed"
+            style={{ color: 'rgba(255,255,255,0.7)', fontFamily: 'var(--font-body)' }}
+          >
             Professional technical execution for power, kitchens, laundry, and interior upgrades.
           </p>
         </div>
@@ -46,24 +69,46 @@ export default function ServicesPage() {
       <ServicesGrid />
 
       {/* Load Sizing Advisory Callout */}
-      <section className="py-24 bg-navy text-white relative overflow-hidden border-t border-white/5">
-        <div className="absolute inset-0 opacity-5 bg-[radial-gradient(#F97316_1px,transparent_1px)] [background-size:16px_16px]"></div>
-        <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8 relative text-center space-y-8">
-          <div className="inline-flex h-12 w-12 items-center justify-center rounded-lg bg-[#F97316]/10 text-orange mb-2">
-            <FontAwesomeIcon icon={faCalculator} className="h-6 w-6" />
+      <section
+        className="py-20 lg:py-24 text-center relative overflow-hidden animate-fade-in"
+        style={{ background: 'var(--panel-ink)', borderTop: '2px solid var(--orange)' }}
+      >
+        <div className="mx-auto max-w-4xl px-4 relative space-y-6">
+          <div
+            className="inline-flex items-center justify-center mb-2"
+            style={{ width: '48px', height: '48px', background: 'var(--orange)' }}
+          >
+            <FontAwesomeIcon icon={faCalculator} style={{ width: '22px', height: '22px', color: '#ffffff' }} />
           </div>
-          <h2 className="text-3xl sm:text-5xl font-extrabold tracking-tight leading-tight font-heading">
+          <h2
+            className="font-black uppercase leading-none"
+            style={{
+              fontFamily: 'var(--font-display)',
+              fontSize: 'clamp(2rem, 4vw, 3.5rem)',
+              color: '#ffffff',
+              letterSpacing: '-0.01em',
+            }}
+          >
             Need a Custom Load Sizing Assessment?
           </h2>
-          <p className="text-lg sm:text-xl text-white/80 max-w-3xl mx-auto leading-relaxed">
+          <p
+            className="text-base sm:text-lg leading-relaxed max-w-2xl mx-auto"
+            style={{ color: 'rgba(255,255,255,0.7)' }}
+          >
             Avoid inverter overload and wiring failures. We run standard engineering load
             assessments to determine your exact energy requirements (solar arrays, inverter
             capacities, and cable sizing).
           </p>
           <div className="pt-4">
-            <Button href={whatsappUrl} variant="primary" size="lg" external>
+            <a
+              href={whatsappUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-6 py-3.5 font-bold uppercase tracking-wider text-sm text-white"
+              style={{ background: 'var(--orange)', border: '1px solid var(--orange)' }}
+            >
               Book Sizing Consultation
-            </Button>
+            </a>
           </div>
         </div>
       </section>

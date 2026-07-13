@@ -5,12 +5,22 @@ interface ButtonProps {
   children: ReactNode;
   href?: string;
   onClick?: () => void;
-  variant?: 'primary' | 'secondary' | 'outline' | 'white';
+  variant?: 'primary' | 'outline' | 'ghost';
   size?: 'sm' | 'md' | 'lg';
   className?: string;
   external?: boolean;
 }
 
+/**
+ * Button — design system implementation per REDESIGN-PROMPT.md
+ *
+ * primary  : solid panel-ink (navy) background, white text.
+ *            Orange underline sweep on hover (defined in globals.css .cta-sweep).
+ *            No rounded corners. No drop shadows.
+ * outline  : transparent, panel-ink 1px border, panel-ink text.
+ *            Orange fill on hover.
+ * ghost    : no border/bg, graphite text, orange on hover.
+ */
 export default function Button({
   children,
   href,
@@ -20,45 +30,47 @@ export default function Button({
   className = '',
   external = false,
 }: ButtonProps) {
-  const baseStyles =
-    'inline-flex items-center justify-center font-bold uppercase tracking-wider rounded-lg transition-all duration-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2';
+  const base =
+    'inline-flex items-center justify-center font-body font-semibold tracking-wide ' +
+    'transition-colors duration-200 focus-visible:outline focus-visible:outline-2 ' +
+    'focus-visible:outline-offset-2 focus-visible:outline-orange';
 
   const variants = {
     primary:
-      'bg-orange text-white hover:bg-navy focus-visible:outline-orange shadow-sm hover:shadow-md',
-    secondary:
-      'bg-navy text-white hover:bg-orange focus-visible:outline-navy shadow-sm hover:shadow-md',
+      'cta-sweep bg-panel-ink text-white border border-panel-ink ' +
+      'hover:bg-orange hover:border-orange',
     outline:
-      'border-2 border-navy/20 text-navy hover:border-navy hover:bg-navy hover:text-white focus-visible:outline-navy',
-    white:
-      'bg-white text-navy hover:bg-orange hover:text-white focus-visible:outline-white shadow-sm hover:shadow-md',
+      'cta-sweep bg-transparent text-panel-ink border border-panel-ink ' +
+      'hover:bg-panel-ink hover:text-white',
+    ghost:
+      'bg-transparent text-graphite hover:text-orange border border-transparent',
   };
 
   const sizes = {
     sm: 'px-4 py-2 text-xs',
     md: 'px-5 py-3 text-sm',
-    lg: 'px-7 py-4 text-base',
+    lg: 'px-7 py-4 text-sm',
   };
 
-  const combinedStyles = `${baseStyles} ${variants[variant]} ${sizes[size]} ${className}`;
+  const combined = `${base} ${variants[variant]} ${sizes[size]} ${className}`;
 
   if (href) {
     if (external) {
       return (
-        <a href={href} className={combinedStyles} target="_blank" rel="noopener noreferrer">
+        <a href={href} className={combined} target="_blank" rel="noopener noreferrer">
           {children}
         </a>
       );
     }
     return (
-      <Link href={href} className={combinedStyles}>
+      <Link href={href} className={combined}>
         {children}
       </Link>
     );
   }
 
   return (
-    <button onClick={onClick} className={combinedStyles}>
+    <button onClick={onClick} className={combined}>
       {children}
     </button>
   );

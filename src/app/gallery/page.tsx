@@ -1,14 +1,12 @@
 import { Metadata } from 'next';
-import Image from 'next/image';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faWhatsapp } from '@fortawesome/free-brands-svg-icons';
 import { createMetadata } from '@/lib/seo';
 import { getBreadcrumbSchema } from '@/lib/schema';
 import SchemaScript from '@/components/ui/SchemaScript';
 import { getWhatsappLink } from '@/lib/constants';
-import Card from '@/components/ui/Card';
 import SectionHeading from '@/components/ui/SectionHeading';
-import Button from '@/components/ui/Button';
+import FramedImage from '@/components/ui/FramedImage';
 
 export const metadata: Metadata = createMetadata({
   title: 'Gallery | Jimsolutions Technology Visual Showcase',
@@ -76,13 +74,37 @@ export default function GalleryPage() {
       <SchemaScript schema={breadcrumbSchema} />
 
       {/* Page Header */}
-      <section className="bg-navy py-20 lg:py-28 text-white text-center relative overflow-hidden">
-        <div className="absolute inset-0 opacity-10 bg-[radial-gradient(#F97316_1px,transparent_1px)] [background-size:16px_16px]"></div>
+      <section
+        className="py-20 lg:py-24 text-center relative overflow-hidden"
+        style={{ background: 'var(--panel-ink)', borderBottom: '2px solid var(--orange)' }}
+      >
         <div className="mx-auto max-w-7xl px-4 relative space-y-4">
-          <h1 className="text-4xl sm:text-6xl font-extrabold tracking-tight font-heading leading-tight">
+          <p
+            className="uppercase"
+            style={{
+              fontFamily: 'var(--font-mono)',
+              fontSize: '11px',
+              letterSpacing: '0.18em',
+              color: 'var(--orange)',
+            }}
+          >
+            PROJECT PORTFOLIO
+          </p>
+          <h1
+            className="font-black uppercase leading-none"
+            style={{
+              fontFamily: 'var(--font-display)',
+              fontSize: 'clamp(2.5rem, 5vw, 4.5rem)',
+              color: '#ffffff',
+              letterSpacing: '-0.01em',
+            }}
+          >
             Work Gallery
           </h1>
-          <p className="text-lg sm:text-xl text-white/80 max-w-2xl mx-auto leading-relaxed font-medium">
+          <p
+            className="text-base sm:text-lg max-w-2xl mx-auto leading-relaxed"
+            style={{ color: 'rgba(255,255,255,0.7)', fontFamily: 'var(--font-body)' }}
+          >
             Visual highlights of our neat installations and finished details on-site.
           </p>
         </div>
@@ -92,51 +114,64 @@ export default function GalleryPage() {
       <section className="py-24 bg-white border-b border-gray-100">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <SectionHeading
-            badge="On-Site Photos"
-            title="Clean Details, Beautiful Finishes"
+            eyebrow="On-Site Photos"
+            index={`${String(galleryItems.length).padStart(2, '0')} EXHIBITS`}
+            title="Clean Details. Beautiful Finishes."
             subtitle="Real photos showing the standard of our cable layouts, appliance flush mountings, and solar alignments."
             className="mb-16"
           />
 
-          <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
+          <div
+            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3"
+            style={{ border: '1px solid var(--line)' }}
+          >
             {galleryItems.map((item, idx) => {
               const whatsappUrl = getWhatsappLink(
                 `Hello Jimsolutions Technology, I saw this gallery photo: ${item.alt}. I would like to get a quote for a similar installation.`,
               );
 
+              const figLabel = `FIG. ${String(idx + 1).padStart(2, '0')} — ${item.tag.toUpperCase()}`;
+
               return (
-                <Card
+                <div
                   key={idx}
-                  className="p-0 overflow-hidden flex flex-col justify-between group rounded-2xl border border-gray-100 shadow-sm hover:shadow-md transition-shadow"
+                  className="flex flex-col"
+                  style={{
+                    borderRight: (idx + 1) % 3 !== 0 ? '1px solid var(--line)' : undefined,
+                    borderBottom: idx < galleryItems.length - 3 ? '1px solid var(--line)' : undefined,
+                  }}
                 >
-                  <div className="relative aspect-[4/3] w-full overflow-hidden">
-                    <Image
-                      src={item.src}
-                      alt={item.alt}
-                      fill
-                      sizes="(max-w-768px) 100vw, 33vw"
-                      className="object-cover group-hover:scale-102 transition-transform duration-300"
-                    />
-                    <div className="absolute top-4 left-4">
-                      <span className="inline-flex items-center rounded-full bg-navy/95 text-white px-3 py-1 text-xs font-semibold backdrop-blur-sm">
-                        {item.tag}
-                      </span>
-                    </div>
-                  </div>
-                  <div className="p-6 space-y-4">
-                    <h3 className="text-lg font-bold text-navy font-heading">{item.alt}</h3>
-                    <Button
-                      href={whatsappUrl}
-                      variant="outline"
-                      size="sm"
-                      className="w-full text-xs"
-                      external
+                  <FramedImage
+                    src={item.src}
+                    alt={item.alt}
+                    caption={figLabel}
+                    aspect="aspect-[4/3]"
+                    sizes="(max-width: 768px) 100vw, 33vw"
+                  />
+                  <div className="p-6 flex flex-col flex-1 justify-between gap-4 bg-white">
+                    <h3
+                      className="font-bold text-sm"
+                      style={{ color: 'var(--panel-ink)', fontFamily: 'var(--font-body)' }}
                     >
-                      <FontAwesomeIcon icon={faWhatsapp} className="mr-2 h-4 w-4 text-[#25D366]" />
+                      {item.alt}
+                    </h3>
+                    <a
+                      href={whatsappUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center justify-center gap-2 project-cta text-xs uppercase tracking-wider font-semibold py-2.5 px-4"
+                      style={{
+                        fontFamily: 'var(--font-mono)',
+                        border: '1px solid var(--line)',
+                        color: 'var(--panel-ink)',
+                        transition: 'all 200ms',
+                      }}
+                    >
+                      <FontAwesomeIcon icon={faWhatsapp} style={{ width: '13px', height: '13px', color: '#25D366' }} />
                       Ask About This Design
-                    </Button>
+                    </a>
                   </div>
-                </Card>
+                </div>
               );
             })}
           </div>

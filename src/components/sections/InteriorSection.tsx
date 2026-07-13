@@ -1,9 +1,16 @@
-import Image from 'next/image';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faPalette, faRulerCombined } from '@fortawesome/free-solid-svg-icons';
+import { faPalette, faRulerCombined, faBolt, faHeadset } from '@fortawesome/free-solid-svg-icons';
 import { faWhatsapp } from '@fortawesome/free-brands-svg-icons';
 import { getWhatsappLink } from '@/lib/constants';
-import Button from '../ui/Button';
+import SectionHeading from '../ui/SectionHeading';
+import FramedImage from '../ui/FramedImage';
+
+const features = [
+  'Gypsum board partitions for home and office division',
+  'POP ceiling works and accent LED strip lighting',
+  'Custom floating media shelves and console mounting',
+  'Material colour and texture alignment per brief',
+];
 
 export default function InteriorSection() {
   const whatsappUrl = getWhatsappLink(
@@ -11,71 +18,85 @@ export default function InteriorSection() {
   );
 
   return (
-    <section className="relative py-24 overflow-hidden bg-navy text-white">
-      <div className="absolute inset-0 opacity-5 bg-[radial-gradient(#F97316_1px,transparent_1px)] [background-size:16px_16px]"></div>
+    <section
+      className="w-full"
+      style={{ background: 'var(--panel-ink)', borderTop: '2px solid var(--orange)' }}
+    >
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-20 lg:py-28">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
 
-      <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 gap-16 items-center lg:grid-cols-12">
-          {/* Overlapping Image Composition on Left */}
-          <div className="relative order-last lg:col-span-5 lg:order-first">
-            <div className="aspect-[4/5] relative rounded-2xl overflow-hidden border border-white/10 shadow-2xl bg-navy-dark">
-              <Image
-                src="/img/services/interiors.jpg"
-                alt="Gypsum board wall panel partition setup"
-                fill
-                sizes="(max-w-1024px) 100vw, 40vw"
-                className="object-cover opacity-80"
-              />
-            </div>
+          {/* Image left */}
+          <div className="lg:col-span-5 order-2 lg:order-1">
+            <FramedImage
+              src="/img/services/interiors.jpg"
+              alt="Gypsum Board Wall Panel Partition"
+              caption="FIG. 04 — INTERIOR FIT-OUT, IKOYI"
+              aspect="aspect-[4/5]"
+              sizes="(max-width: 1024px) 100vw, 40vw"
+            />
           </div>
 
-          {/* Text Content on Right */}
-          <div className="space-y-8 lg:col-span-7">
-            <div>
-              <span className="inline-flex items-center gap-2 rounded-md bg-white/10 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-orange mb-4">
-                <FontAwesomeIcon icon={faPalette} className="h-3 w-3" />
-                Interior Fit-Out
-              </span>
-              <h2 className="text-3xl font-extrabold sm:text-5xl text-white tracking-tight leading-tight">
-                Modern Interior Upgrades. <br />
-                <span className="text-orange">Handcrafted Material Alignment.</span>
-              </h2>
-              <p className="mt-4 text-base text-white/80 leading-7 max-w-xl">
-                Upgrade the visual style and utility of your spaces. We assemble custom drywall
-                partitions, build POP ceilings, configure floating media shelves, and mount accent
-                LED strips to harmonize lighting with your room textures.
-              </p>
+          {/* Content right */}
+          <div className="lg:col-span-7 order-1 lg:order-2 space-y-8">
+            <SectionHeading
+              eyebrow="Interior Fit-Out"
+              title="Modern Upgrades. Handcrafted Materials."
+              subtitle="We assemble custom drywall partitions, build POP ceilings, configure floating media shelves, and mount accent LED strips to harmonise lighting with room textures."
+              theme="dark"
+              align="left"
+            />
+
+            {/* Feature rows on dark bg */}
+            <div style={{ border: '1px solid rgba(255,255,255,0.1)' }}>
+              {features.map((item, i) => {
+                const icons = [faPalette, faRulerCombined, faBolt, faHeadset];
+                const badgeBg = i % 2 === 0 ? 'var(--orange)' : 'rgba(255,255,255,0.12)';
+                return (
+                  <div
+                    key={i}
+                    className="flex items-center gap-4 px-5 py-4"
+                    style={{
+                      borderBottom: i < features.length - 1 ? '1px solid rgba(255,255,255,0.08)' : undefined,
+                    }}
+                  >
+                    <div
+                      className="flex items-center justify-center flex-shrink-0"
+                      style={{ width: '24px', height: '24px', background: badgeBg }}
+                    >
+                      <FontAwesomeIcon
+                        icon={icons[i]}
+                        style={{ width: '10px', height: '10px', color: '#ffffff' }}
+                      />
+                    </div>
+                    <span className="text-sm font-medium" style={{ color: 'rgba(255,255,255,0.85)' }}>
+                      {item}
+                    </span>
+                  </div>
+                );
+              })}
             </div>
 
-            <div className="pt-8 border-t border-white/10 flex gap-6">
-              <div className="flex gap-4 items-start">
-                <div className="flex h-10 w-10 items-center justify-center rounded-full bg-orange/25 text-orange flex-shrink-0">
-                  <FontAwesomeIcon icon={faRulerCombined} className="h-5 w-5" />
-                </div>
-                <div>
-                  <h4 className="font-bold text-white text-base">Space Optimization</h4>
-                  <p className="text-xs text-white/70 mt-1 leading-5">
-                    Gypsum board partitions designed to divide home or office areas neatly.
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            <div className="flex flex-wrap gap-4 items-center">
-              <Button href={whatsappUrl} variant="secondary" size="lg" external>
-                <FontAwesomeIcon icon={faWhatsapp} className="mr-2 h-5 w-5" />
-                Book Interior Consultation
-              </Button>
-              <Button
+            <div className="flex flex-wrap gap-4">
+              <a
+                href={whatsappUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 px-6 py-3.5 font-bold uppercase tracking-wider text-sm text-white"
+                style={{ background: 'var(--orange)', border: '1px solid var(--orange)' }}
+              >
+                <FontAwesomeIcon icon={faWhatsapp} style={{ width: '15px', height: '15px' }} />
+                Book Consultation
+              </a>
+              <a
                 href="/services/interior-design"
-                variant="outline"
-                size="lg"
-                className="border-white/20 text-white hover:bg-white/10"
+                className="inline-flex items-center px-6 py-3.5 font-bold uppercase tracking-wider text-sm"
+                style={{ color: '#ffffff', border: '1px solid rgba(255,255,255,0.25)' }}
               >
                 Learn More
-              </Button>
+              </a>
             </div>
           </div>
+
         </div>
       </div>
     </section>
