@@ -57,18 +57,20 @@ export default function ContactPage() {
       <SchemaScript schema={breadcrumbSchema} />
 
       {/* Page Header */}
-      <section className="bg-navy py-20 text-white text-center relative overflow-hidden">
+      <section className="bg-navy py-20 lg:py-28 text-white text-center relative overflow-hidden">
         <div className="absolute inset-0 opacity-10 bg-[radial-gradient(#F97316_1px,transparent_1px)] [background-size:16px_16px]"></div>
-        <div className="mx-auto max-w-7xl px-4 relative">
-          <h1 className="text-4xl font-extrabold tracking-tight sm:text-5xl">Contact Us</h1>
-          <p className="mt-4 text-lg text-white/80 max-w-2xl mx-auto">
+        <div className="mx-auto max-w-7xl px-4 relative space-y-4">
+          <h1 className="text-4xl sm:text-6xl font-extrabold tracking-tight font-heading leading-tight">
+            Contact Us
+          </h1>
+          <p className="text-lg sm:text-xl text-white/80 max-w-2xl mx-auto leading-relaxed font-medium">
             Get in touch to request a technical consultation or solar backup sizing quote.
           </p>
         </div>
       </section>
 
       {/* Contact Details and Info */}
-      <section className="py-24 bg-white">
+      <section className="py-24 bg-white border-b border-gray-100">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 gap-12 lg:grid-cols-2">
             {/* Contact Details Panel */}
@@ -83,17 +85,17 @@ export default function ContactPage() {
               <div className="space-y-6">
                 {contactMethods.map((method, idx) => (
                   <div key={idx} className="flex gap-4 items-start">
-                    <div className="flex h-12 w-12 items-center justify-center rounded-md bg-orange/10 text-orange flex-shrink-0">
+                    <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-[#F97316]/10 text-[#F97316] flex-shrink-0">
                       <FontAwesomeIcon icon={method.icon} className="h-5 w-5" />
                     </div>
                     <div>
-                      <h3 className="font-bold text-navy text-lg">{method.title}</h3>
+                      <h3 className="font-bold text-navy text-lg font-heading">{method.title}</h3>
                       <p className="text-xs text-navy/50">{method.label}</p>
                       <a
                         href={method.href}
                         target={method.external ? '_blank' : undefined}
                         rel={method.external ? 'noopener noreferrer' : undefined}
-                        className="mt-1 text-sm font-semibold text-navy hover:text-orange transition-colors inline-block"
+                        className="mt-1 text-sm font-bold text-navy hover:text-orange transition-colors inline-block"
                       >
                         {method.value}
                       </a>
@@ -104,24 +106,26 @@ export default function ContactPage() {
             </div>
 
             {/* Local Coverage Card */}
-            <Card className="p-8 flex flex-col justify-between border-navy/10 shadow-md">
+            <Card className="p-8 flex flex-col justify-between border border-gray-100 rounded-2xl shadow-sm bg-white">
               <div className="space-y-4">
-                <h3 className="text-2xl font-bold text-navy">Coverage & Sizing Audits</h3>
-                <p className="text-sm text-navy/70 leading-6">
+                <h3 className="text-2xl font-bold text-navy font-heading">
+                  Coverage & Sizing Audits
+                </h3>
+                <p className="text-sm text-[#374151] leading-relaxed font-medium">
                   Based in <span className="font-semibold text-navy">Lagos, Nigeria</span>, we
                   provide on-site diagnostics, electrical safety compliance checks, solar inverter
                   hookups, and custom kitchen setups nationwide.
                 </p>
 
-                <div className="space-y-3 pt-4 border-t border-navy/5">
-                  <div className="flex gap-2 text-sm text-navy/80">
+                <div className="space-y-3 pt-4 border-t border-gray-100">
+                  <div className="flex gap-2 text-sm text-[#374151] font-semibold">
                     <FontAwesomeIcon
                       icon={faMapMarkerAlt}
                       className="h-5 w-5 text-orange flex-shrink-0 mt-0.5"
                     />
                     <span>Lagos and Nationwide service coverage</span>
                   </div>
-                  <div className="flex gap-2 text-sm text-navy/80">
+                  <div className="flex gap-2 text-sm text-[#374151] font-semibold">
                     <FontAwesomeIcon
                       icon={faClock}
                       className="h-5 w-5 text-orange flex-shrink-0 mt-0.5"
@@ -132,13 +136,7 @@ export default function ContactPage() {
               </div>
 
               <div className="pt-8">
-                <Button
-                  href={whatsappUrl}
-                  variant="secondary"
-                  size="lg"
-                  className="w-full"
-                  external
-                >
+                <Button href={whatsappUrl} variant="primary" size="lg" className="w-full" external>
                   <FontAwesomeIcon icon={faWhatsapp} className="mr-2 h-5 w-5" />
                   Chat on WhatsApp Now
                 </Button>

@@ -34,10 +34,14 @@ export default function SectionHeading({
           {badge}
         </span>
       )}
-      <h2 className={`text-3xl font-extrabold tracking-tight sm:text-4xl ${titleColor}`}>
+      <h2
+        className={`text-3xl sm:text-5xl font-extrabold tracking-tight leading-tight ${titleColor}`}
+      >
         {title}
       </h2>
-      {subtitle && <p className={`mt-4 text-lg leading-7 ${subtitleColor}`}>{subtitle}</p>}
+      {subtitle && (
+        <p className={`mt-4 text-lg sm:text-2xl leading-relaxed ${subtitleColor}`}>{subtitle}</p>
+      )}
     </div>
   );
 }

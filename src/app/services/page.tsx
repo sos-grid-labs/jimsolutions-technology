@@ -30,11 +30,13 @@ export default function ServicesPage() {
       <SchemaScript schema={breadcrumbSchema} />
 
       {/* Page Header */}
-      <section className="bg-navy py-20 text-white text-center relative overflow-hidden">
+      <section className="bg-navy py-20 lg:py-28 text-white text-center relative overflow-hidden">
         <div className="absolute inset-0 opacity-10 bg-[radial-gradient(#F97316_1px,transparent_1px)] [background-size:16px_16px]"></div>
-        <div className="mx-auto max-w-7xl px-4 relative">
-          <h1 className="text-4xl font-extrabold tracking-tight sm:text-5xl">Our Services</h1>
-          <p className="mt-4 text-lg text-white/80 max-w-2xl mx-auto">
+        <div className="mx-auto max-w-7xl px-4 relative space-y-4">
+          <h1 className="text-4xl sm:text-6xl font-extrabold tracking-tight font-heading leading-tight">
+            Our Services
+          </h1>
+          <p className="text-lg sm:text-xl text-white/80 max-w-2xl mx-auto leading-relaxed font-medium">
             Professional technical execution for power, kitchens, laundry, and interior upgrades.
           </p>
         </div>
@@ -44,22 +46,22 @@ export default function ServicesPage() {
       <ServicesGrid />
 
       {/* Load Sizing Advisory Callout */}
-      <section className="py-16 bg-navy text-white relative overflow-hidden border-t border-white/5">
+      <section className="py-24 bg-navy text-white relative overflow-hidden border-t border-white/5">
         <div className="absolute inset-0 opacity-5 bg-[radial-gradient(#F97316_1px,transparent_1px)] [background-size:16px_16px]"></div>
-        <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8 relative text-center space-y-6">
-          <div className="inline-flex h-14 w-14 items-center justify-center rounded-full bg-orange/10 text-orange mb-2">
+        <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8 relative text-center space-y-8">
+          <div className="inline-flex h-12 w-12 items-center justify-center rounded-lg bg-[#F97316]/10 text-orange mb-2">
             <FontAwesomeIcon icon={faCalculator} className="h-6 w-6" />
           </div>
-          <h2 className="text-3xl font-extrabold tracking-tight sm:text-4xl">
+          <h2 className="text-3xl sm:text-5xl font-extrabold tracking-tight leading-tight font-heading">
             Need a Custom Load Sizing Assessment?
           </h2>
-          <p className="text-lg text-white/80 max-w-3xl mx-auto">
+          <p className="text-lg sm:text-xl text-white/80 max-w-3xl mx-auto leading-relaxed">
             Avoid inverter overload and wiring failures. We run standard engineering load
             assessments to determine your exact energy requirements (solar arrays, inverter
             capacities, and cable sizing).
           </p>
           <div className="pt-4">
-            <Button href={whatsappUrl} variant="secondary" size="lg" external>
+            <Button href={whatsappUrl} variant="primary" size="lg" external>
               Book Sizing Consultation
             </Button>
           </div>

@@ -12,16 +12,16 @@ import Button from '@/components/ui/Button';
 import SectionHeading from '@/components/ui/SectionHeading';
 
 export const metadata: Metadata = createMetadata({
-  title: 'Custom Utility & Laundry Space Setup Lagos | Jimsolutions Technology',
+  title: 'Smart Laundry Utility Room Installation Lagos | Jimsolutions Technology',
   description:
-    'Professional laundry room setups with washer/dryer hookups, built-in cabinets, ventilation routing, and laundry equipment supply in Lagos. Free quote.',
+    'Design a highly functional laundry room. We install stacked washer-dryers, rotary ironers, customized cabinetry, and tidy water feeds in Lagos and Nigeria.',
   path: '/services/laundry',
 });
 
 export default function LaundryServicePage() {
   const serviceSchema = getServiceSchema(
-    'Laundry Space Setup',
-    'Procuring, plumbing, and arranging efficient utility room setups for washers, dryers, and ironers.',
+    'Laundry Room Setup',
+    'Custom space planning, stacked washer-dryer installations, plumbing drainage feeds, and tidy utility cabinetry.',
     '/services/laundry',
   );
 
@@ -32,7 +32,7 @@ export default function LaundryServicePage() {
   ]);
 
   const whatsappUrl = getWhatsappLink(
-    'Hello Jimsolutions Technology, I would like to get a quote for laundry space setup with stacked washer/dryer. My location is Lagos.',
+    'Hello Jimsolutions Technology, I would like to get a quote for laundry stack and cabinet installation. My location is Lagos.',
   );
 
   return (
@@ -41,11 +41,11 @@ export default function LaundryServicePage() {
       <SchemaScript schema={breadcrumbSchema} />
 
       {/* Detail section */}
-      <section className="py-12 bg-white">
+      <section className="py-24 bg-white border-b border-gray-100 animate-fade-in">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <Link
             href="/services"
-            className="inline-flex items-center text-sm font-semibold text-navy hover:text-orange transition-colors mb-8"
+            className="inline-flex items-center text-sm font-bold text-navy hover:text-orange transition-colors mb-8"
           >
             <FontAwesomeIcon icon={faChevronLeft} className="mr-2 h-3 w-3" />
             Back to All Services
@@ -53,10 +53,10 @@ export default function LaundryServicePage() {
 
           <div className="grid grid-cols-1 gap-12 lg:grid-cols-2 items-start">
             {/* Image panel */}
-            <div className="relative aspect-[4/3] rounded-lg overflow-hidden border border-navy/5 shadow-md">
+            <div className="relative aspect-[4/3] rounded-2xl overflow-hidden border border-gray-100 shadow-md bg-gray-50">
               <Image
                 src="/img/services/laundry.jpg"
-                alt="Stacked washing machine and clothes dryer laundry room layout"
+                alt="Neat laundry stacked washer and dryer setup"
                 fill
                 sizes="(max-w-1024px) 100vw, 50vw"
                 className="object-cover"
@@ -65,35 +65,44 @@ export default function LaundryServicePage() {
             </div>
 
             {/* Text panel */}
-            <div className="space-y-6">
+            <div className="space-y-8">
               <SectionHeading
                 badge="Laundry Setup"
-                title="Ergonomic Laundry Layouts, Water Lines & Ventilation Hooks"
+                title="Tidy Utility Room Configurations & Washer Integration"
                 align="left"
               />
 
-              <div className="text-navy/70 leading-7 space-y-4">
+              <div className="text-lg text-[#374151] leading-relaxed space-y-6 font-medium">
                 <p>
-                  An organized laundry space makes utility work quick and efficient. Jimsolutions
-                  Technology plans and builds dedicated home utility rooms, stacked washing/drying
-                  units, and ironing counters.
+                  A laundry room should be a masterpiece of space planning. Jimsolutions Technology
+                  designs and builds clean, efficient laundry utility rooms for homes and commercial
+                  laundromats in Lagos.
                 </p>
                 <p>
-                  We coordinate the complete workflow connection—handling electrical loads, plumbing
-                  water feeds, drainage outlets connection, and hot air venting duct routes to keep
-                  your space fresh and free of dampness.
+                  We handle the structural mounting of stacked washer and dryer columns, install
+                  custom drying racks and storage cabinets, and coordinate leak-proof plumbing feeds
+                  and drainage vents behind your machines.
                 </p>
-                <p className="font-semibold text-navy">What we cover:</p>
-                <ul className="list-disc pl-5 space-y-2">
-                  <li>Stacked washing machine and dryer structural placements</li>
-                  <li>Dedicated plumbing feeds and wastewater drainage routing</li>
-                  <li>Ventilation lines and hot air exhaust duct setups</li>
-                  <li>Built-in cabinets, sorting bins, and rotary ironer counters</li>
+                <p className="font-bold text-navy text-lg font-heading">What we cover:</p>
+                <ul className="space-y-3 pl-1">
+                  {[
+                    'Stacked washing machine and clothes dryer mounting',
+                    'Rotary ironers and commercial laundry layouts planning',
+                    'Custom cabinet storage and pull-out folding shelves',
+                    'Leak-proof plumbing inlets, drain traps, and ventilation ducts',
+                  ].map((item, idx) => (
+                    <li key={idx} className="flex items-start gap-3">
+                      <span className="flex h-6 w-6 items-center justify-center rounded-full bg-orange/10 text-orange text-xs font-bold mt-0.5">
+                        ✓
+                      </span>
+                      <span>{item}</span>
+                    </li>
+                  ))}
                 </ul>
               </div>
 
               <div className="pt-6 flex flex-wrap gap-4 items-center">
-                <Button href={whatsappUrl} variant="secondary" size="lg" external>
+                <Button href={whatsappUrl} variant="primary" size="lg" external>
                   <FontAwesomeIcon icon={faWhatsapp} className="mr-2 h-5 w-5" />
                   Request Laundry Quote
                 </Button>

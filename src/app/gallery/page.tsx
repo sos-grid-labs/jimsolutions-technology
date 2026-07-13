@@ -76,18 +76,20 @@ export default function GalleryPage() {
       <SchemaScript schema={breadcrumbSchema} />
 
       {/* Page Header */}
-      <section className="bg-navy py-20 text-white text-center relative overflow-hidden">
+      <section className="bg-navy py-20 lg:py-28 text-white text-center relative overflow-hidden">
         <div className="absolute inset-0 opacity-10 bg-[radial-gradient(#F97316_1px,transparent_1px)] [background-size:16px_16px]"></div>
-        <div className="mx-auto max-w-7xl px-4 relative">
-          <h1 className="text-4xl font-extrabold tracking-tight sm:text-5xl">Work Gallery</h1>
-          <p className="mt-4 text-lg text-white/80 max-w-2xl mx-auto">
+        <div className="mx-auto max-w-7xl px-4 relative space-y-4">
+          <h1 className="text-4xl sm:text-6xl font-extrabold tracking-tight font-heading leading-tight">
+            Work Gallery
+          </h1>
+          <p className="text-lg sm:text-xl text-white/80 max-w-2xl mx-auto leading-relaxed font-medium">
             Visual highlights of our neat installations and finished details on-site.
           </p>
         </div>
       </section>
 
       {/* Gallery Grid */}
-      <section className="py-24 bg-white">
+      <section className="py-24 bg-white border-b border-gray-100">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <SectionHeading
             badge="On-Site Photos"
@@ -103,28 +105,31 @@ export default function GalleryPage() {
               );
 
               return (
-                <Card key={idx} className="p-0 overflow-hidden flex flex-col justify-between group">
+                <Card
+                  key={idx}
+                  className="p-0 overflow-hidden flex flex-col justify-between group rounded-2xl border border-gray-100 shadow-sm hover:shadow-md transition-shadow"
+                >
                   <div className="relative aspect-[4/3] w-full overflow-hidden">
                     <Image
                       src={item.src}
                       alt={item.alt}
                       fill
                       sizes="(max-w-768px) 100vw, 33vw"
-                      className="object-cover group-hover:scale-105 transition-transform duration-300"
+                      className="object-cover group-hover:scale-102 transition-transform duration-300"
                     />
                     <div className="absolute top-4 left-4">
-                      <span className="inline-flex items-center rounded-full bg-navy/90 text-white px-3 py-1 text-xs font-semibold backdrop-blur-sm">
+                      <span className="inline-flex items-center rounded-full bg-navy/95 text-white px-3 py-1 text-xs font-semibold backdrop-blur-sm">
                         {item.tag}
                       </span>
                     </div>
                   </div>
-                  <div className="p-6">
-                    <h3 className="text-lg font-bold text-navy mb-4">{item.alt}</h3>
+                  <div className="p-6 space-y-4">
+                    <h3 className="text-lg font-bold text-navy font-heading">{item.alt}</h3>
                     <Button
                       href={whatsappUrl}
                       variant="outline"
                       size="sm"
-                      className="w-full"
+                      className="w-full text-xs"
                       external
                     >
                       <FontAwesomeIcon icon={faWhatsapp} className="mr-2 h-4 w-4 text-[#25D366]" />

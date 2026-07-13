@@ -21,23 +21,23 @@ export default function Button({
   external = false,
 }: ButtonProps) {
   const baseStyles =
-    'inline-flex items-center justify-center font-semibold rounded-md transition-all duration-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2';
+    'inline-flex items-center justify-center font-bold uppercase tracking-wider rounded-lg transition-all duration-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2';
 
   const variants = {
     primary:
-      'bg-navy text-white hover:bg-navy-light focus-visible:outline-navy shadow-md hover:shadow-lg',
+      'bg-orange text-white hover:bg-navy focus-visible:outline-orange shadow-sm hover:shadow-md',
     secondary:
-      'bg-orange text-white hover:bg-orange-dark focus-visible:outline-orange shadow-md hover:shadow-lg',
+      'bg-navy text-white hover:bg-orange focus-visible:outline-navy shadow-sm hover:shadow-md',
     outline:
-      'border border-navy/20 text-navy hover:bg-navy hover:text-white focus-visible:outline-navy',
+      'border-2 border-navy/20 text-navy hover:border-navy hover:bg-navy hover:text-white focus-visible:outline-navy',
     white:
-      'bg-white text-navy hover:bg-gray-50 focus-visible:outline-white shadow-md hover:shadow-lg',
+      'bg-white text-navy hover:bg-orange hover:text-white focus-visible:outline-white shadow-sm hover:shadow-md',
   };
 
   const sizes = {
-    sm: 'px-3 py-1.5 text-xs',
-    md: 'px-4.5 py-2.5 text-sm',
-    lg: 'px-6 py-3.5 text-base',
+    sm: 'px-4 py-2 text-xs',
+    md: 'px-5 py-3 text-sm',
+    lg: 'px-7 py-4 text-base',
   };
 
   const combinedStyles = `${baseStyles} ${variants[variant]} ${sizes[size]} ${className}`;

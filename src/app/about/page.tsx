@@ -56,46 +56,52 @@ export default function AboutPage() {
       <SchemaScript schema={breadcrumbSchema} />
 
       {/* Page Header */}
-      <section className="bg-navy py-20 text-white text-center relative overflow-hidden">
+      <section className="bg-navy py-20 lg:py-28 text-white text-center relative overflow-hidden">
         <div className="absolute inset-0 opacity-10 bg-[radial-gradient(#F97316_1px,transparent_1px)] [background-size:16px_16px]"></div>
-        <div className="mx-auto max-w-7xl px-4 relative">
-          <h1 className="text-4xl font-extrabold tracking-tight sm:text-5xl">About Our Company</h1>
-          <p className="mt-4 text-lg text-white/80 max-w-2xl mx-auto">
+        <div className="mx-auto max-w-7xl px-4 relative space-y-4">
+          <h1 className="text-4xl sm:text-6xl font-extrabold tracking-tight font-heading leading-tight">
+            About Our Company
+          </h1>
+          <p className="text-lg sm:text-xl text-white/80 max-w-2xl mx-auto leading-relaxed font-medium">
             Technical expertise, clean execution, and professional standards since day one.
           </p>
         </div>
       </section>
 
       {/* Main Content */}
-      <section className="py-24 bg-white">
+      <section className="py-24 bg-white border-b border-gray-100">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 gap-16 lg:grid-cols-2 items-center">
-            <div className="relative aspect-[4/3] rounded-lg overflow-hidden border border-navy/5 shadow-md">
+            {/* Image Left */}
+            <div className="relative aspect-[4/3] rounded-2xl overflow-hidden border border-gray-100 shadow-md">
               <Image
                 src="/img/services/solar.jpg"
                 alt="Jimsolutions Inverter Installation"
                 fill
                 sizes="(max-w-1024px) 100vw, 50vw"
-                className="object-cover"
+                className="object-cover animate-fade-in"
               />
             </div>
 
-            <div className="space-y-6">
+            {/* Content Right */}
+            <div className="space-y-8">
               <SectionHeading
                 badge="Who We Are"
                 title="Building Stable Power Backups & Modern Homes"
                 align="left"
               />
-              <p className="text-navy/70 leading-7">
-                Jimsolutions Technology is based in Lagos, Nigeria. We provide high-quality
-                engineering services, electrical installations, custom cabinet kitchen designs, and
-                utility setup layouts.
-              </p>
-              <p className="text-navy/70 leading-7">
-                We believe that clients deserve clean, safe, and beautiful workmanship. That is why
-                our team handles every wire connection, inverter sizing calculation, and appliance
-                setup with precision.
-              </p>
+              <div className="text-lg text-[#374151] leading-relaxed space-y-4 font-medium">
+                <p>
+                  Jimsolutions Technology is based in Lagos, Nigeria. We provide high-quality
+                  engineering services, electrical installations, custom cabinet kitchen designs,
+                  and utility setup layouts.
+                </p>
+                <p>
+                  We believe that clients deserve clean, safe, and beautiful workmanship. That is
+                  why our team handles every wire connection, inverter sizing calculation, and
+                  appliance setup with precision.
+                </p>
+              </div>
 
               <div className="pt-4">
                 <Button href={whatsappUrl} variant="primary" size="lg" external>
@@ -119,12 +125,17 @@ export default function AboutPage() {
 
           <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">
             {values.map((val, idx) => (
-              <Card key={idx} className="flex flex-col items-center text-center p-8">
-                <div className="flex h-12 w-12 items-center justify-center rounded-full bg-orange/10 text-orange mb-6">
+              <Card
+                key={idx}
+                className="flex flex-col items-center text-center p-8 border border-gray-100 bg-white rounded-2xl shadow-sm hover:shadow-md transition-shadow"
+              >
+                <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-[#F97316]/10 text-[#F97316] mb-6">
                   <FontAwesomeIcon icon={val.icon} className="h-5 w-5" />
                 </div>
-                <h3 className="text-lg font-bold text-navy">{val.title}</h3>
-                <p className="mt-3 text-sm text-navy/70 leading-6">{val.description}</p>
+                <h3 className="text-lg font-bold text-navy font-heading">{val.title}</h3>
+                <p className="mt-3 text-sm text-[#374151] leading-relaxed font-medium">
+                  {val.description}
+                </p>
               </Card>
             ))}
           </div>

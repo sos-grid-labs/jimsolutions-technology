@@ -22,11 +22,13 @@ export default function ProjectsPage() {
       <SchemaScript schema={breadcrumbSchema} />
 
       {/* Page Header */}
-      <section className="bg-navy py-20 text-white text-center relative overflow-hidden">
+      <section className="bg-navy py-20 lg:py-28 text-white text-center relative overflow-hidden">
         <div className="absolute inset-0 opacity-10 bg-[radial-gradient(#F97316_1px,transparent_1px)] [background-size:16px_16px]"></div>
-        <div className="mx-auto max-w-7xl px-4 relative">
-          <h1 className="text-4xl font-extrabold tracking-tight sm:text-5xl">Completed Projects</h1>
-          <p className="mt-4 text-lg text-white/80 max-w-2xl mx-auto">
+        <div className="mx-auto max-w-7xl px-4 relative space-y-4">
+          <h1 className="text-4xl sm:text-6xl font-extrabold tracking-tight font-heading leading-tight">
+            Completed Projects
+          </h1>
+          <p className="text-lg sm:text-xl text-white/80 max-w-2xl mx-auto leading-relaxed font-medium">
             Real workmanship outcomes showing how we design clean solutions.
           </p>
         </div>

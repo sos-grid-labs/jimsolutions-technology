@@ -33,13 +33,13 @@ export default function FAQPage() {
       <SchemaScript schema={breadcrumbSchema} />
 
       {/* Page Header */}
-      <section className="bg-navy py-20 text-white text-center relative overflow-hidden">
+      <section className="bg-navy py-20 lg:py-28 text-white text-center relative overflow-hidden">
         <div className="absolute inset-0 opacity-10 bg-[radial-gradient(#F97316_1px,transparent_1px)] [background-size:16px_16px]"></div>
-        <div className="mx-auto max-w-7xl px-4 relative">
-          <h1 className="text-4xl font-extrabold tracking-tight sm:text-5xl">
+        <div className="mx-auto max-w-7xl px-4 relative space-y-4">
+          <h1 className="text-4xl sm:text-6xl font-extrabold tracking-tight font-heading leading-tight">
             Frequently Asked Questions
           </h1>
-          <p className="mt-4 text-lg text-white/80 max-w-2xl mx-auto">
+          <p className="text-lg sm:text-xl text-white/80 max-w-2xl mx-auto leading-relaxed font-medium">
             Everything you need to know about our workflow, service coverage, and installations.
           </p>
         </div>
@@ -49,16 +49,18 @@ export default function FAQPage() {
       <FAQAccordion />
 
       {/* Conversion Banner */}
-      <section className="py-16 bg-navy text-white text-center border-t border-white/5 relative overflow-hidden">
+      <section className="py-24 bg-navy text-white text-center border-t border-white/5 relative overflow-hidden">
         <div className="absolute inset-0 opacity-5 bg-[radial-gradient(#F97316_1px,transparent_1px)] [background-size:16px_16px]"></div>
-        <div className="mx-auto max-w-3xl px-4 relative space-y-6">
-          <h2 className="text-3xl font-extrabold sm:text-4xl">Still Have Questions?</h2>
-          <p className="text-lg text-white/80 max-w-xl mx-auto">
+        <div className="mx-auto max-w-3xl px-4 relative space-y-8">
+          <h2 className="text-3xl sm:text-5xl font-extrabold tracking-tight leading-tight font-heading">
+            Still Have Questions?
+          </h2>
+          <p className="text-lg sm:text-xl text-white/80 max-w-xl mx-auto leading-relaxed">
             Get in touch directly with our engineering team. We are available daily from 8:00 AM to
             10:00 PM on WhatsApp.
           </p>
           <div className="pt-4">
-            <Button href={whatsappUrl} variant="secondary" size="lg" external>
+            <Button href={whatsappUrl} variant="primary" size="lg" external>
               <FontAwesomeIcon icon={faWhatsapp} className="mr-2 h-5 w-5" />
               Chat with an Engineer
             </Button>

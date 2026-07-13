@@ -41,11 +41,11 @@ export default function KitchenServicePage() {
       <SchemaScript schema={breadcrumbSchema} />
 
       {/* Detail section */}
-      <section className="py-12 bg-white">
+      <section className="py-24 bg-white border-b border-gray-100 animate-fade-in">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <Link
             href="/services"
-            className="inline-flex items-center text-sm font-semibold text-navy hover:text-orange transition-colors mb-8"
+            className="inline-flex items-center text-sm font-bold text-navy hover:text-orange transition-colors mb-8"
           >
             <FontAwesomeIcon icon={faChevronLeft} className="mr-2 h-3 w-3" />
             Back to All Services
@@ -53,7 +53,7 @@ export default function KitchenServicePage() {
 
           <div className="grid grid-cols-1 gap-12 lg:grid-cols-2 items-start">
             {/* Image panel */}
-            <div className="relative aspect-[4/3] rounded-lg overflow-hidden border border-navy/5 shadow-md">
+            <div className="relative aspect-[4/3] rounded-2xl overflow-hidden border border-gray-100 shadow-md bg-gray-50">
               <Image
                 src="/img/services/kitchens.jpg"
                 alt="Kitchen cabinet and built-in cooktop installation"
@@ -65,14 +65,14 @@ export default function KitchenServicePage() {
             </div>
 
             {/* Text panel */}
-            <div className="space-y-6">
+            <div className="space-y-8">
               <SectionHeading
                 badge="Kitchen Installation"
                 title="Sleek Cabinet Layouts & High-End Cooktop Integration"
                 align="left"
               />
 
-              <div className="text-navy/70 leading-7 space-y-4">
+              <div className="text-lg text-[#374151] leading-relaxed space-y-6 font-medium">
                 <p>
                   A modern kitchen should balance workflow logic with premium style. Jimsolutions
                   Technology plans, installs, and finishes custom kitchen spaces featuring built-in
@@ -83,17 +83,26 @@ export default function KitchenServicePage() {
                   island cooktops, installing downdraft extractors, and routing plumbing and gas
                   connections safely out of sight.
                 </p>
-                <p className="font-semibold text-navy">What we cover:</p>
-                <ul className="list-disc pl-5 space-y-2">
-                  <li>Custom cabinet alignment and professional installation</li>
-                  <li>Island kitchen cooktops and induction hobs setup</li>
-                  <li>Downdraft and canopy extractor fans mounting</li>
-                  <li>Flush integration of master cool refrigerators and built-in ovens</li>
+                <p className="font-bold text-navy text-lg font-heading">What we cover:</p>
+                <ul className="space-y-3 pl-1">
+                  {[
+                    'Custom cabinet alignment and professional installation',
+                    'Island kitchen cooktops and induction hobs setup',
+                    'Downdraft and canopy extractor fans mounting',
+                    'Flush integration of master cool refrigerators and built-in ovens',
+                  ].map((item, idx) => (
+                    <li key={idx} className="flex items-start gap-3">
+                      <span className="flex h-6 w-6 items-center justify-center rounded-full bg-orange/10 text-orange text-xs font-bold mt-0.5">
+                        ✓
+                      </span>
+                      <span>{item}</span>
+                    </li>
+                  ))}
                 </ul>
               </div>
 
               <div className="pt-6 flex flex-wrap gap-4 items-center">
-                <Button href={whatsappUrl} variant="secondary" size="lg" external>
+                <Button href={whatsappUrl} variant="primary" size="lg" external>
                   <FontAwesomeIcon icon={faWhatsapp} className="mr-2 h-5 w-5" />
                   Request Kitchen Quote
                 </Button>

@@ -12,16 +12,16 @@ import Button from '@/components/ui/Button';
 import SectionHeading from '@/components/ui/SectionHeading';
 
 export const metadata: Metadata = createMetadata({
-  title: 'Premium Interior Design & Space Planning Nigeria | Jimsolutions Technology',
+  title: 'Premium Interior Design, POP Ceilings & Lighting Lagos | Jimsolutions Technology',
   description:
-    'Create clean, practical interior upgrades with custom styling, custom partitions, and lighting solutions. Home and office renovations in Lagos.',
+    'Transform your property with modern POP ceiling patterns, architectural lighting, wall panel panels, and premium painting. Handcrafted design layouts.',
   path: '/services/interior-design',
 });
 
-export default function InteriorDesignServicePage() {
+export default function InteriorServicePage() {
   const serviceSchema = getServiceSchema(
-    'Interior Design Support',
-    'Creative styling, partition panel setups, and lighting configurations for clean spaces.',
+    'Interior Design',
+    'Custom space planning, POP ceiling design, luxury lighting, and paint finishes.',
     '/services/interior-design',
   );
 
@@ -32,7 +32,7 @@ export default function InteriorDesignServicePage() {
   ]);
 
   const whatsappUrl = getWhatsappLink(
-    'Hello Jimsolutions Technology, I would like to get a quote for partition boards and custom media console interior work. My location is Lagos.',
+    'Hello Jimsolutions Technology, I would like to get a quote for POP ceiling and interior lightning installation. My location is Lagos.',
   );
 
   return (
@@ -41,11 +41,11 @@ export default function InteriorDesignServicePage() {
       <SchemaScript schema={breadcrumbSchema} />
 
       {/* Detail section */}
-      <section className="py-12 bg-white">
+      <section className="py-24 bg-white border-b border-gray-100 animate-fade-in">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <Link
             href="/services"
-            className="inline-flex items-center text-sm font-semibold text-navy hover:text-orange transition-colors mb-8"
+            className="inline-flex items-center text-sm font-bold text-navy hover:text-orange transition-colors mb-8"
           >
             <FontAwesomeIcon icon={faChevronLeft} className="mr-2 h-3 w-3" />
             Back to All Services
@@ -53,10 +53,10 @@ export default function InteriorDesignServicePage() {
 
           <div className="grid grid-cols-1 gap-12 lg:grid-cols-2 items-start">
             {/* Image panel */}
-            <div className="relative aspect-[4/3] rounded-lg overflow-hidden border border-navy/5 shadow-md">
+            <div className="relative aspect-[4/3] rounded-2xl overflow-hidden border border-gray-100 shadow-md bg-gray-50">
               <Image
                 src="/img/services/interiors.jpg"
-                alt="Interior design partition wall and custom lighting installation"
+                alt="Modern interior layout and lighting installation"
                 fill
                 sizes="(max-w-1024px) 100vw, 50vw"
                 className="object-cover"
@@ -65,35 +65,44 @@ export default function InteriorDesignServicePage() {
             </div>
 
             {/* Text panel */}
-            <div className="space-y-6">
+            <div className="space-y-8">
               <SectionHeading
                 badge="Interior Design"
-                title="Functional Space Planning, Partition Boards & Accent Lighting"
+                title="Architectural Finishes, POP Ceilings & Lighting Layouts"
                 align="left"
               />
 
-              <div className="text-navy/70 leading-7 space-y-4">
+              <div className="text-lg text-[#374151] leading-relaxed space-y-6 font-medium">
                 <p>
-                  Interior styling is about creating spaces that are both visual and practical.
-                  Jimsolutions Technology builds interior enhancements including gypsum board
-                  drywalls, TV media consoles, and custom wall accent lighting panels.
+                  Elevate your living or working environment with custom architectural designs.
+                  Jimsolutions Technology designs and implements premium interior setups for homes,
+                  offices, and retail spaces in Lagos.
                 </p>
                 <p>
-                  We coordinate material textures and color systems to fit your desired branding or
-                  home theme. Our design support focuses on structural partitions that segment
-                  spaces cleanly without blocking natural workflows.
+                  We build modern POP ceiling structures, coordinate hidden LED accent lighting and
+                  chandeliers, install wood panel accents, and apply clean, professional painting
+                  finishes.
                 </p>
-                <p className="font-semibold text-navy">What we cover:</p>
-                <ul className="list-disc pl-5 space-y-2">
-                  <li>Drywall partitions and POP ceiling layouts</li>
-                  <li>Custom media consoles and floating shelves installations</li>
-                  <li>Neat placement of LED strip panels and spot fixtures</li>
-                  <li>Space optimization renovations for homes and offices</li>
+                <p className="font-bold text-navy text-lg font-heading">What we cover:</p>
+                <ul className="space-y-3 pl-1">
+                  {[
+                    'POP ceiling construction and decorative plaster boards',
+                    'Architectural LED track lights and accent chandeliers',
+                    'Wood paneling, wall panels, and painting finishes',
+                    'Custom layout space planning and cabinetry coordination',
+                  ].map((item, idx) => (
+                    <li key={idx} className="flex items-start gap-3">
+                      <span className="flex h-6 w-6 items-center justify-center rounded-full bg-orange/10 text-orange text-xs font-bold mt-0.5">
+                        ✓
+                      </span>
+                      <span>{item}</span>
+                    </li>
+                  ))}
                 </ul>
               </div>
 
               <div className="pt-6 flex flex-wrap gap-4 items-center">
-                <Button href={whatsappUrl} variant="secondary" size="lg" external>
+                <Button href={whatsappUrl} variant="primary" size="lg" external>
                   <FontAwesomeIcon icon={faWhatsapp} className="mr-2 h-5 w-5" />
                   Request Interior Quote
                 </Button>
