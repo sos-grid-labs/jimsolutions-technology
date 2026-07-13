@@ -4,7 +4,6 @@ import { getOrganizationSchema, getLocalBusinessSchema } from '@/lib/schema';
 import SchemaScript from '@/components/ui/SchemaScript';
 import Hero from '@/components/sections/Hero';
 import WhoWeAre from '@/components/sections/WhoWeAre';
-import Statistics from '@/components/sections/Statistics';
 import ServicesGrid from '@/components/sections/ServicesGrid';
 import ProjectsCards from '@/components/sections/ProjectsCards';
 import WhyChooseUs from '@/components/sections/WhyChooseUs';
@@ -38,9 +37,6 @@ export default function HomePage() {
 
       {/* 2. Who We Are */}
       <WhoWeAre />
-
-      {/* 3. Statistics */}
-      <Statistics />
 
       {/* 4. Core Services */}
       <ServicesGrid />
