@@ -11,34 +11,33 @@ import SectionHeading from '@/components/ui/SectionHeading';
 import FramedImage from '@/components/ui/FramedImage';
 
 export const metadata: Metadata = createMetadata({
-  title: 'Home Appliance Supply & Professional Setup Lagos | Jimsolutions Technology',
+  title: 'Premium Appliance Solutions Lagos | Jimsolutions Technology',
   description:
-    'We supply and set up washing machines, built-in ovens, high-end refrigerators, and home theater setups with neat wiring. Serving Lagos and nationwide.',
+    'Professional installation, preventive maintenance, diagnostics, repairs, and service contracts for Miele, Gaggenau, Bosch, and Siemens appliances in Lagos.',
   path: '/services/appliances',
 });
 
 export default function AppliancesServicePage() {
   const serviceSchema = getServiceSchema(
-    'Home Appliances Supply & Setup',
-    'Supply, placement, assembly, and neat configuration of major home appliances.',
+    'Premium Appliance Solutions',
+    'Installation, preventive maintenance, fault diagnosis, repairs, and service contracts for luxury appliances.',
     '/services/appliances',
   );
 
   const breadcrumbSchema = getBreadcrumbSchema([
     { name: 'Home', url: '/' },
     { name: 'Services', url: '/services' },
-    { name: 'Home Appliances', url: '/services/appliances' },
+    { name: 'Premium Appliance Solutions', url: '/services/appliances' },
   ]);
 
-  const whatsappUrl = getWhatsappLink(
-    'Hello Jimsolutions Technology, I would like to get a quote for Home Appliances supply and installation. My location is Lagos.',
-  );
+  const whatsappUrl = getWhatsappLink();
 
   const checklist = [
-    'Supply of premium appliances from verified brands',
-    'Built-in oven, microwave, and hob installation',
-    'Washing machine and clothes dryer placement and utility connections',
-    'Neat power cabling and safety switch integration',
+    'Installation — professional, safety-compliant placement and testing',
+    'Preventive Maintenance — custom cleaning, seal checks, and calibrations',
+    'Emergency Repairs — rapid response for luxury equipment faults',
+    'Fault Diagnosis — high-end digital analyzer troubleshooting',
+    'Annual Service Contracts — priority support and scheduled audits',
   ];
 
   return (
@@ -74,8 +73,8 @@ export default function AppliancesServicePage() {
             {/* Text panel */}
             <div className="lg:col-span-7 space-y-8">
               <SectionHeading
-                eyebrow="Home Appliances"
-                title="Premium Appliance Setup. Seamless Integration."
+                eyebrow="Premium Appliance Solutions"
+                title="Luxury Appliance Care. Expert Technical Support."
                 align="left"
               />
 

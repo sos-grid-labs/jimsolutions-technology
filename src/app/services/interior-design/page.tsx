@@ -11,34 +11,30 @@ import SectionHeading from '@/components/ui/SectionHeading';
 import FramedImage from '@/components/ui/FramedImage';
 
 export const metadata: Metadata = createMetadata({
-  title: 'Premium Interior Design, POP Ceilings & Lighting Lagos | Jimsolutions Technology',
+  title: 'Bespoke Interior Solutions & Kitchen Design Lagos',
   description:
-    'Transform your property with modern POP ceiling patterns, architectural lighting, wall panels, and premium painting. Handcrafted design layouts.',
+    'Luxury interior finishing, bespoke space planning, drywall partitions, and high-end kitchen styling for residential properties in Lagos.',
   path: '/services/interior-design',
 });
 
 export default function InteriorServicePage() {
   const serviceSchema = getServiceSchema(
-    'Interior Design',
-    'Custom space planning, POP ceiling design, luxury lighting, and paint finishes.',
+    'Interior Solutions',
+    'Bespoke space planning, kitchen design, and luxury interior finishing.',
     '/services/interior-design',
   );
 
   const breadcrumbSchema = getBreadcrumbSchema([
     { name: 'Home', url: '/' },
     { name: 'Services', url: '/services' },
-    { name: 'Interior Design', url: '/services/interior-design' },
+    { name: 'Interior Solutions', url: '/services/interior-design' },
   ]);
 
-  const whatsappUrl = getWhatsappLink(
-    'Hello Jimsolutions Technology, I would like to get a quote for POP ceiling and interior lighting installation. My location is Lagos.',
-  );
+  const whatsappUrl = getWhatsappLink();
 
   const checklist = [
-    'POP ceiling construction and decorative plaster boards',
-    'Architectural LED track lights and accent chandeliers',
-    'Wood paneling, wall panels, and painting finishes',
-    'Custom layout space planning and cabinetry coordination',
+    'Kitchen Design — bespoke kitchen styling and space planning layout drafts',
+    'Luxury Interior Finishing — drywall partitions, POP ceilings, and accent LED work',
   ];
 
   return (
@@ -74,8 +70,8 @@ export default function InteriorServicePage() {
             {/* Text panel */}
             <div className="lg:col-span-7 space-y-8">
               <SectionHeading
-                eyebrow="Interior Design"
-                title="Architectural Finishes, POP Ceilings & Lighting Layouts"
+                eyebrow="Interior Solutions"
+                title="Bespoke Interior Finishing & Layout Space Planning"
                 align="left"
               />
 

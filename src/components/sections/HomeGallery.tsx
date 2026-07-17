@@ -3,37 +3,42 @@ import Link from 'next/link';
 import FramedImage from '../ui/FramedImage';
 import SectionHeading from '../ui/SectionHeading';
 
-/**
- * HomeGallery — REDESIGN-PROMPT design system
- *
- * 4-item photo grid using FramedImage — corner brackets on every image.
- * Hairline-bordered grid, no rounded corners, no drop shadows.
- * Mono category tag replaces the rounded pill.
- */
 const items = [
   {
     src: '/img/projects/solar-system.jpg',
     alt: 'High Voltage Solar Inverter Setup',
-    caption: 'FIG. 05 — SOLAR & INVERTER, LEKKI',
-    tag: 'Solar & Inverter',
+    caption: 'FIG. 05 — RENEWABLE ENERGY, LEKKI',
+    tag: 'Renewable Energy',
   },
   {
-    src: '/img/projects/electrical-upgrade.jpg',
-    alt: 'Safety Compliant Main Breaker Panel',
-    caption: 'FIG. 06 — ELECTRICAL PANEL, IKEJA',
-    tag: 'Electrical',
+    src: '/img/gallery/electrical-panel-installation.jpg',
+    alt: 'Luxury Residential Electrical Distribution Board',
+    caption: 'FIG. 06 — APPLIANCE SOLUTIONS, IKEJA',
+    tag: 'Premium Appliance Solutions',
   },
   {
     src: '/img/projects/kitchen-integration.jpg',
     alt: 'Integrated Oven and Island Hob',
-    caption: 'FIG. 07 — KITCHEN FIT-OUT, VICTORIA ISLAND',
-    tag: 'Kitchen',
+    caption: 'FIG. 07 — KITCHEN ENGINEERING, VICTORIA ISLAND',
+    tag: 'Kitchen Engineering',
   },
   {
-    src: '/img/projects/laundry-setup.jpg',
-    alt: 'Clean Stacked Washer and Dryer Setup',
-    caption: 'FIG. 08 — LAUNDRY SETUP, IKOYI',
-    tag: 'Laundry',
+    src: '/img/services/luxury-laundry-room.png',
+    alt: 'Premium Stacked Miele Washer & Dryer Utility Setup',
+    caption: 'FIG. 08 — LAUNDRY SOLUTIONS, IKOYI',
+    tag: 'Laundry Solutions',
+  },
+  {
+    src: '/img/gallery/master-fridge.jpg',
+    alt: 'Flush Integrated Refrigeration Unit',
+    caption: 'FIG. 09 — REFRIGERATION SYSTEMS, LEKKI',
+    tag: 'Refrigeration Systems',
+  },
+  {
+    src: '/img/gallery/island-cooktop.jpg',
+    alt: 'Neat Island Induction Cooktop',
+    caption: 'FIG. 10 — KITCHEN ENGINEERING, IKOYI',
+    tag: 'Kitchen Engineering',
   },
 ];
 
@@ -72,24 +77,18 @@ export default function HomeGallery() {
           </Link>
         </div>
 
-        {/* 4-up hairline grid */}
+        {/* 6-up responsive hairline grid using grid gap */}
         <div
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4"
-          style={{ border: '1px solid var(--line)' }}
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-[1px] bg-[var(--line)] border border-[var(--line)]"
         >
           {items.map((item, idx) => (
-            <div
-              key={idx}
-              style={{
-                borderRight: idx < items.length - 1 ? '1px solid var(--line)' : undefined,
-              }}
-            >
+            <div key={idx} className="flex flex-col bg-white">
               <FramedImage
                 src={item.src}
                 alt={item.alt}
                 caption={item.caption}
                 aspect="aspect-square"
-                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
               />
               {/* Mono tag below image */}
               <div
@@ -103,9 +102,10 @@ export default function HomeGallery() {
                   style={{
                     fontFamily: 'var(--font-mono)',
                     fontSize: '9px',
-                    letterSpacing: '0.12em',
+                    letterSpacing: '0.08em',
                     textTransform: 'uppercase',
-                    color: 'var(--graphite)',
+                    color: 'var(--orange)',
+                    fontWeight: 700,
                   }}
                 >
                   {item.tag}

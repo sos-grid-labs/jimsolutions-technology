@@ -7,7 +7,7 @@ import {
   faClock,
   faLocationDot,
 } from '@fortawesome/free-solid-svg-icons';
-import { faWhatsapp } from '@fortawesome/free-brands-svg-icons';
+import { faWhatsapp, faInstagram, faTiktok } from '@fortawesome/free-brands-svg-icons';
 import { BUSINESS_DETAILS, getWhatsappLink } from '@/lib/constants';
 
 export default function Footer() {
@@ -24,12 +24,12 @@ export default function Footer() {
   ];
 
   const services = [
-    { name: 'Electrical Services', href: '/services/electrical' },
-    { name: 'Solar & Inverters', href: '/services/solar' },
-    { name: 'Home Appliances', href: '/services/appliances' },
-    { name: 'Kitchen Installation', href: '/services/kitchen' },
-    { name: 'Interior Design', href: '/services/interior-design' },
-    { name: 'Laundry Setup', href: '/services/laundry' },
+    { name: 'Premium Appliance Solutions', href: '/services/appliances' },
+    { name: 'Kitchen Engineering', href: '/services/kitchen' },
+    { name: 'Refrigeration Systems', href: '/services/refrigeration' },
+    { name: 'Laundry Solutions', href: '/services/laundry' },
+    { name: 'Renewable Energy', href: '/services/solar' },
+    { name: 'Interior Solutions', href: '/services/interior-design' },
   ];
 
   const contactRows = [
@@ -128,6 +128,30 @@ export default function Footer() {
                 style={{ background: 'var(--live)' }}
               />
               <span className="uppercase">Engineers On Duty</span>
+            </div>
+
+            {/* Social Icons */}
+            <div className="flex items-center gap-3 mt-4">
+              <a
+                href={BUSINESS_DETAILS.instagramUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center justify-center bg-[rgba(255,255,255,0.08)] text-[rgba(255,255,255,0.7)] hover:bg-[var(--orange)] hover:text-white transition-colors"
+                style={{ width: '32px', height: '32px' }}
+                aria-label="Instagram"
+              >
+                <FontAwesomeIcon icon={faInstagram} style={{ width: '14px', height: '14px' }} />
+              </a>
+              <a
+                href={BUSINESS_DETAILS.tiktokUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center justify-center bg-[rgba(255,255,255,0.08)] text-[rgba(255,255,255,0.7)] hover:bg-[var(--orange)] hover:text-white transition-colors"
+                style={{ width: '32px', height: '32px' }}
+                aria-label="TikTok"
+              >
+                <FontAwesomeIcon icon={faTiktok} style={{ width: '14px', height: '14px' }} />
+              </a>
             </div>
           </div>
 

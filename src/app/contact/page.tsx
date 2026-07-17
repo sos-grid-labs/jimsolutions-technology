@@ -1,7 +1,7 @@
 import { Metadata } from 'next';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEnvelope, faPhone, faMapMarkerAlt, faClock } from '@fortawesome/free-solid-svg-icons';
-import { faWhatsapp } from '@fortawesome/free-brands-svg-icons';
+import { faWhatsapp, faInstagram, faTiktok } from '@fortawesome/free-brands-svg-icons';
 import { createMetadata } from '@/lib/seo';
 import { getBreadcrumbSchema } from '@/lib/schema';
 import SchemaScript from '@/components/ui/SchemaScript';
@@ -21,9 +21,7 @@ export default function ContactPage() {
     { name: 'Contact', url: '/contact' },
   ]);
 
-  const whatsappUrl = getWhatsappLink(
-    'Hello Jimsolutions Technology, I would like to get a quote. My location is Lagos.',
-  );
+  const whatsappUrl = getWhatsappLink();
 
   const contactMethods = [
     {
@@ -47,6 +45,22 @@ export default function ContactPage() {
       href: `mailto:${BUSINESS_DETAILS.email}`,
       icon: faEnvelope,
       label: 'Get a proposal in writing',
+    },
+    {
+      title: 'Instagram',
+      value: '@jimsolutions_technology',
+      href: BUSINESS_DETAILS.instagramUrl,
+      icon: faInstagram,
+      label: 'Follow our project updates',
+      external: true,
+    },
+    {
+      title: 'TikTok',
+      value: '@jimsolutions_tech',
+      href: BUSINESS_DETAILS.tiktokUrl,
+      icon: faTiktok,
+      label: 'Watch our engineering setups',
+      external: true,
     },
   ];
 

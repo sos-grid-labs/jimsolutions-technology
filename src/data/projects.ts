@@ -22,14 +22,14 @@ export const PROJECTS: ProjectItem[] = [
   },
   {
     id: 2,
-    title: 'Complete Electrical Rewiring & Safety Upgrade',
-    category: 'Electrical Services',
+    title: 'Complete Luxury Appliance Care & Electrical Setup',
+    category: 'Premium Appliance Solutions',
     location: 'Ikeja, Lagos',
     description:
-      'Completed a comprehensive electrical assessment and rewiring for a property. Replaced outdated fuses with modern distribution boards, corrected structural routing issues, and installed neat accent lighting with zero exposed conduits.',
+      'Completed a comprehensive electrical assessment, rewiring, and premium built-in appliance setup for a private estate. Corrected structural routing issues and installed neat connections with zero exposed conduits.',
     image: '/img/projects/electrical-upgrade.jpg',
     whatsappMessage:
-      'Hello Jimsolutions Technology, I need an electrical wiring inspection/upgrade for my property. Can you share details?',
+      'Hello Jimsolutions Technology, I need an appliance setup and electrical wiring inspection for my property. Can you share details?',
   },
   {
     id: 3,

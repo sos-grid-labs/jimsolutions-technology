@@ -31,12 +31,12 @@ export default function Navbar() {
   ];
 
   const subServices = [
-    { name: 'Electrical Services', href: '/services/electrical' },
-    { name: 'Solar & Inverters', href: '/services/solar' },
-    { name: 'Home Appliances', href: '/services/appliances' },
-    { name: 'Kitchen Installation', href: '/services/kitchen' },
-    { name: 'Interior Design', href: '/services/interior-design' },
-    { name: 'Laundry Setup', href: '/services/laundry' },
+    { name: 'Premium Appliance Solutions', href: '/services/appliances' },
+    { name: 'Kitchen Engineering', href: '/services/kitchen' },
+    { name: 'Refrigeration Systems', href: '/services/refrigeration' },
+    { name: 'Laundry Solutions', href: '/services/laundry' },
+    { name: 'Renewable Energy', href: '/services/solar' },
+    { name: 'Interior Solutions', href: '/services/interior-design' },
   ];
 
   const whatsappUrl = getWhatsappLink('Hello Jimsolutions Technology, I would like to get a quote.');

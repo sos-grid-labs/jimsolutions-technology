@@ -11,34 +11,31 @@ import SectionHeading from '@/components/ui/SectionHeading';
 import FramedImage from '@/components/ui/FramedImage';
 
 export const metadata: Metadata = createMetadata({
-  title: 'Modern Kitchen Cabinets & Cooktop Installation Lagos | Jimsolutions Technology',
+  title: 'Kitchen Engineering & Built-in Appliance Installation Lagos',
   description:
-    'Get high-end kitchen layout plans, modern cabinets, downdraft extractors, and built-in appliance setup in Lagos. Handcrafted quality designs.',
+    'Professional kitchen furniture integration, built-in appliance alignment, and commissioning for luxury homes in Lagos and nationwide.',
   path: '/services/kitchen',
 });
 
 export default function KitchenServicePage() {
   const serviceSchema = getServiceSchema(
-    'Kitchen Installation',
-    'Custom kitchen layouts, premium cabinets configuration, and smart appliance integration.',
+    'Kitchen Engineering',
+    'Built-in appliance installations, kitchen furniture integration, and precise system commissioning.',
     '/services/kitchen',
   );
 
   const breadcrumbSchema = getBreadcrumbSchema([
     { name: 'Home', url: '/' },
     { name: 'Services', url: '/services' },
-    { name: 'Kitchen Installation', url: '/services/kitchen' },
+    { name: 'Kitchen Engineering', url: '/services/kitchen' },
   ]);
 
-  const whatsappUrl = getWhatsappLink(
-    'Hello Jimsolutions Technology, I would like to get a quote for kitchen cabinets and island cooktop installation. My location is Lagos.',
-  );
+  const whatsappUrl = getWhatsappLink();
 
   const checklist = [
-    'Custom cabinet alignment and professional installation',
-    'Island kitchen cooktops and induction hobs setup',
-    'Downdraft and canopy extractor fans mounting',
-    'Flush integration of master cool refrigerators and built-in ovens',
+    'Built-in Appliance Installation — ovens, hobs, and hood integrations',
+    'Kitchen Furniture Integration — custom cabinets alignment and panel fit-outs',
+    'Commissioning — comprehensive electrical load tests and water line calibrations',
   ];
 
   return (
@@ -74,8 +71,8 @@ export default function KitchenServicePage() {
             {/* Text panel */}
             <div className="lg:col-span-7 space-y-8">
               <SectionHeading
-                eyebrow="Kitchen Installation"
-                title="Sleek Cabinet Layouts & High-End Cooktop Integration"
+                eyebrow="Kitchen Engineering"
+                title="Precision Kitchen Layouts & Furniture Integration"
                 align="left"
               />
 

@@ -1,7 +1,7 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faPhone, faChevronLeft, faCheck } from '@fortawesome/free-solid-svg-icons';
+import { faPhone, faChevronLeft, faCheck, faSnowflake } from '@fortawesome/free-solid-svg-icons';
 import { faWhatsapp } from '@fortawesome/free-brands-svg-icons';
 import { createMetadata } from '@/lib/seo';
 import { getBreadcrumbSchema, getServiceSchema } from '@/lib/schema';
@@ -11,34 +11,32 @@ import SectionHeading from '@/components/ui/SectionHeading';
 import FramedImage from '@/components/ui/FramedImage';
 
 export const metadata: Metadata = createMetadata({
-  title: 'Professional Electrical Services in Lagos | Jimsolutions Technology',
+  title: 'Wine Coolers & Built-in Refrigeration Setup Lagos | Jimsolutions Technology',
   description:
-    'Need a reliable electrician in Lagos? We provide electrical wiring, fault diagnostics, circuit repairs, and custom home automation setups. Contact us today!',
-  path: '/services/electrical',
+    'Premium setup, preventive maintenance, and repairs for luxury wine coolers, built-in dual-compressor refrigerators, and commercial cooling units in Lagos.',
+  path: '/services/refrigeration',
 });
 
-export default function ElectricalServicePage() {
+export default function RefrigerationServicePage() {
   const serviceSchema = getServiceSchema(
-    'Electrical Services',
-    'Comprehensive electrical services including wiring, troubleshooting, repairs, and installations.',
-    '/services/electrical',
+    'Refrigeration Systems',
+    'Wine coolers, built-in refrigerators, and commercial refrigeration setups.',
+    '/services/refrigeration',
   );
 
   const breadcrumbSchema = getBreadcrumbSchema([
     { name: 'Home', url: '/' },
     { name: 'Services', url: '/services' },
-    { name: 'Electrical', url: '/services/electrical' },
+    { name: 'Refrigeration Systems', url: '/services/refrigeration' },
   ]);
 
-  const whatsappUrl = getWhatsappLink(
-    'Hello Jimsolutions Technology, I would like to get a quote for Electrical Services.',
-  );
+  const whatsappUrl = getWhatsappLink();
 
   const checklist = [
-    'Full property wiring/rewiring with clean conduit paths',
-    'Fault diagnostics and circuit breaker troubleshooting',
-    'Safety compliance assessments and grounding audits',
-    'Neat installation of switches, sockets, and accent light panels',
+    'Wine Coolers — precise temperature and humidity cabinet calibration',
+    'Built-in Refrigerators — dual-compressor and flush-integrated setups',
+    'Commercial Refrigeration — walk-in chillers and display units maintenance',
+    'Regular seal verification, gas checks, and condenser coil cleaning',
   ];
 
   return (
@@ -63,8 +61,8 @@ export default function ElectricalServicePage() {
             <div className="lg:col-span-5">
               <FramedImage
                 src="/img/services/electrical.jpg"
-                alt="Electrical wiring assessment and troubleshooting"
-                caption="FIG. 12 — ELECTRICAL WORK, SURULERE"
+                alt="Luxury integrated wine cooler refrigerator setup"
+                caption="FIG. 12 — REFRIGERATION CALIBRATION, LAGOS"
                 aspect="aspect-[4/3]"
                 sizes="(max-width: 1024px) 100vw, 40vw"
                 priority
@@ -74,8 +72,8 @@ export default function ElectricalServicePage() {
             {/* Text panel */}
             <div className="lg:col-span-7 space-y-8">
               <SectionHeading
-                eyebrow="Electrical Services"
-                title="Neat Wiring, Compliant Repairs & Safety Audits"
+                eyebrow="Refrigeration Systems"
+                title="Premium Cooling Care. Precise Temperature Control."
                 align="left"
               />
 
@@ -84,14 +82,14 @@ export default function ElectricalServicePage() {
                 style={{ color: 'var(--graphite)', fontFamily: 'var(--font-body)' }}
               >
                 <p>
-                  Electrical safety is the core of any functional space. At Jimsolutions Technology,
-                  we provide comprehensive electrical services for residential and commercial
-                  properties in Lagos and nationwide.
+                  Protect your high-end wine collections and fresh produce. At Jimsolutions Technology,
+                  we provide specialized installation, preventative maintenance, and repair services
+                  for luxury built-in refrigerators, dual-compressor systems, and specialized wine coolers.
                 </p>
                 <p>
-                  Our certified technical team handles complete electrical wiring/rewiring, fault
-                  finding, circuit breaker repairs, power outlets installation, and light fixture
-                  upgrades.
+                  We ensure completely flush cabinetry alignments, optimal rear ventilation clearances
+                  to protect compressor lifespan, clean water feed line connections for built-in ice makers,
+                  and professional temperature diagnostics.
                 </p>
                 <p
                   className="font-black uppercase tracking-tight"
@@ -142,7 +140,7 @@ export default function ElectricalServicePage() {
                   style={{ background: 'var(--panel-ink)', border: '1px solid var(--panel-ink)' }}
                 >
                   <FontAwesomeIcon icon={faWhatsapp} style={{ width: '15px', height: '15px' }} />
-                  Request Electrical Quote
+                  Request Setup Quote
                 </a>
                 <a
                   href={`tel:${BUSINESS_DETAILS.phone}`}

@@ -1,25 +1,37 @@
-import SpecStrip, { SpecItem } from '../ui/SpecStrip';
-import { faAward, faBriefcase, faMap, faHeadset, faBolt } from '@fortawesome/free-solid-svg-icons';
+'use client';
 
-/**
- * Statistics — now delegates to the shared SpecStrip component.
- * This component is kept as a named export so page imports don't break.
- * The SpecStrip inside Hero also renders these stats; if used standalone
- * on inner pages, this provides the same meter-readout block.
- */
-const stats: SpecItem[] = [
-  { value: '5+',       label: 'Years of Experience',  icon: faAward     },
-  { value: '500+',     label: 'Projects Completed',   icon: faBriefcase },
-  { value: '36',       label: 'States Reached',       icon: faMap       },
-  { value: '8am–10pm', label: 'Daily Live Support',   icon: faHeadset   },
-  { value: '<2 hrs',   label: 'Avg. Response Time',   icon: faBolt      },
+import AnimatedCounter from '../ui/AnimatedCounter';
+
+const stats = [
+  { value: 2,   suffix: '+',  label: 'Years Industry Experience' },
+  { value: 100, suffix: '+',  label: 'Service Visits' },
+  { value: 50,  suffix: '+',  label: 'Premium Appliances Installed' },
+  { value: 98,  suffix: '%',  label: 'Customer Satisfaction' },
+  { value: 24,  suffix: ' Hours', label: 'Response Within 24 Hours', prefix: '<' },
 ];
 
 export default function Statistics() {
   return (
-    <section className="w-full" aria-label="Company statistics">
+    <section className="w-full bg-white" style={{ borderBottom: '1px solid var(--line)' }}>
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16">
-        <SpecStrip items={stats} theme="light" />
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8">
+          {stats.map((stat, i) => (
+            <div key={i} className="flex flex-col items-center justify-center text-center p-4">
+              <span
+                className="font-display font-black leading-none text-4xl sm:text-5xl text-panel-ink mb-3 block"
+                style={{ fontFamily: 'var(--font-display)', color: 'var(--panel-ink)' }}
+              >
+                <AnimatedCounter value={stat.value} suffix={stat.suffix} prefix={stat.prefix} />
+              </span>
+              <span
+                className="uppercase font-mono text-[9px] tracking-[0.12em] leading-relaxed text-graphite block max-w-[18ch] mx-auto"
+                style={{ fontFamily: 'var(--font-mono)' }}
+              >
+                {stat.label}
+              </span>
+            </div>
+          ))}
+        </div>
       </div>
     </section>
   );

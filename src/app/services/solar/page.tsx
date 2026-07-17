@@ -11,34 +11,31 @@ import SectionHeading from '@/components/ui/SectionHeading';
 import FramedImage from '@/components/ui/FramedImage';
 
 export const metadata: Metadata = createMetadata({
-  title: 'Solar & Inverter System Installation Lagos | Jimsolutions Technology',
+  title: 'Renewable Energy & Solar Inverter Systems Lagos',
   description:
-    'Get stable electricity with custom solar power and inverter installation services in Lagos. Quality backup battery systems and load calculations. Quote on WhatsApp.',
+    'Get high-performance solar panels, inverter configurations, and battery storage setups in Lagos and nationwide. Professional sizing and layout audits.',
   path: '/services/solar',
 });
 
 export default function SolarServicePage() {
   const serviceSchema = getServiceSchema(
-    'Solar & Inverter Systems',
-    'Solar panel array setup, inverter assembly, and backup battery power systems.',
+    'Renewable Energy',
+    'Solar panel array installations, hybrid inverter configurations, and battery storage backup setups.',
     '/services/solar',
   );
 
   const breadcrumbSchema = getBreadcrumbSchema([
     { name: 'Home', url: '/' },
     { name: 'Services', url: '/services' },
-    { name: 'Solar', url: '/services/solar' },
+    { name: 'Renewable Energy', url: '/services/solar' },
   ]);
 
-  const whatsappUrl = getWhatsappLink(
-    'Hello Jimsolutions Technology, I would like to get a quote for Solar & Inverter System installation. My location is Lagos.',
-  );
+  const whatsappUrl = getWhatsappLink();
 
   const checklist = [
-    'Detailed load assessments and energy auditing',
-    'Monocrystalline/Polycrystalline solar panels assembly',
-    'Inverter battery bank sizing and connection',
-    'Hybrid changeover switches configuration',
+    'Solar Installation — Tier-1 monocrystalline panels mounting and configuration',
+    'Inverter Systems — high-efficiency hybrid inverters load balancing',
+    'Battery Backup — long-lasting lithium-ion and tubular gel battery banks integration',
   ];
 
   return (
@@ -74,8 +71,8 @@ export default function SolarServicePage() {
             {/* Text panel */}
             <div className="lg:col-span-7 space-y-8">
               <SectionHeading
-                eyebrow="Solar & Inverter Systems"
-                title="Stable Power Backups Built Around Your Daily Energy Needs"
+                eyebrow="Renewable Energy"
+                title="Engineered Renewable Energy & Solar Inverter Backups"
                 align="left"
               />
 

@@ -1,61 +1,78 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faShieldHalved, faWrench, faClock, faTruckFast } from '@fortawesome/free-solid-svg-icons';
+import {
+  faShieldHalved,
+  faWrench,
+  faAward,
+  faCogs,
+  faBoxes,
+  faCalculator,
+  faHeadset,
+  faBolt,
+} from '@fortawesome/free-solid-svg-icons';
 import SectionHeading from '../ui/SectionHeading';
 
-/**
- * WhyChooseUs — REDESIGN-PROMPT design system
- *
- * Four discipline columns in a hairline-bordered grid.
- * Each column: icon badge (alternating navy/orange) + title + description.
- * No rounded cards, no drop shadows. Light grey panel background.
- */
 export default function WhyChooseUs() {
   const values = [
     {
-      title: 'Safety Standards',
-      description:
-        'We follow NERC guidelines, conduit cable separation, and certified safety changeover limits on every project.',
-      icon: faShieldHalved,
+      title: 'Certified Engineering',
+      description: 'Technical solutions designed and executed by certified engineers to protect your property systems.',
+      icon: faAward,
     },
     {
-      title: 'Experienced Execution',
-      description:
-        'Handcrafted cabinet placements, flush island hob joints, and battery calculations. No shortcuts.',
+      title: 'Premium Appliance Specialists',
+      description: 'Dedicated expertise in high-end luxury brands like Miele, Gaggenau, Bosch, and Siemens.',
       icon: faWrench,
     },
     {
-      title: 'Daily Availability',
-      description:
-        'Active from 8:00 AM to 10:00 PM daily on WhatsApp and direct line. We respond within 2 hours.',
-      icon: faClock,
+      title: 'Professional Diagnostics',
+      description: 'High-end analyzer diagnostics to isolate errors and prevent system failures.',
+      icon: faCogs,
     },
     {
-      title: 'Nationwide Reach',
-      description:
-        'Lagos-based diagnostics with equipment delivery and managed installation crews active nationwide.',
-      icon: faTruckFast,
+      title: 'Genuine Parts Support',
+      description: 'Direct procurement and installation of authentic components from official brand channels.',
+      icon: faBoxes,
+    },
+    {
+      title: 'Transparent Pricing',
+      description: 'Itemized, competitive proposals with clear technical deliverables and zero surprises.',
+      icon: faCalculator,
+    },
+    {
+      title: 'After Sales Support',
+      description: 'Comprehensive warranty follow-ups, scheduled check-ins, and priority remote help.',
+      icon: faHeadset,
+    },
+    {
+      title: 'Fast Response Time',
+      description: 'Rapid response times with dedicated technicians ready for critical support calls.',
+      icon: faBolt,
+    },
+    {
+      title: 'Preventive Maintenance',
+      description: 'Scheduled multi-point safety audits and tuning to prolong equipment lifespan.',
+      icon: faShieldHalved,
     },
   ];
 
   return (
     <section
-      className="w-full"
-      style={{ background: '#f8f9fc', borderBottom: '1px solid var(--line)' }}
+      className="w-full bg-[#f8f9fc]"
+      style={{ borderBottom: '1px solid var(--line)' }}
     >
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-20 lg:py-28">
         <SectionHeading
           eyebrow="Engineering Standards"
-          index="04 DISCIPLINES"
+          index="08 PILARS"
           title="Why Choose Jimsolutions"
           subtitle="Bridging certified technical compliance with clean, visual integration."
           align="left"
           className="mb-16"
         />
 
-        {/* 4-column bordered grid */}
+        {/* 8-column bordered grid using CSS gap hairline borders */}
         <div
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4"
-          style={{ border: '1px solid var(--line)' }}
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-[1px] bg-[var(--line)] border border-[var(--line)]"
         >
           {values.map((val, i) => {
             const badgeBg = i % 2 === 0 ? 'var(--panel-ink)' : 'var(--orange)';
@@ -63,11 +80,7 @@ export default function WhyChooseUs() {
             return (
               <div
                 key={i}
-                className="p-8 lg:p-10 flex flex-col"
-                style={{
-                  background: '#ffffff',
-                  borderRight: i < values.length - 1 ? '1px solid var(--line)' : undefined,
-                }}
+                className="p-8 lg:p-10 flex flex-col bg-white hover:bg-[#f8f9fc] transition-colors duration-200"
               >
                 {/* Icon badge */}
                 <div
@@ -82,10 +95,9 @@ export default function WhyChooseUs() {
 
                 {/* Title */}
                 <h3
-                  className="font-black uppercase leading-tight mb-4"
+                  className="font-black uppercase leading-tight mb-4 text-base"
                   style={{
                     fontFamily: 'var(--font-display)',
-                    fontSize: '1.2rem',
                     color: 'var(--panel-ink)',
                     letterSpacing: '-0.01em',
                   }}
@@ -95,8 +107,7 @@ export default function WhyChooseUs() {
 
                 {/* Description */}
                 <p
-                  className="text-sm leading-relaxed"
-                  style={{ color: 'var(--graphite)' }}
+                  className="text-xs leading-relaxed text-graphite"
                 >
                   {val.description}
                 </p>

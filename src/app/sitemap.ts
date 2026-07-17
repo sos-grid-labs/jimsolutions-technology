@@ -7,7 +7,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '',
     '/about',
     '/services',
-    '/services/electrical',
+    '/services/refrigeration',
     '/services/solar',
     '/services/appliances',
     '/services/kitchen',

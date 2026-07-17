@@ -7,6 +7,15 @@ const nextConfig: NextConfig = {
   typescript: {
     ignoreBuildErrors: true,
   },
+  async redirects() {
+    return [
+      {
+        source: '/services/electrical',
+        destination: '/services/refrigeration',
+        permanent: true,
+      },
+    ];
+  },
 };
 
 export default nextConfig;

@@ -14,15 +14,14 @@ import FramedImage from '../ui/FramedImage';
  * No rounded corners, no shadows. White bg.
  */
 export default function WhoWeAre() {
-  const whatsappUrl = getWhatsappLink(
-    'Hello Jimsolutions Technology, I would like to learn more about your services and request a quote.',
-  );
+  const whatsappUrl = getWhatsappLink();
 
   const points = [
-    'Safety-compliant wiring per NERC guidelines, zero exposed conduits',
-    'Custom solar energy load calculations for stable backup power',
-    'Flush built-in kitchen and appliance cabinet integrations',
-    'Comprehensive utility space setups — Lagos base, nationwide reach',
+    'Premium appliance solutions for Miele, Gaggenau, Bosch, Siemens, etc.',
+    'Bespoke kitchen furniture and built-in appliance integration',
+    'Professional refrigeration and luxury wine cooler setups',
+    'Commercial and residential laundry engineering and setups',
+    'Sized solar backups, inverters, and battery banks',
   ];
 
   return (
@@ -62,17 +61,18 @@ export default function WhoWeAre() {
                 className="text-base leading-relaxed"
                 style={{ color: 'var(--graphite)', maxWidth: '58ch' }}
               >
-                Jimsolutions Technology provides professional engineering, electrical safety wiring,
-                hybrid solar backups, cabinet kitchens, and laundry utility setups. Based in Lagos,
-                we provide on-site sizing and technician coordination across all 36 states.
+                Jimsolutions Technology is a Nigerian engineering company specializing in premium
+                home appliance solutions, interior installations, and technical facility support.
+                Based in Lagos, we provide professional workmanship and technical support nationwide.
               </p>
               <p
                 className="text-base leading-relaxed"
                 style={{ color: 'var(--graphite)', maxWidth: '58ch' }}
               >
-                Every project is treated as a craft. We use premium materials, follow a strict
-                clean-up policy, and ensure every installation is inspected before handover. Our
-                engineers are available daily from 8:00 AM to 10:00 PM.
+                We provide installation, preventive maintenance, diagnostics, repairs, and system
+                optimization for luxury residential and commercial properties. Our expertise covers
+                brands like Miele, Gaggenau, Bosch, Siemens, Fhiaba, Barazza, and Teka. Our team is available
+                daily from 8:00 AM to 10:00 PM.
               </p>
             </div>
 

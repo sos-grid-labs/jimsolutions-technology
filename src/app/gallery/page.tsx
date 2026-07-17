@@ -25,47 +25,62 @@ export default function GalleryPage() {
     {
       src: '/img/projects/solar-system.jpg',
       alt: 'High Voltage Solar Inverter Setup',
-      tag: 'Solar & Inverter',
+      tag: 'Renewable Energy',
+    },
+    {
+      src: '/img/gallery/electrical-panel-installation.jpg',
+      alt: 'Luxury Residential Electrical Distribution Board',
+      tag: 'Premium Appliance Solutions',
     },
     {
       src: '/img/projects/electrical-upgrade.jpg',
       alt: 'Safety Compliant Main Breaker Panel',
-      tag: 'Electrical',
+      tag: 'Premium Appliance Solutions',
     },
     {
       src: '/img/projects/kitchen-integration.jpg',
       alt: 'Integrated Oven and Island Hob',
-      tag: 'Kitchen',
+      tag: 'Kitchen Engineering',
+    },
+    {
+      src: '/img/services/luxury-laundry-room.png',
+      alt: 'Premium Stacked Miele Washer & Dryer Utility Setup',
+      tag: 'Laundry Solutions',
     },
     {
       src: '/img/projects/laundry-setup.jpg',
       alt: 'Clean Stacked Washer and Dryer Setup',
-      tag: 'Laundry',
+      tag: 'Laundry Solutions',
     },
     {
       src: '/img/gallery/laundry-ironer.jpg',
       alt: 'Rotary Ironer and Laundry Storage',
-      tag: 'Laundry',
+      tag: 'Laundry Solutions',
     },
     {
       src: '/img/gallery/downdraft-extractor.jpg',
       alt: 'Induction Hob with Downdraft Extractor',
-      tag: 'Kitchen',
+      tag: 'Kitchen Engineering',
     },
     {
       src: '/img/gallery/master-fridge.jpg',
       alt: 'Flush Integrated Refrigeration Unit',
-      tag: 'Home Appliances',
+      tag: 'Refrigeration Systems',
     },
     {
       src: '/img/gallery/outdoor-cooktop.jpg',
       alt: 'Stainless Steel Outdoor Cooktop Placement',
-      tag: 'Kitchen',
+      tag: 'Kitchen Engineering',
     },
     {
       src: '/img/gallery/island-cooktop.jpg',
       alt: 'Neat Island Induction Cooktop',
-      tag: 'Kitchen',
+      tag: 'Kitchen Engineering',
+    },
+    {
+      src: '/img/gallery/laundry-ironer.jpg',
+      alt: 'Laundry Ironer',
+      tag: 'Laundry Solutions',
     },
   ];
 
@@ -121,25 +136,18 @@ export default function GalleryPage() {
             className="mb-16"
           />
 
+          {/* Grid with hairline dividers */}
           <div
-            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3"
-            style={{ border: '1px solid var(--line)' }}
+            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-[1px] bg-[var(--line)] border border-[var(--line)]"
           >
             {galleryItems.map((item, idx) => {
-              const whatsappUrl = getWhatsappLink(
-                `Hello Jimsolutions Technology, I saw this gallery photo: ${item.alt}. I would like to get a quote for a similar installation.`,
-              );
-
+              const whatsappUrl = getWhatsappLink();
               const figLabel = `FIG. ${String(idx + 1).padStart(2, '0')} — ${item.tag.toUpperCase()}`;
 
               return (
                 <div
                   key={idx}
-                  className="flex flex-col"
-                  style={{
-                    borderRight: (idx + 1) % 3 !== 0 ? '1px solid var(--line)' : undefined,
-                    borderBottom: idx < galleryItems.length - 3 ? '1px solid var(--line)' : undefined,
-                  }}
+                  className="flex flex-col bg-white"
                 >
                   <FramedImage
                     src={item.src}

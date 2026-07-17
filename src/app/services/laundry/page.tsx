@@ -11,34 +11,32 @@ import SectionHeading from '@/components/ui/SectionHeading';
 import FramedImage from '@/components/ui/FramedImage';
 
 export const metadata: Metadata = createMetadata({
-  title: 'Smart Laundry Utility Room Installation Lagos | Jimsolutions Technology',
+  title: 'Laundry Solutions & Commercial Laundry Setup Lagos',
   description:
-    'Design a highly functional laundry room. We install stacked washer-dryers, rotary ironers, customized cabinetry, and tidy water feeds in Lagos and Nigeria.',
+    'Professional utility laundry setups, commercial laundry equipment maintenance, washer/dryer hookups, and repairs in Lagos and nationwide.',
   path: '/services/laundry',
 });
 
 export default function LaundryServicePage() {
   const serviceSchema = getServiceSchema(
-    'Laundry Room Setup',
-    'Custom space planning, stacked washer-dryer installations, plumbing drainage feeds, and tidy utility cabinetry.',
+    'Laundry Solutions',
+    'Commercial laundry equipment, washer & dryer repairs, preventive maintenance, and laundry setup.',
     '/services/laundry',
   );
 
   const breadcrumbSchema = getBreadcrumbSchema([
     { name: 'Home', url: '/' },
     { name: 'Services', url: '/services' },
-    { name: 'Laundry Setup', url: '/services/laundry' },
+    { name: 'Laundry Solutions', url: '/services/laundry' },
   ]);
 
-  const whatsappUrl = getWhatsappLink(
-    'Hello Jimsolutions Technology, I would like to get a quote for laundry stack and cabinet installation. My location is Lagos.',
-  );
+  const whatsappUrl = getWhatsappLink();
 
   const checklist = [
-    'Stacked washing machine and clothes dryer mounting',
-    'Rotary ironers and commercial laundry layouts planning',
-    'Custom cabinet storage and pull-out folding shelves',
-    'Leak-proof plumbing inlets, drain traps, and ventilation ducts',
+    'Commercial Laundry Equipment — heavy-duty washers, dryer systems, and ironers setup',
+    'Washer & Dryer Repairs — expert technical repairs for premium brands',
+    'Preventive Maintenance — plumbing inspections, duct cleaning, and diagnostic runs',
+    'Laundry Setup — custom space design and appliance cabinetry integration',
   ];
 
   return (
@@ -62,9 +60,9 @@ export default function LaundryServicePage() {
             {/* Image panel */}
             <div className="lg:col-span-5">
               <FramedImage
-                src="/img/services/laundry.jpg"
-                alt="Neat laundry stacked washer and dryer setup"
-                caption="FIG. 15 — LAUNDRY INSTALLATION, IKEJA"
+                src="/img/services/luxury-laundry-room.png"
+                alt="Premium Stacked Miele Washer & Dryer Setup"
+                caption="FIG. 15 — LUXURY LAUNDRY ROOM, IKEJA"
                 aspect="aspect-[4/3]"
                 sizes="(max-width: 1024px) 100vw, 40vw"
                 priority
@@ -74,8 +72,8 @@ export default function LaundryServicePage() {
             {/* Text panel */}
             <div className="lg:col-span-7 space-y-8">
               <SectionHeading
-                eyebrow="Laundry Setup"
-                title="Tidy Utility Room Configurations & Washer Integration"
+                eyebrow="Laundry Solutions"
+                title="Ergonomic Laundry Solutions & Washer Integration"
                 align="left"
               />
 

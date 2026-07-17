@@ -10,7 +10,10 @@ export function getOrganizationSchema() {
     logo: `${BUSINESS_DETAILS.website}/img/logo/logo.jpg`,
     email: BUSINESS_DETAILS.email,
     telephone: BUSINESS_DETAILS.phone,
-    sameAs: [],
+    sameAs: [
+      BUSINESS_DETAILS.instagramUrl,
+      BUSINESS_DETAILS.tiktokUrl,
+    ],
   };
 }
 

@@ -120,14 +120,16 @@ export default function AboutPage() {
                 style={{ color: 'var(--graphite)', fontFamily: 'var(--font-body)' }}
               >
                 <p>
-                  Jimsolutions Technology is based in Lagos, Nigeria. We provide high-quality
-                  engineering services, electrical installations, custom cabinet kitchen designs,
-                  and utility setup layouts.
+                  Jimsolutions Technology is a Nigerian engineering company specializing in premium
+                  home appliance solutions, interior installations, and technical facility support.
+                  We provide installation, preventive maintenance, diagnostics, repairs, and system
+                  optimization for luxury residential and commercial properties.
                 </p>
                 <p>
-                  We believe that clients deserve clean, safe, and beautiful workmanship. That is
-                  why our team handles every wire connection, inverter sizing calculation, and
-                  appliance setup with precision.
+                  Our expertise covers premium appliance brands including Miele, Gaggenau, Bosch,
+                  Siemens, Fhiaba, Barazza, and Teka. We combine engineering knowledge with professional
+                  workmanship to deliver reliable, long lasting solutions that protect our clients&apos;
+                  investments.
                 </p>
               </div>
 
