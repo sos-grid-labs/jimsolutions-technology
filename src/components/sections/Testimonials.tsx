@@ -30,7 +30,6 @@ export default function Testimonials() {
     >
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-20 lg:py-28">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
-
           {/* Left: heading + controls */}
           <div className="lg:col-span-4">
             <SectionHeading
@@ -144,10 +143,7 @@ export default function Testimonials() {
                 borderTop: '1px solid rgba(255,255,255,0.1)',
               }}
             >
-              <p
-                className="font-semibold"
-                style={{ color: '#ffffff', fontSize: '0.875rem' }}
-              >
+              <p className="font-semibold" style={{ color: '#ffffff', fontSize: '0.875rem' }}>
                 {t.author}
               </p>
               <p

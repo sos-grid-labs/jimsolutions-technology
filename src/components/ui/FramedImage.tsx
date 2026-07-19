@@ -3,7 +3,7 @@ import Image from 'next/image';
 interface FramedImageProps {
   src: string;
   alt: string;
-  /** Caption rendered in mono at bottom-left, e.g. "FIG. 02 — PANEL INSTALL, IKEJA" */
+  /** Caption rendered in mono at bottom-left, e.g. "PANEL INSTALL, IKEJA" */
   caption?: string;
   /** Tailwind aspect class, defaults to aspect-[4/5] */
   aspect?: string;
@@ -25,7 +25,7 @@ interface FramedImageProps {
  */
 
 const BRACKET = 22; // px — arm length of each L-bracket
-const STROKE = 3;   // px — stroke width
+const STROKE = 3; // px — stroke width
 
 export default function FramedImage({
   src,
@@ -42,14 +42,7 @@ export default function FramedImage({
       style={{ border: '1px solid var(--line)' }}
     >
       {/* Photo */}
-      <Image
-        src={src}
-        alt={alt}
-        fill
-        sizes={sizes}
-        className="object-cover"
-        priority={priority}
-      />
+      <Image src={src} alt={alt} fill sizes={sizes} className="object-cover" priority={priority} />
 
       {/* Dark gradient — ensures captions + brackets are readable */}
       <div

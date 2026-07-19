@@ -3,11 +3,11 @@
 import AnimatedCounter from '../ui/AnimatedCounter';
 
 const stats = [
-  { value: 2,   suffix: '+',  label: 'Years Industry Experience' },
-  { value: 100, suffix: '+',  label: 'Service Visits' },
-  { value: 50,  suffix: '+',  label: 'Premium Appliances Installed' },
-  { value: 98,  suffix: '%',  label: 'Customer Satisfaction' },
-  { value: 24,  suffix: ' Hours', label: 'Response Within 24 Hours', prefix: '<' },
+  { value: 2, suffix: '+', label: 'Years Industry Experience' },
+  { value: 100, suffix: '+', label: 'Service Visits' },
+  { value: 50, suffix: '+', label: 'Premium Appliances Installed' },
+  { value: 98, suffix: '%', label: 'Customer Satisfaction' },
+  { value: 24, suffix: ' Hours', label: 'Response Within 24 Hours', prefix: '<' },
 ];
 
 export default function Statistics() {

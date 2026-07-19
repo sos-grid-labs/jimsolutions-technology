@@ -12,22 +12,51 @@ import {
 import SectionHeading from '../ui/SectionHeading';
 
 const industries = [
-  { name: 'Luxury Homes', icon: faHome, desc: 'Bespoke appliance integration and premium interior finishing.' },
-  { name: 'Apartments', icon: faBuilding, desc: 'High-end residential appliance maintenance and backup power.' },
-  { name: 'Hotels', icon: faHotel, desc: 'Commercial kitchen, refrigeration, and laundry support.' },
-  { name: 'Restaurants', icon: faUtensils, desc: 'Professional kitchen engineering and refrigeration servicing.' },
-  { name: 'Commercial Laundries', icon: faSoap, desc: 'Heavy-duty washers, dryers, and layout installations.' },
-  { name: 'Property Developers', icon: faRulerCombined, desc: 'Technical consulting and premium commissioning projects.' },
-  { name: 'Facility Managers', icon: faScrewdriverWrench, desc: 'Annual service contracts and preventative maintenance.' },
-  { name: 'Corporate Offices', icon: faBriefcase, desc: 'Dedicated cooling, laundry space, and power backups.' },
+  {
+    name: 'Luxury Homes',
+    icon: faHome,
+    desc: 'Bespoke appliance integration and premium interior finishing.',
+  },
+  {
+    name: 'Apartments',
+    icon: faBuilding,
+    desc: 'High-end residential appliance maintenance and backup power.',
+  },
+  {
+    name: 'Hotels',
+    icon: faHotel,
+    desc: 'Commercial kitchen, refrigeration, and laundry support.',
+  },
+  {
+    name: 'Restaurants',
+    icon: faUtensils,
+    desc: 'Professional kitchen engineering and refrigeration servicing.',
+  },
+  {
+    name: 'Commercial Laundries',
+    icon: faSoap,
+    desc: 'Heavy-duty washers, dryers, and layout installations.',
+  },
+  {
+    name: 'Property Developers',
+    icon: faRulerCombined,
+    desc: 'Technical consulting and premium commissioning projects.',
+  },
+  {
+    name: 'Facility Managers',
+    icon: faScrewdriverWrench,
+    desc: 'Annual service contracts and preventative maintenance.',
+  },
+  {
+    name: 'Corporate Offices',
+    icon: faBriefcase,
+    desc: 'Dedicated cooling, laundry space, and power backups.',
+  },
 ];
 
 export default function IndustriesWeServe() {
   return (
-    <section
-      className="w-full bg-[#f8f9fc]"
-      style={{ borderBottom: '1px solid var(--line)' }}
-    >
+    <section className="w-full bg-[#f8f9fc]" style={{ borderBottom: '1px solid var(--line)' }}>
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-20 lg:py-28">
         <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-8 mb-16">
           <SectionHeading
@@ -40,9 +69,7 @@ export default function IndustriesWeServe() {
         </div>
 
         {/* CSS grid gap hairline borders */}
-        <div
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-[1px] bg-[var(--line)] border border-[var(--line)]"
-        >
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-[1px] bg-[var(--line)] border border-[var(--line)]">
           {industries.map((ind, i) => {
             const badgeBg = i % 2 === 0 ? 'var(--panel-ink)' : 'var(--orange)';
             return (
@@ -70,9 +97,7 @@ export default function IndustriesWeServe() {
                 </h3>
 
                 {/* Description */}
-                <p className="text-xs leading-relaxed text-graphite">
-                  {ind.desc}
-                </p>
+                <p className="text-xs leading-relaxed text-graphite">{ind.desc}</p>
               </div>
             );
           })}

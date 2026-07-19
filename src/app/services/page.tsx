@@ -78,7 +78,10 @@ export default function ServicesPage() {
             className="inline-flex items-center justify-center mb-2"
             style={{ width: '48px', height: '48px', background: 'var(--orange)' }}
           >
-            <FontAwesomeIcon icon={faCalculator} style={{ width: '22px', height: '22px', color: '#ffffff' }} />
+            <FontAwesomeIcon
+              icon={faCalculator}
+              style={{ width: '22px', height: '22px', color: '#ffffff' }}
+            />
           </div>
           <h2
             className="font-black uppercase leading-none"
@@ -96,7 +99,7 @@ export default function ServicesPage() {
             style={{ color: 'rgba(255,255,255,0.7)' }}
           >
             Avoid inverter overload and wiring failures. We run standard engineering load
-            assessments to determine your exact energy requirements (solar arrays, inverter
+            assessments to determine your exact energy requirements (hybrid solar inverter systems, inverter
             capacities, and cable sizing).
           </p>
           <div className="pt-4">

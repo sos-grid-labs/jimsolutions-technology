@@ -1,4 +1,3 @@
-import Image from 'next/image';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCheck } from '@fortawesome/free-solid-svg-icons';
 import { getWhatsappLink } from '@/lib/constants';
@@ -35,13 +34,12 @@ export default function WhoWeAre() {
     >
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-20 lg:py-28">
         <div className="grid grid-cols-1 gap-12 lg:grid-cols-12 lg:gap-16 items-center">
-
           {/* Left: FramedImage */}
           <div className="lg:col-span-5">
             <FramedImage
-              src="/img/services/solar.jpg"
+              src="/img/gallery/Solar-Panel-Array-Installation.jpg"
               alt="Jimsolutions Solar Panel Installation"
-              caption="FIG. 04 — SOLAR ARRAY INSTALLATION, LAGOS"
+              caption="HYBRID SOLAR INVERTER SYSTEM INSTALLATION, LAGOS"
               aspect="aspect-[4/5]"
               sizes="(max-width: 1024px) 100vw, 40vw"
             />
@@ -63,7 +61,8 @@ export default function WhoWeAre() {
               >
                 Jimsolutions Technology is a Nigerian engineering company specializing in premium
                 home appliance solutions, interior installations, and technical facility support.
-                Based in Lagos, we provide professional workmanship and technical support nationwide.
+                Based in Lagos, we provide professional workmanship and technical support
+                nationwide.
               </p>
               <p
                 className="text-base leading-relaxed"
@@ -71,8 +70,8 @@ export default function WhoWeAre() {
               >
                 We provide installation, preventive maintenance, diagnostics, repairs, and system
                 optimization for luxury residential and commercial properties. Our expertise covers
-                brands like Miele, Gaggenau, Bosch, Siemens, Fhiaba, Barazza, and Teka. Our team is available
-                daily from 8:00 AM to 10:00 PM.
+                brands like Miele, Gaggenau, Bosch, Siemens, Fhiaba, Barazza, and Teka. Our team is
+                available daily from 8:00 AM to 10:00 PM.
               </p>
             </div>
 
@@ -106,10 +105,7 @@ export default function WhoWeAre() {
 
             {/* CTA */}
             <div className="pt-2 flex flex-wrap gap-4">
-              <a
-                href="/about"
-                className="nav-cta"
-              >
+              <a href="/about" className="nav-cta">
                 Learn More About Us
               </a>
               <a
@@ -127,7 +123,6 @@ export default function WhoWeAre() {
               </a>
             </div>
           </div>
-
         </div>
       </div>
     </section>

@@ -1,4 +1,4 @@
-export default function SchemaScript({ schema }: { schema: any }) {
+export default function SchemaScript({ schema }: { schema: Record<string, unknown> }) {
   return (
     <script
       type="application/ld+json"

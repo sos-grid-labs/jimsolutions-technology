@@ -24,11 +24,10 @@ export default function KitchenSection() {
     >
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-20 lg:py-28">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
-
           {/* Content left */}
           <div className="lg:col-span-7 space-y-8">
             <SectionHeading
-              eyebrow="Kitchen Installation"
+              eyebrow="Kitchen Engineering"
               title="Handcrafted Cabinets. Flush Cooktops."
               subtitle="We bridge engineering precision and beautiful visual integration — designing layout flows, mounting extractors, and installing custom cabinet doors."
               align="left"
@@ -40,7 +39,9 @@ export default function KitchenSection() {
                 <div
                   key={i}
                   className="flex items-center gap-4 px-5 py-4"
-                  style={{ borderBottom: i < features.length - 1 ? '1px solid var(--line)' : undefined }}
+                  style={{
+                    borderBottom: i < features.length - 1 ? '1px solid var(--line)' : undefined,
+                  }}
                 >
                   <div
                     className="flex items-center justify-center flex-shrink-0"
@@ -86,14 +87,13 @@ export default function KitchenSection() {
           {/* Image right */}
           <div className="lg:col-span-5">
             <FramedImage
-              src="/img/services/kitchens.jpg"
+              src="/img/services/island-kitchen-cooktop.jpg"
               alt="Modern Kitchen Cabinetry and Hob Layout"
-              caption="FIG. 03 — KITCHEN FIT-OUT, VICTORIA ISLAND"
+              caption="KITCHEN FIT-OUT, VICTORIA ISLAND"
               aspect="aspect-[4/5]"
               sizes="(max-width: 1024px) 100vw, 40vw"
             />
           </div>
-
         </div>
       </div>
     </section>

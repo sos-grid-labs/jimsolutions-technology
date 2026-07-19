@@ -27,11 +27,14 @@ export default function ServiceAreas() {
   return (
     <section
       className="w-full"
-      style={{ background: '#f8f9fc', borderTop: '1px solid var(--line)', borderBottom: '1px solid var(--line)' }}
+      style={{
+        background: '#f8f9fc',
+        borderTop: '1px solid var(--line)',
+        borderBottom: '1px solid var(--line)',
+      }}
     >
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-20 lg:py-28">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
-
           {/* Text panel */}
           <div className="lg:col-span-7 space-y-8">
             <SectionHeading
@@ -48,7 +51,10 @@ export default function ServiceAreas() {
               className="inline-flex items-center gap-3 px-6 py-3.5 font-bold uppercase tracking-wider text-sm text-white"
               style={{ background: 'var(--panel-ink)', border: '1px solid var(--panel-ink)' }}
             >
-              <FontAwesomeIcon icon={faWhatsapp} style={{ width: '16px', height: '16px', color: '#25D366' }} />
+              <FontAwesomeIcon
+                icon={faWhatsapp}
+                style={{ width: '16px', height: '16px', color: '#25D366' }}
+              />
               Check Area Availability
             </a>
           </div>
@@ -65,7 +71,12 @@ export default function ServiceAreas() {
             >
               <div
                 className="flex items-center justify-center"
-                style={{ width: '28px', height: '28px', background: 'var(--orange)', flexShrink: 0 }}
+                style={{
+                  width: '28px',
+                  height: '28px',
+                  background: 'var(--orange)',
+                  flexShrink: 0,
+                }}
               >
                 <FontAwesomeIcon
                   icon={faMapMarkerAlt}
@@ -105,20 +116,14 @@ export default function ServiceAreas() {
                     style={{ width: '10px', height: '10px', color: '#ffffff' }}
                   />
                 </div>
-                <span
-                  className="text-sm font-medium"
-                  style={{ color: 'var(--panel-ink)' }}
-                >
+                <span className="text-sm font-medium" style={{ color: 'var(--panel-ink)' }}>
                   {area}
                 </span>
               </div>
             ))}
 
             {/* Footer note */}
-            <div
-              className="px-6 py-4"
-              style={{ background: 'rgba(3,27,71,0.03)' }}
-            >
+            <div className="px-6 py-4" style={{ background: 'rgba(3,27,71,0.03)' }}>
               <p
                 style={{
                   fontFamily: 'var(--font-mono)',
@@ -131,7 +136,6 @@ export default function ServiceAreas() {
               </p>
             </div>
           </div>
-
         </div>
       </div>
     </section>

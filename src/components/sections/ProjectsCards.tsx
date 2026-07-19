@@ -1,4 +1,3 @@
-import Image from 'next/image';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMapMarkerAlt } from '@fortawesome/free-solid-svg-icons';
 import { faWhatsapp } from '@fortawesome/free-brands-svg-icons';
@@ -39,7 +38,7 @@ export default function ProjectsCards() {
         >
           {PROJECTS.map((project, i) => {
             const whatsappUrl = getWhatsappLink(project.whatsappMessage);
-            const figLabel = `FIG. ${String(i + 1).padStart(2, '0')} — ${project.category.toUpperCase()}, ${project.location.toUpperCase()}`;
+            const figLabel = `${project.category.toUpperCase()}, ${project.location.toUpperCase()}`;
 
             return (
               <div

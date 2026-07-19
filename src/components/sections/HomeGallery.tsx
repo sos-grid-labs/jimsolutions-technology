@@ -1,43 +1,42 @@
-import Image from 'next/image';
 import Link from 'next/link';
 import FramedImage from '../ui/FramedImage';
 import SectionHeading from '../ui/SectionHeading';
 
 const items = [
   {
-    src: '/img/projects/solar-system.jpg',
-    alt: 'High Voltage Solar Inverter Setup',
-    caption: 'FIG. 05 — RENEWABLE ENERGY, LEKKI',
+    src: '/img/projects/Hybrid-Solar-Inverter-System.jpg',
+    alt: 'Hybrid Solar Inverter System',
+    caption: 'RENEWABLE ENERGY, LEKKI',
     tag: 'Renewable Energy',
   },
   {
-    src: '/img/gallery/electrical-panel-installation.jpg',
-    alt: 'Luxury Residential Electrical Distribution Board',
-    caption: 'FIG. 06 — APPLIANCE SOLUTIONS, IKEJA',
-    tag: 'Premium Appliance Solutions',
+    src: '/img/gallery/Electrical-Panel-Installation.jpg',
+    alt: 'Inverter Project Installation',
+    caption: 'RENEWABLE ENERGY, IKEJA',
+    tag: 'Renewable Energy',
   },
   {
-    src: '/img/projects/kitchen-integration.jpg',
-    alt: 'Integrated Oven and Island Hob',
-    caption: 'FIG. 07 — KITCHEN ENGINEERING, VICTORIA ISLAND',
+    src: '/img/projects/Island-Kitchen-Installation.jpg',
+    alt: 'Island Kitchen Installation',
+    caption: 'KITCHEN ENGINEERING, VICTORIA ISLAND',
     tag: 'Kitchen Engineering',
   },
   {
-    src: '/img/services/luxury-laundry-room.png',
-    alt: 'Premium Stacked Miele Washer & Dryer Utility Setup',
-    caption: 'FIG. 08 — LAUNDRY SOLUTIONS, IKOYI',
+    src: '/img/projects/Custom-Utility-Laundry-Space-Layout.jpg',
+    alt: 'Custom Utility Laundry Space Layout',
+    caption: 'LAUNDRY SOLUTIONS, IKOYI',
     tag: 'Laundry Solutions',
   },
   {
-    src: '/img/gallery/master-fridge.jpg',
-    alt: 'Flush Integrated Refrigeration Unit',
-    caption: 'FIG. 09 — REFRIGERATION SYSTEMS, LEKKI',
+    src: '/img/gallery/Premium-Wine-Chiller-and-Fridge.jpg',
+    alt: 'Premium Wine Chiller and Fridge',
+    caption: 'REFRIGERATION SYSTEMS, LEKKI',
     tag: 'Refrigeration Systems',
   },
   {
-    src: '/img/gallery/island-cooktop.jpg',
-    alt: 'Neat Island Induction Cooktop',
-    caption: 'FIG. 10 — KITCHEN ENGINEERING, IKOYI',
+    src: '/img/gallery/Island-Kitchen-Cooktop.jpg',
+    alt: 'Island Kitchen Cooktop',
+    caption: 'KITCHEN ENGINEERING, IKOYI',
     tag: 'Kitchen Engineering',
   },
 ];
@@ -78,9 +77,7 @@ export default function HomeGallery() {
         </div>
 
         {/* 6-up responsive hairline grid using grid gap */}
-        <div
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-[1px] bg-[var(--line)] border border-[var(--line)]"
-        >
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-[1px] bg-[var(--line)] border border-[var(--line)]">
           {items.map((item, idx) => (
             <div key={idx} className="flex flex-col bg-white">
               <FramedImage

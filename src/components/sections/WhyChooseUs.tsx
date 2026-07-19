@@ -15,12 +15,14 @@ export default function WhyChooseUs() {
   const values = [
     {
       title: 'Certified Engineering',
-      description: 'Technical solutions designed and executed by certified engineers to protect your property systems.',
+      description:
+        'Technical solutions designed and executed by certified engineers to protect your property systems.',
       icon: faAward,
     },
     {
       title: 'Premium Appliance Specialists',
-      description: 'Dedicated expertise in high-end luxury brands like Miele, Gaggenau, Bosch, and Siemens.',
+      description:
+        'Dedicated expertise in high-end luxury brands like Miele, Gaggenau, Bosch, and Siemens.',
       icon: faWrench,
     },
     {
@@ -30,22 +32,26 @@ export default function WhyChooseUs() {
     },
     {
       title: 'Genuine Parts Support',
-      description: 'Direct procurement and installation of authentic components from official brand channels.',
+      description:
+        'Direct procurement and installation of authentic components from official brand channels.',
       icon: faBoxes,
     },
     {
       title: 'Transparent Pricing',
-      description: 'Itemized, competitive proposals with clear technical deliverables and zero surprises.',
+      description:
+        'Itemized, competitive proposals with clear technical deliverables and zero surprises.',
       icon: faCalculator,
     },
     {
       title: 'After Sales Support',
-      description: 'Comprehensive warranty follow-ups, scheduled check-ins, and priority remote help.',
+      description:
+        'Comprehensive warranty follow-ups, scheduled check-ins, and priority remote help.',
       icon: faHeadset,
     },
     {
       title: 'Fast Response Time',
-      description: 'Rapid response times with dedicated technicians ready for critical support calls.',
+      description:
+        'Rapid response times with dedicated technicians ready for critical support calls.',
       icon: faBolt,
     },
     {
@@ -56,10 +62,7 @@ export default function WhyChooseUs() {
   ];
 
   return (
-    <section
-      className="w-full bg-[#f8f9fc]"
-      style={{ borderBottom: '1px solid var(--line)' }}
-    >
+    <section className="w-full bg-[#f8f9fc]" style={{ borderBottom: '1px solid var(--line)' }}>
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-20 lg:py-28">
         <SectionHeading
           eyebrow="Engineering Standards"
@@ -71,9 +74,7 @@ export default function WhyChooseUs() {
         />
 
         {/* 8-column bordered grid using CSS gap hairline borders */}
-        <div
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-[1px] bg-[var(--line)] border border-[var(--line)]"
-        >
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-[1px] bg-[var(--line)] border border-[var(--line)]">
           {values.map((val, i) => {
             const badgeBg = i % 2 === 0 ? 'var(--panel-ink)' : 'var(--orange)';
 
@@ -85,7 +86,12 @@ export default function WhyChooseUs() {
                 {/* Icon badge */}
                 <div
                   className="flex items-center justify-center flex-shrink-0 mb-7"
-                  style={{ width: '44px', height: '44px', background: badgeBg, alignSelf: 'flex-start' }}
+                  style={{
+                    width: '44px',
+                    height: '44px',
+                    background: badgeBg,
+                    alignSelf: 'flex-start',
+                  }}
                 >
                   <FontAwesomeIcon
                     icon={val.icon}
@@ -106,11 +112,7 @@ export default function WhyChooseUs() {
                 </h3>
 
                 {/* Description */}
-                <p
-                  className="text-xs leading-relaxed text-graphite"
-                >
-                  {val.description}
-                </p>
+                <p className="text-xs leading-relaxed text-graphite">{val.description}</p>
               </div>
             );
           })}

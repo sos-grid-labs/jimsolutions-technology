@@ -42,8 +42,7 @@ export default function Button({
     outline:
       'cta-sweep bg-transparent text-panel-ink border border-panel-ink ' +
       'hover:bg-panel-ink hover:text-white',
-    ghost:
-      'bg-transparent text-graphite hover:text-orange border border-transparent',
+    ghost: 'bg-transparent text-graphite hover:text-orange border border-transparent',
   };
 
   const sizes = {

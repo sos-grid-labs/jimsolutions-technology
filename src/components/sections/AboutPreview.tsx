@@ -31,7 +31,6 @@ export default function AboutPreview() {
     >
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-20 lg:py-28">
         <div className="grid grid-cols-1 gap-12 lg:grid-cols-2 lg:gap-16 items-center">
-
           {/* Text block */}
           <div className="space-y-8 order-2 lg:order-1">
             <SectionHeading
@@ -42,17 +41,24 @@ export default function AboutPreview() {
             />
 
             <div className="space-y-4">
-              <p className="text-base leading-relaxed" style={{ color: 'var(--graphite)', maxWidth: '55ch' }}>
+              <p
+                className="text-base leading-relaxed"
+                style={{ color: 'var(--graphite)', maxWidth: '55ch' }}
+              >
                 Jimsolutions Technology is a professional engineering company serving Lagos and
                 nationwide. We believe technical installations should be neat, safe, and built to
                 look good.
               </p>
-              <p className="text-base leading-relaxed" style={{ color: 'var(--graphite)', maxWidth: '55ch' }}>
+              <p
+                className="text-base leading-relaxed"
+                style={{ color: 'var(--graphite)', maxWidth: '55ch' }}
+              >
                 Our team manages projects from solar energy audit sizing to built-in appliance
                 placement, cabinets, and complete interior fit-outs. Available daily from{' '}
                 <span style={{ color: 'var(--panel-ink)', fontWeight: 600 }}>
                   {BUSINESS_DETAILS.hours}
-                </span>.
+                </span>
+                .
               </p>
             </div>
 
@@ -73,7 +79,10 @@ export default function AboutPreview() {
                       style={{ width: '10px', height: '10px', color: '#ffffff' }}
                     />
                   </div>
-                  <span className="text-sm leading-snug font-medium" style={{ color: 'var(--panel-ink)' }}>
+                  <span
+                    className="text-sm leading-snug font-medium"
+                    style={{ color: 'var(--panel-ink)' }}
+                  >
                     {point}
                   </span>
                 </li>
@@ -97,7 +106,10 @@ export default function AboutPreview() {
                 className="inline-flex items-center gap-2 px-6 py-3.5 font-bold uppercase tracking-wider text-sm"
                 style={{ color: 'var(--panel-ink)', border: '1px solid var(--line)' }}
               >
-                <FontAwesomeIcon icon={faPhone} style={{ width: '13px', height: '13px', color: 'var(--orange)' }} />
+                <FontAwesomeIcon
+                  icon={faPhone}
+                  style={{ width: '13px', height: '13px', color: 'var(--orange)' }}
+                />
                 {BUSINESS_DETAILS.phoneFormatted}
               </a>
             </div>
@@ -106,14 +118,13 @@ export default function AboutPreview() {
           {/* FramedImage block */}
           <div className="order-1 lg:order-2">
             <FramedImage
-              src="/img/services/electrical.jpg"
+              src="/img/services/Electrical-Panel-Installation.jpg"
               alt="Jimsolutions Technical Team at Work"
-              caption="FIG. 09 — ELECTRICAL INSTALLATION, LAGOS"
+              caption="ELECTRICAL INSTALLATION, LAGOS"
               aspect="aspect-[4/3]"
               sizes="(max-width: 1024px) 100vw, 50vw"
             />
           </div>
-
         </div>
       </div>
     </section>

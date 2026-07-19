@@ -111,7 +111,9 @@ export default function ServicesGrid() {
                   }}
                 >
                   Learn more
-                  <span aria-hidden="true" style={{ fontFamily: 'sans-serif' }}>→</span>
+                  <span aria-hidden="true" style={{ fontFamily: 'sans-serif' }}>
+                    →
+                  </span>
                 </Link>
               </div>
             );

@@ -20,32 +20,32 @@ import SpecStrip, { SpecItem } from '../ui/SpecStrip';
 /* ── Slider data ──────────────────────────────────────────────────────────── */
 const slides = [
   {
-    image: '/img/services/appliances.jpg',
-    caption: 'FIG. 01 — LUXURY APPLIANCE INTEGRATION, LAGOS',
-    eyebrow: 'PREMIUM HOME TECHNOLOGY',
-    headline: ['Premium Home', 'Technology Solutions'],
-    accent: 'Technology Solutions',
-    body: 'Installation, maintenance, and repair of luxury home appliances, kitchen systems, refrigeration, laundry equipment, solar power solutions, and bespoke interior installations across Nigeria.',
+    image: '/img/services/kitchen-cooktop.jpg',
+    caption: 'LUXURY APPLIANCE INTEGRATION, LAGOS',
+    eyebrow: 'PREMIUM APPLIANCE SOLUTIONS',
+    headline: ['PREMIUM APPLIANCE', 'ENGINEERING SERVICES'],
+    accent: 'ENGINEERING SERVICES',
+    body: 'Professional installation, preventive maintenance, and system diagnostics for luxury appliance brands, ensuring peak performance and residential operational excellence.',
     cta: { label: 'Get a Quote', href: getWhatsappLink(), external: true },
     cta2: { label: 'Our Services', href: '/services' },
   },
   {
-    image: '/img/services/solar.jpg',
-    caption: 'FIG. 02 — SOLAR ARRAY BACKUP, ABUJA',
+    image: '/img/services/high-voltage-inverter-system.jpg',
+    caption: 'HYBRID SOLAR INVERTER SYSTEM BACKUP, ABUJA',
     eyebrow: 'RENEWABLE ENERGY',
-    headline: ['Solar Power &', 'Battery Backups'],
-    accent: 'Battery Backups',
-    body: 'Custom solar systems and inverter backup solutions load-calculated for luxury residences, apartments, hotels, commercial facilities, and laundries nationwide.',
+    headline: ['HYBRID SOLAR &', 'POWER INFRASTRUCTURE'],
+    accent: 'POWER INFRASTRUCTURE',
+    body: 'Custom high-voltage solar inverter configurations and smart lithium storage setups, engineered to secure total energy independence and zero power disruptions.',
     cta: { label: 'Get a Quote', href: getWhatsappLink(), external: true },
     cta2: { label: 'Renewable Energy', href: '/services/solar' },
   },
   {
-    image: '/img/services/kitchens.jpg',
-    caption: 'FIG. 03 — KITCHEN ENGINEERING, LEKKI',
-    eyebrow: 'KITCHEN & INTERIOR SOLUTIONS',
-    headline: ['Bespoke Finish.', 'Engineered Layouts.'],
-    accent: 'Engineered Layouts.',
-    body: 'Flush built-in appliance placements, premium kitchen cabinetry layouts, utility laundry configurations, and modern luxury interior finishes.',
+    image: '/img/services/island-kitchen-cooktop.jpg',
+    caption: 'KITCHEN ENGINEERING, LEKKI',
+    eyebrow: 'KITCHEN ENGINEERING',
+    headline: ['BESPOKE KITCHEN &', 'INTERIOR SOLUTIONS'],
+    accent: 'INTERIOR SOLUTIONS',
+    body: 'Seamless built-in appliance integration, ergonomic cabinetry engineering, and luxury interior layouts executed with precision and flush detailing.',
     cta: { label: 'Get a Quote', href: getWhatsappLink(), external: true },
     cta2: { label: 'View Projects', href: '/projects' },
   },
@@ -53,11 +53,11 @@ const slides = [
 
 /* ── Spec strip data ──────────────────────────────────────────────────────── */
 const specItems: SpecItem[] = [
-  { value: '2+',       label: 'Years Experience',       icon: faAward    },
-  { value: '100+',     label: 'Service Visits',         icon: faBriefcase },
-  { value: '50+',      label: 'Appliances Installed',   icon: faMap      },
-  { value: '98%',      label: 'Customer Satisfaction',  icon: faHeadset  },
-  { value: '<24h',     label: 'Response Time',          icon: faBolt     },
+  { value: '2+', label: 'Years Experience', icon: faAward },
+  { value: '100+', label: 'Service Visits', icon: faBriefcase },
+  { value: '50+', label: 'Appliances Installed', icon: faMap },
+  { value: '98%', label: 'Customer Satisfaction', icon: faHeadset },
+  { value: '<24h', label: 'Response Time', icon: faBolt },
 ];
 
 /* ─────────────────────────────────────────────────────────────────────────── */
@@ -115,15 +115,9 @@ export default function Hero() {
         />
 
         {/* ── Slide content ─────────────────────────────────────────────── */}
-        <div
-          className="absolute inset-0 flex items-center"
-          key={`content-${current}`}
-        >
+        <div className="absolute inset-0 flex items-center" key={`content-${current}`}>
           <div className="mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8">
-            <div
-              className="hero-content-animate max-w-2xl"
-              style={{ opacity: animating ? 0 : 1 }}
-            >
+            <div className="hero-content-animate max-w-2xl" style={{ opacity: animating ? 0 : 1 }}>
               {/* Eyebrow — mono, orange */}
               <p
                 className="mb-5 uppercase"
@@ -278,7 +272,7 @@ export default function Hero() {
         <SpecStrip
           items={specItems.slice(0, 5)}
           theme="light"
-          className="-mt-px"   /* flush against the hero bottom edge */
+          className="-mt-px" /* flush against the hero bottom edge */
         />
       </div>
     </section>

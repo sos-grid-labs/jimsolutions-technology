@@ -87,14 +87,9 @@ export const metadata: Metadata = {
   robots: { index: true, follow: true },
 };
 
-export default function RootLayout({
-  children,
-}: Readonly<{ children: React.ReactNode }>) {
+export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html
-      lang="en"
-      className={`${barlowDisplay.variable} ${inter.variable} h-full scroll-smooth`}
-    >
+    <html lang="en" className={`${barlowDisplay.variable} ${inter.variable} h-full scroll-smooth`}>
       <body className="min-h-full flex flex-col antialiased">
         <Navbar />
         <main className="flex-1 flex flex-col">{children}</main>

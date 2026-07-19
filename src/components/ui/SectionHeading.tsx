@@ -29,7 +29,7 @@ export default function SectionHeading({
   subtitle,
   eyebrow,
   index,
-  badge,          // backward compat alias
+  badge, // backward compat alias
   align = 'left',
   className = '',
   theme = 'light',

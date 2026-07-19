@@ -22,7 +22,6 @@ export default function FinalCTA() {
     >
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-20 lg:py-24">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
-
           {/* Headline block */}
           <div className="lg:col-span-7">
             <p
@@ -45,15 +44,14 @@ export default function FinalCTA() {
                 letterSpacing: '-0.01em',
               }}
             >
-              Ready to Start Your{' '}
-              <span style={{ color: 'var(--orange)' }}>Installation?</span>
+              Ready to Start Your <span style={{ color: 'var(--orange)' }}>Installation?</span>
             </h2>
             <p
               className="mt-5 text-base leading-relaxed"
               style={{ color: 'rgba(255,255,255,0.65)', maxWidth: '52ch' }}
             >
-              Avoid inverter overloading and unsafe wiring. Connect with a certified engineer
-              today for a custom load audit and fit-out quote. We respond within 2 hours.
+              Avoid inverter overloading and unsafe wiring. Connect with a certified engineer today
+              for a custom load audit and fit-out quote. We respond within 2 hours.
             </p>
           </div>
 
@@ -85,7 +83,6 @@ export default function FinalCTA() {
               {BUSINESS_DETAILS.phoneFormatted}
             </a>
           </div>
-
         </div>
       </div>
     </section>

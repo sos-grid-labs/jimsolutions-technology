@@ -24,13 +24,12 @@ export default function InteriorSection() {
     >
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-20 lg:py-28">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
-
           {/* Image left */}
           <div className="lg:col-span-5 order-2 lg:order-1">
             <FramedImage
-              src="/img/services/interiors.jpg"
+              src="/img/services/kitchen-cooktop-2.jpg"
               alt="Gypsum Board Wall Panel Partition"
-              caption="FIG. 04 — INTERIOR FIT-OUT, IKOYI"
+              caption="INTERIOR FIT-OUT, IKOYI"
               aspect="aspect-[4/5]"
               sizes="(max-width: 1024px) 100vw, 40vw"
             />
@@ -39,7 +38,7 @@ export default function InteriorSection() {
           {/* Content right */}
           <div className="lg:col-span-7 order-1 lg:order-2 space-y-8">
             <SectionHeading
-              eyebrow="Interior Fit-Out"
+              eyebrow="Interior Solutions"
               title="Modern Upgrades. Handcrafted Materials."
               subtitle="We assemble custom drywall partitions, build POP ceilings, configure floating media shelves, and mount accent LED strips to harmonise lighting with room textures."
               theme="dark"
@@ -56,7 +55,8 @@ export default function InteriorSection() {
                     key={i}
                     className="flex items-center gap-4 px-5 py-4"
                     style={{
-                      borderBottom: i < features.length - 1 ? '1px solid rgba(255,255,255,0.08)' : undefined,
+                      borderBottom:
+                        i < features.length - 1 ? '1px solid rgba(255,255,255,0.08)' : undefined,
                     }}
                   >
                     <div
@@ -68,7 +68,10 @@ export default function InteriorSection() {
                         style={{ width: '10px', height: '10px', color: '#ffffff' }}
                       />
                     </div>
-                    <span className="text-sm font-medium" style={{ color: 'rgba(255,255,255,0.85)' }}>
+                    <span
+                      className="text-sm font-medium"
+                      style={{ color: 'rgba(255,255,255,0.85)' }}
+                    >
                       {item}
                     </span>
                   </div>
@@ -96,7 +99,6 @@ export default function InteriorSection() {
               </a>
             </div>
           </div>
-
         </div>
       </div>
     </section>

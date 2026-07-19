@@ -60,9 +60,9 @@ export default function LaundryServicePage() {
             {/* Image panel */}
             <div className="lg:col-span-5">
               <FramedImage
-                src="/img/services/luxury-laundry-room.png"
+                src="/img/services/Indoor-Laundry-Space-2.png"
                 alt="Premium Stacked Miele Washer & Dryer Setup"
-                caption="FIG. 15 — LUXURY LAUNDRY ROOM, IKEJA"
+                caption="LUXURY LAUNDRY ROOM, IKEJA"
                 aspect="aspect-[4/3]"
                 sizes="(max-width: 1024px) 100vw, 40vw"
                 priority
@@ -108,7 +108,10 @@ export default function LaundryServicePage() {
                     <div
                       key={i}
                       className="flex items-start gap-4 px-5 py-4"
-                      style={{ borderBottom: i < checklist.length - 1 ? '1px solid var(--line)' : undefined }}
+                      style={{
+                        borderBottom:
+                          i < checklist.length - 1 ? '1px solid var(--line)' : undefined,
+                      }}
                     >
                       <div
                         className="flex items-center justify-center flex-shrink-0 mt-0.5"
@@ -147,7 +150,10 @@ export default function LaundryServicePage() {
                   className="inline-flex items-center gap-2 px-6 py-3.5 font-bold uppercase tracking-wider text-sm"
                   style={{ color: 'var(--panel-ink)', border: '1px solid var(--line)' }}
                 >
-                  <FontAwesomeIcon icon={faPhone} style={{ width: '13px', height: '13px', color: 'var(--orange)' }} />
+                  <FontAwesomeIcon
+                    icon={faPhone}
+                    style={{ width: '13px', height: '13px', color: 'var(--orange)' }}
+                  />
                   Call Now
                 </a>
               </div>

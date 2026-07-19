@@ -109,7 +109,6 @@ export default function ContactPage() {
       <section className="py-24 bg-white border-b border-gray-100">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 gap-12 lg:grid-cols-12 lg:gap-16 items-start">
-            
             {/* Contact Details Panel — 7 cols */}
             <div className="lg:col-span-7 space-y-8">
               <SectionHeading
@@ -127,7 +126,8 @@ export default function ContactPage() {
                       key={idx}
                       className="flex gap-4 items-start p-6"
                       style={{
-                        borderBottom: idx < contactMethods.length - 1 ? '1px solid var(--line)' : undefined,
+                        borderBottom:
+                          idx < contactMethods.length - 1 ? '1px solid var(--line)' : undefined,
                         background: idx % 2 === 1 ? 'rgba(3,27,71,0.01)' : '#ffffff',
                       }}
                     >
@@ -135,7 +135,10 @@ export default function ContactPage() {
                         className="flex items-center justify-center flex-shrink-0"
                         style={{ width: '40px', height: '40px', background: badgeBg }}
                       >
-                        <FontAwesomeIcon icon={method.icon} style={{ width: '18px', height: '18px', color: '#ffffff' }} />
+                        <FontAwesomeIcon
+                          icon={method.icon}
+                          style={{ width: '18px', height: '18px', color: '#ffffff' }}
+                        />
                       </div>
                       <div>
                         <h3 className="font-bold text-sm text-navy">{method.title}</h3>
@@ -173,24 +176,33 @@ export default function ContactPage() {
                   Coverage &amp; Sizing Audits
                 </h3>
                 <p className="text-sm leading-relaxed" style={{ color: 'var(--graphite)' }}>
-                  Based in <span className="font-semibold text-navy">Lagos, Nigeria</span>, we provide on-site diagnostics, electrical safety compliance checks, solar inverter hookups, and custom kitchen setups nationwide.
+                  Based in <span className="font-semibold text-navy">Lagos, Nigeria</span>, we
+                  provide on-site diagnostics, electrical safety compliance checks, solar inverter
+                  hookups, and custom kitchen setups nationwide.
                 </p>
 
-                <div
-                  className="space-y-3 pt-6"
-                  style={{ borderTop: '1px solid var(--line)' }}
-                >
+                <div className="space-y-3 pt-6" style={{ borderTop: '1px solid var(--line)' }}>
                   <div className="flex gap-3 text-sm font-semibold text-navy">
                     <FontAwesomeIcon
                       icon={faMapMarkerAlt}
-                      style={{ width: '14px', height: '14px', color: 'var(--orange)', marginTop: '3px' }}
+                      style={{
+                        width: '14px',
+                        height: '14px',
+                        color: 'var(--orange)',
+                        marginTop: '3px',
+                      }}
                     />
                     <span>Lagos and Nationwide service coverage</span>
                   </div>
                   <div className="flex gap-3 text-sm font-semibold text-navy">
                     <FontAwesomeIcon
                       icon={faClock}
-                      style={{ width: '14px', height: '14px', color: 'var(--orange)', marginTop: '3px' }}
+                      style={{
+                        width: '14px',
+                        height: '14px',
+                        color: 'var(--orange)',
+                        marginTop: '3px',
+                      }}
                     />
                     <span>8:00 AM - 10:00 PM Daily Operations</span>
                   </div>
@@ -203,14 +215,17 @@ export default function ContactPage() {
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center justify-center gap-2 w-full text-white font-bold uppercase tracking-wider text-sm py-4 px-6"
-                  style={{ background: 'var(--orange)', border: '1px solid var(--orange)', transition: 'all 200ms' }}
+                  style={{
+                    background: 'var(--orange)',
+                    border: '1px solid var(--orange)',
+                    transition: 'all 200ms',
+                  }}
                 >
                   <FontAwesomeIcon icon={faWhatsapp} style={{ width: '16px', height: '16px' }} />
                   Chat on WhatsApp Now
                 </a>
               </div>
             </div>
-
           </div>
         </div>
       </section>

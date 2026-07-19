@@ -20,25 +20,25 @@ export default function SolarSection() {
   return (
     <section
       className="w-full"
-      style={{ background: '#f8f9fc', borderTop: '1px solid var(--line)', borderBottom: '1px solid var(--line)' }}
+      style={{
+        background: '#f8f9fc',
+        borderTop: '1px solid var(--line)',
+        borderBottom: '1px solid var(--line)',
+      }}
     >
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-20 lg:py-28">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
-
           {/* Content left */}
           <div className="lg:col-span-7 space-y-8">
             <SectionHeading
-              eyebrow="Solar & Inverter Systems"
+              eyebrow="Renewable Energy"
               title="Zero Downtime. Clean Energy."
               subtitle="Nigeria's grid is unpredictable. We design custom solar and inverter backup systems load-balanced to secure your home. No generator noise, no fuel costs."
               align="left"
             />
 
             {/* Spec grid — 2×2 hairline bordered */}
-            <div
-              className="grid grid-cols-2"
-              style={{ border: '1px solid var(--line)' }}
-            >
+            <div className="grid grid-cols-2" style={{ border: '1px solid var(--line)' }}>
               {keySpecs.map((spec, i) => {
                 const badgeBg = i % 2 === 0 ? 'var(--panel-ink)' : 'var(--orange)';
                 return (
@@ -104,14 +104,13 @@ export default function SolarSection() {
           {/* Image right */}
           <div className="lg:col-span-5">
             <FramedImage
-              src="/img/projects/solar-system.jpg"
+              src="/img/projects/Hybrid-Solar-Inverter-System.jpg"
               alt="Premium Solar Inverter Array"
-              caption="FIG. 02 — SOLAR ARRAY, LEKKI"
+              caption="HYBRID SOLAR INVERTER SYSTEM, LEKKI"
               aspect="aspect-[4/5]"
               sizes="(max-width: 1024px) 100vw, 40vw"
             />
           </div>
-
         </div>
       </div>
     </section>

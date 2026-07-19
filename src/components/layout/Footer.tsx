@@ -1,12 +1,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {
-  faEnvelope,
-  faPhone,
-  faClock,
-  faLocationDot,
-} from '@fortawesome/free-solid-svg-icons';
+import { faEnvelope, faPhone, faClock, faLocationDot } from '@fortawesome/free-solid-svg-icons';
 import { faWhatsapp, faInstagram, faTiktok } from '@fortawesome/free-brands-svg-icons';
 import { BUSINESS_DETAILS, getWhatsappLink } from '@/lib/constants';
 
@@ -81,7 +76,6 @@ export default function Footer() {
       {/* Main body */}
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16">
         <div className="grid grid-cols-1 gap-12 md:grid-cols-12">
-
           {/* Brand — 4 cols */}
           <div className="md:col-span-4 flex flex-col gap-6">
             <Link href="/" className="inline-flex items-center gap-3">
@@ -98,10 +92,10 @@ export default function Footer() {
                 />
               </div>
               <span
-                className="text-base font-black uppercase tracking-widest"
+                className="text-sm sm:text-base font-black uppercase tracking-wider sm:tracking-widest"
                 style={{ fontFamily: 'var(--font-display)', color: '#ffffff' }}
               >
-                Jimsolutions
+                JIM SOLUTIONS TECHNOLOGY
               </span>
             </Link>
 
@@ -109,8 +103,8 @@ export default function Footer() {
               className="text-sm leading-relaxed"
               style={{ color: 'rgba(255,255,255,0.6)', maxWidth: '28ch' }}
             >
-              Professional electrical wiring, solar &amp; inverter systems, home appliances,
-              kitchen installations, and interior design. Based in Lagos. Active nationwide.
+              Professional electrical wiring, solar &amp; inverter systems, home appliances, kitchen
+              installations, and interior design. Based in Lagos. Active nationwide.
             </p>
 
             {/* Live pill */}
@@ -298,7 +292,6 @@ export default function Footer() {
               })}
             </div>
           </div>
-
         </div>
       </div>
 

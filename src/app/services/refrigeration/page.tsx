@@ -1,7 +1,7 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faPhone, faChevronLeft, faCheck, faSnowflake } from '@fortawesome/free-solid-svg-icons';
+import { faPhone, faChevronLeft, faCheck } from '@fortawesome/free-solid-svg-icons';
 import { faWhatsapp } from '@fortawesome/free-brands-svg-icons';
 import { createMetadata } from '@/lib/seo';
 import { getBreadcrumbSchema, getServiceSchema } from '@/lib/schema';
@@ -60,9 +60,9 @@ export default function RefrigerationServicePage() {
             {/* Image panel */}
             <div className="lg:col-span-5">
               <FramedImage
-                src="/img/services/electrical.jpg"
+                src="/img/services/fridge-freezer.jpg"
                 alt="Luxury integrated wine cooler refrigerator setup"
-                caption="FIG. 12 — REFRIGERATION CALIBRATION, LAGOS"
+                caption="REFRIGERATION CALIBRATION, LAGOS"
                 aspect="aspect-[4/3]"
                 sizes="(max-width: 1024px) 100vw, 40vw"
                 priority
@@ -82,14 +82,15 @@ export default function RefrigerationServicePage() {
                 style={{ color: 'var(--graphite)', fontFamily: 'var(--font-body)' }}
               >
                 <p>
-                  Protect your high-end wine collections and fresh produce. At Jimsolutions Technology,
-                  we provide specialized installation, preventative maintenance, and repair services
-                  for luxury built-in refrigerators, dual-compressor systems, and specialized wine coolers.
+                  Protect your high-end wine collections and fresh produce. At Jimsolutions
+                  Technology, we provide specialized installation, preventative maintenance, and
+                  repair services for luxury built-in refrigerators, dual-compressor systems, and
+                  specialized wine coolers.
                 </p>
                 <p>
-                  We ensure completely flush cabinetry alignments, optimal rear ventilation clearances
-                  to protect compressor lifespan, clean water feed line connections for built-in ice makers,
-                  and professional temperature diagnostics.
+                  We ensure completely flush cabinetry alignments, optimal rear ventilation
+                  clearances to protect compressor lifespan, clean water feed line connections for
+                  built-in ice makers, and professional temperature diagnostics.
                 </p>
                 <p
                   className="font-black uppercase tracking-tight"
@@ -108,7 +109,10 @@ export default function RefrigerationServicePage() {
                     <div
                       key={i}
                       className="flex items-start gap-4 px-5 py-4"
-                      style={{ borderBottom: i < checklist.length - 1 ? '1px solid var(--line)' : undefined }}
+                      style={{
+                        borderBottom:
+                          i < checklist.length - 1 ? '1px solid var(--line)' : undefined,
+                      }}
                     >
                       <div
                         className="flex items-center justify-center flex-shrink-0 mt-0.5"
@@ -147,7 +151,10 @@ export default function RefrigerationServicePage() {
                   className="inline-flex items-center gap-2 px-6 py-3.5 font-bold uppercase tracking-wider text-sm"
                   style={{ color: 'var(--panel-ink)', border: '1px solid var(--line)' }}
                 >
-                  <FontAwesomeIcon icon={faPhone} style={{ width: '13px', height: '13px', color: 'var(--orange)' }} />
+                  <FontAwesomeIcon
+                    icon={faPhone}
+                    style={{ width: '13px', height: '13px', color: 'var(--orange)' }}
+                  />
                   Call Now
                 </a>
               </div>

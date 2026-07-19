@@ -88,10 +88,7 @@ export default function FAQAccordion() {
                       paddingTop: '1.25rem',
                     }}
                   >
-                    <p
-                      className="text-sm leading-7"
-                      style={{ color: 'var(--graphite)' }}
-                    >
+                    <p className="text-sm leading-7" style={{ color: 'var(--graphite)' }}>
                       {faq.answer}
                     </p>
                   </div>

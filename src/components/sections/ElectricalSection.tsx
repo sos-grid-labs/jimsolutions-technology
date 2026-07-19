@@ -24,13 +24,12 @@ export default function ElectricalSection() {
     >
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-20 lg:py-28">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
-
           {/* Image left */}
           <div className="lg:col-span-5 order-2 lg:order-1">
             <FramedImage
               src="/img/services/electrical.jpg"
               alt="Neat Electrical Wiring Board"
-              caption="FIG. 01 — DISTRIBUTION BOARD, LAGOS"
+              caption="DISTRIBUTION BOARD, LAGOS"
               aspect="aspect-[4/5]"
               sizes="(max-width: 1024px) 100vw, 40vw"
             />
@@ -51,7 +50,9 @@ export default function ElectricalSection() {
                 <div
                   key={i}
                   className="flex items-start gap-4 px-5 py-4"
-                  style={{ borderBottom: i < checklist.length - 1 ? '1px solid var(--line)' : undefined }}
+                  style={{
+                    borderBottom: i < checklist.length - 1 ? '1px solid var(--line)' : undefined,
+                  }}
                 >
                   <div
                     className="flex items-center justify-center flex-shrink-0 mt-0.5"
@@ -66,7 +67,10 @@ export default function ElectricalSection() {
                       style={{ width: '10px', height: '10px', color: '#ffffff' }}
                     />
                   </div>
-                  <span className="text-sm leading-snug font-medium" style={{ color: 'var(--panel-ink)' }}>
+                  <span
+                    className="text-sm leading-snug font-medium"
+                    style={{ color: 'var(--panel-ink)' }}
+                  >
                     {item}
                   </span>
                 </div>
@@ -88,10 +92,7 @@ export default function ElectricalSection() {
                 />
               </div>
               <div>
-                <p
-                  className="font-semibold text-sm"
-                  style={{ color: 'var(--panel-ink)' }}
-                >
+                <p className="font-semibold text-sm" style={{ color: 'var(--panel-ink)' }}>
                   Safety Certified
                 </p>
                 <p
@@ -124,12 +125,14 @@ export default function ElectricalSection() {
                 className="inline-flex items-center gap-2 px-6 py-3.5 font-bold uppercase tracking-wider text-sm"
                 style={{ color: 'var(--panel-ink)', border: '1px solid var(--line)' }}
               >
-                <FontAwesomeIcon icon={faPhone} style={{ width: '13px', height: '13px', color: 'var(--orange)' }} />
+                <FontAwesomeIcon
+                  icon={faPhone}
+                  style={{ width: '13px', height: '13px', color: 'var(--orange)' }}
+                />
                 Call Now
               </a>
             </div>
           </div>
-
         </div>
       </div>
     </section>

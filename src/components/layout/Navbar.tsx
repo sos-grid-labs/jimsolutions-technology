@@ -14,7 +14,7 @@ import {
   faClock,
   faLocationDot,
 } from '@fortawesome/free-solid-svg-icons';
-import { BUSINESS_DETAILS, getWhatsappLink } from '@/lib/constants';
+import { BUSINESS_DETAILS } from '@/lib/constants';
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -39,11 +39,8 @@ export default function Navbar() {
     { name: 'Interior Solutions', href: '/services/interior-design' },
   ];
 
-  const whatsappUrl = getWhatsappLink('Hello Jimsolutions Technology, I would like to get a quote.');
-
   return (
     <header className="sticky top-0 z-40 w-full" style={{ fontFamily: 'var(--font-body)' }}>
-
       {/* ── Utility Bar ──────────────────────────────────────────────────── */}
       <div
         className="hidden md:block w-full text-white"
@@ -54,7 +51,6 @@ export default function Navbar() {
       >
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-9">
-
             {/* Contact info */}
             <div
               className="flex items-center gap-6"
@@ -64,7 +60,10 @@ export default function Navbar() {
                 href={`tel:${BUSINESS_DETAILS.phone}`}
                 className="footer-nav-link flex items-center gap-1.5 transition-colors"
               >
-                <FontAwesomeIcon icon={faPhone} style={{ width: '11px', height: '11px', color: 'var(--orange)' }} />
+                <FontAwesomeIcon
+                  icon={faPhone}
+                  style={{ width: '11px', height: '11px', color: 'var(--orange)' }}
+                />
                 <span style={{ fontFamily: 'var(--font-mono)', letterSpacing: '0.06em' }}>
                   {BUSINESS_DETAILS.phoneFormatted}
                 </span>
@@ -73,15 +72,24 @@ export default function Navbar() {
                 href={`mailto:${BUSINESS_DETAILS.email}`}
                 className="footer-nav-link hidden lg:flex items-center gap-1.5 transition-colors"
               >
-                <FontAwesomeIcon icon={faEnvelope} style={{ width: '11px', height: '11px', color: 'var(--orange)' }} />
+                <FontAwesomeIcon
+                  icon={faEnvelope}
+                  style={{ width: '11px', height: '11px', color: 'var(--orange)' }}
+                />
                 <span>{BUSINESS_DETAILS.email}</span>
               </a>
               <span className="flex items-center gap-1.5">
-                <FontAwesomeIcon icon={faClock} style={{ width: '11px', height: '11px', color: 'var(--orange)' }} />
+                <FontAwesomeIcon
+                  icon={faClock}
+                  style={{ width: '11px', height: '11px', color: 'var(--orange)' }}
+                />
                 <span>{BUSINESS_DETAILS.hours}</span>
               </span>
               <span className="hidden xl:flex items-center gap-1.5">
-                <FontAwesomeIcon icon={faLocationDot} style={{ width: '11px', height: '11px', color: 'var(--orange)' }} />
+                <FontAwesomeIcon
+                  icon={faLocationDot}
+                  style={{ width: '11px', height: '11px', color: 'var(--orange)' }}
+                />
                 <span>{BUSINESS_DETAILS.serviceArea}</span>
               </span>
             </div>
@@ -102,7 +110,6 @@ export default function Navbar() {
               />
               <span className="uppercase">Engineers On Duty</span>
             </div>
-
           </div>
         </div>
       </div>
@@ -111,7 +118,6 @@ export default function Navbar() {
       <div className="w-full bg-white" style={{ borderBottom: '1px solid var(--line)' }}>
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="flex h-16 items-center justify-between">
-
             {/* Logo */}
             <Link href="/" className="flex items-center gap-3 flex-shrink-0">
               <div
@@ -128,10 +134,10 @@ export default function Navbar() {
                 />
               </div>
               <span
-                className="text-sm font-black uppercase tracking-widest"
+                className="text-xs sm:text-sm font-black uppercase tracking-wider sm:tracking-widest"
                 style={{ fontFamily: 'var(--font-display)', color: 'var(--panel-ink)' }}
               >
-                Jimsolutions
+                JIM SOLUTIONS TECHNOLOGY
               </span>
             </Link>
 
@@ -170,11 +176,7 @@ export default function Navbar() {
                             style={{ border: '1px solid var(--line)' }}
                           >
                             {subServices.map((sub) => (
-                              <Link
-                                key={sub.name}
-                                href={sub.href}
-                                className="nav-dropdown-item"
-                              >
+                              <Link key={sub.name} href={sub.href} className="nav-dropdown-item">
                                 {sub.name}
                               </Link>
                             ))}
@@ -210,9 +212,11 @@ export default function Navbar() {
               style={{ color: 'var(--panel-ink)' }}
               aria-label="Toggle menu"
             >
-              <FontAwesomeIcon icon={isOpen ? faXmark : faBars} style={{ width: '20px', height: '20px' }} />
+              <FontAwesomeIcon
+                icon={isOpen ? faXmark : faBars}
+                style={{ width: '20px', height: '20px' }}
+              />
             </button>
-
           </div>
         </div>
       </div>
@@ -232,11 +236,17 @@ export default function Navbar() {
             }}
           >
             <a href={`tel:${BUSINESS_DETAILS.phone}`} className="flex items-center gap-2">
-              <FontAwesomeIcon icon={faPhone} style={{ width: '11px', height: '11px', color: 'var(--orange)' }} />
+              <FontAwesomeIcon
+                icon={faPhone}
+                style={{ width: '11px', height: '11px', color: 'var(--orange)' }}
+              />
               {BUSINESS_DETAILS.phoneFormatted}
             </a>
             <span className="flex items-center gap-2">
-              <FontAwesomeIcon icon={faClock} style={{ width: '11px', height: '11px', color: 'var(--orange)' }} />
+              <FontAwesomeIcon
+                icon={faClock}
+                style={{ width: '11px', height: '11px', color: 'var(--orange)' }}
+              />
               {BUSINESS_DETAILS.hours}
             </span>
           </div>

@@ -23,64 +23,109 @@ export default function GalleryPage() {
 
   const galleryItems = [
     {
-      src: '/img/projects/solar-system.jpg',
-      alt: 'High Voltage Solar Inverter Setup',
-      tag: 'Renewable Energy',
+      src: '/img/gallery/Premium-Wine-Chiller-and-Fridge.jpg',
+      alt: 'Premium Wine Chiller and Fridge',
+      tag: 'Premium Wine Chiller and Fridge',
     },
     {
-      src: '/img/gallery/electrical-panel-installation.jpg',
-      alt: 'Luxury Residential Electrical Distribution Board',
-      tag: 'Premium Appliance Solutions',
+      src: '/img/gallery/Stacked-Washer-and-Dryer-Setup.jpg',
+      alt: 'Stacked Washer and Dryer Setup',
+      tag: 'Stacked Washer and Dryer Setup',
     },
     {
-      src: '/img/projects/electrical-upgrade.jpg',
-      alt: 'Safety Compliant Main Breaker Panel',
-      tag: 'Premium Appliance Solutions',
+      src: '/img/gallery/Ergonomic-Laundry-Layout.jpg',
+      alt: 'Ergonomic Laundry Layout',
+      tag: 'Ergonomic Laundry Layout',
     },
     {
-      src: '/img/projects/kitchen-integration.jpg',
-      alt: 'Integrated Oven and Island Hob',
-      tag: 'Kitchen Engineering',
+      src: '/img/gallery/Island-Kitchen-Cooktop.jpg',
+      alt: 'Island Kitchen Cooktop',
+      tag: 'Island Kitchen Cooktop',
     },
     {
-      src: '/img/services/luxury-laundry-room.png',
-      alt: 'Premium Stacked Miele Washer & Dryer Utility Setup',
-      tag: 'Laundry Solutions',
+      src: '/img/gallery/Master-Cool-Fridge-Freezer.jpg',
+      alt: 'Master Cool Fridge Freezer',
+      tag: 'Master Cool Fridge Freezer',
     },
     {
-      src: '/img/projects/laundry-setup.jpg',
-      alt: 'Clean Stacked Washer and Dryer Setup',
-      tag: 'Laundry Solutions',
+      src: '/img/gallery/Outdoor-Stainless-Grill-Hob.jpg',
+      alt: 'Outdoor Stainless Grill Hob',
+      tag: 'Outdoor Stainless Grill Hob',
     },
     {
-      src: '/img/gallery/laundry-ironer.jpg',
-      alt: 'Rotary Ironer and Laundry Storage',
-      tag: 'Laundry Solutions',
+      src: '/img/gallery/Premium-Fridge-Freezer-Setup.jpg',
+      alt: 'Premium Fridge Freezer Setup',
+      tag: 'Premium Fridge Freezer Setup',
     },
     {
-      src: '/img/gallery/downdraft-extractor.jpg',
-      alt: 'Induction Hob with Downdraft Extractor',
-      tag: 'Kitchen Engineering',
+      src: '/img/gallery/Downdraft-Extractor.jpg',
+      alt: 'Downdraft Extractor',
+      tag: 'Downdraft Extractor',
     },
     {
-      src: '/img/gallery/master-fridge.jpg',
-      alt: 'Flush Integrated Refrigeration Unit',
-      tag: 'Refrigeration Systems',
+      src: '/img/gallery/Electrical-Panel-Installation.jpg',
+      alt: 'Inverter Project Installation',
+      tag: 'Inverter Project Installation',
     },
     {
-      src: '/img/gallery/outdoor-cooktop.jpg',
-      alt: 'Stainless Steel Outdoor Cooktop Placement',
-      tag: 'Kitchen Engineering',
+      src: '/img/gallery/Hybrid-Solar-Inverter-Wiring.jpg',
+      alt: 'Hybrid Solar Inverter Wiring',
+      tag: 'Hybrid Solar Inverter Wiring',
     },
     {
-      src: '/img/gallery/island-cooktop.jpg',
-      alt: 'Neat Island Induction Cooktop',
-      tag: 'Kitchen Engineering',
+      src: '/img/gallery/Integrated-Fridge-Freezer.jpg',
+      alt: 'Integrated Fridge Freezer',
+      tag: 'Integrated Fridge Freezer',
     },
     {
-      src: '/img/gallery/laundry-ironer.jpg',
-      alt: 'Laundry Ironer',
-      tag: 'Laundry Solutions',
+      src: '/img/gallery/Flush-Mount-Cooktop-Installation.jpg',
+      alt: 'Flush Mount Cooktop Installation',
+      tag: 'Flush Mount Cooktop Installation',
+    },
+    {
+      src: '/img/gallery/Integrated-Kitchen-Appliances.jpg',
+      alt: 'Integrated Kitchen Appliances',
+      tag: 'Integrated Kitchen Appliances',
+    },
+    {
+      src: '/img/gallery/Premium-Kitchen-Hob-Setup.jpg',
+      alt: 'Premium Kitchen Hob Setup',
+      tag: 'Premium Kitchen Hob Setup',
+    },
+    {
+      src: '/img/gallery/Bespoke-Kitchen-Appliances-Fitting.jpg',
+      alt: 'Bespoke Kitchen Appliances Fitting',
+      tag: 'Bespoke Kitchen Appliances Fitting',
+    },
+    {
+      src: '/img/gallery/Built-In-Oven-and-Gas-Hob.jpg',
+      alt: 'Built In Oven and Gas Hob',
+      tag: 'Built In Oven and Gas Hob',
+    },
+    {
+      src: '/img/gallery/Stainless-Steel-Extractor-and-Hob.jpg',
+      alt: 'Stainless Steel Extractor and Hob',
+      tag: 'Stainless Steel Extractor and Hob',
+    },
+    {
+      src: '/img/gallery/Flush-Alignment-Kitchen-Appliance.jpg',
+      alt: 'Flush Alignment Kitchen Appliance',
+      tag: 'Flush Alignment Kitchen Appliance',
+    },
+    {
+      src: '/img/gallery/Luxury-Kitchen-Cabinetry-Integration.jpg',
+      alt: 'Luxury Kitchen Cabinetry Integration',
+      tag: 'Luxury Kitchen Cabinetry Integration',
+    },
+    {
+      src: '/img/gallery/Rotary-Laundry-Ironer-Setup.jpg',
+      alt: 'Rotary Laundry Ironer Setup',
+      tag: 'Rotary Laundry Ironer Setup',
+    },
+    {
+      src: '/img/gallery/Solar-Panel-Array-Installation.jpg',
+      alt: 'Solar Panel Array Installation',
+      tag: 'Solar Panel Array Installation',
     },
   ];
 
@@ -137,18 +182,13 @@ export default function GalleryPage() {
           />
 
           {/* Grid with hairline dividers */}
-          <div
-            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-[1px] bg-[var(--line)] border border-[var(--line)]"
-          >
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-[1px] bg-[var(--line)] border border-[var(--line)]">
             {galleryItems.map((item, idx) => {
               const whatsappUrl = getWhatsappLink();
-              const figLabel = `FIG. ${String(idx + 1).padStart(2, '0')} — ${item.tag.toUpperCase()}`;
+              const figLabel = item.tag.toUpperCase();
 
               return (
-                <div
-                  key={idx}
-                  className="flex flex-col bg-white"
-                >
+                <div key={idx} className="flex flex-col bg-white">
                   <FramedImage
                     src={item.src}
                     alt={item.alt}
@@ -175,7 +215,10 @@ export default function GalleryPage() {
                         transition: 'all 200ms',
                       }}
                     >
-                      <FontAwesomeIcon icon={faWhatsapp} style={{ width: '13px', height: '13px', color: '#25D366' }} />
+                      <FontAwesomeIcon
+                        icon={faWhatsapp}
+                        style={{ width: '13px', height: '13px', color: '#25D366' }}
+                      />
                       Ask About This Design
                     </a>
                   </div>

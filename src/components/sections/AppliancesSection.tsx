@@ -6,10 +6,26 @@ import SectionHeading from '../ui/SectionHeading';
 import FramedImage from '../ui/FramedImage';
 
 const capabilities = [
-  { label: 'Flush Mounting', desc: 'Seamless cabinet integration for refrigerators, ovens, and cooktops.', icon: faBoxes },
-  { label: 'Utility Connections', desc: 'Water inlets, ventilation ducts, and hidden power conduits.', icon: faPlug },
-  { label: 'Load Balancing', desc: 'Appliance circuits sized to avoid overloading distribution boards.', icon: faCogs },
-  { label: 'Smart Integration', desc: 'TV brackets, media units, and AV cable management included.', icon: faTv },
+  {
+    label: 'Flush Mounting',
+    desc: 'Seamless cabinet integration for refrigerators, ovens, and cooktops.',
+    icon: faBoxes,
+  },
+  {
+    label: 'Utility Connections',
+    desc: 'Water inlets, ventilation ducts, and hidden power conduits.',
+    icon: faPlug,
+  },
+  {
+    label: 'Load Balancing',
+    desc: 'Appliance circuits sized to avoid overloading distribution boards.',
+    icon: faCogs,
+  },
+  {
+    label: 'Smart Integration',
+    desc: 'TV brackets, media units, and AV cable management included.',
+    icon: faTv,
+  },
 ];
 
 export default function AppliancesSection() {
@@ -20,17 +36,20 @@ export default function AppliancesSection() {
   return (
     <section
       className="w-full"
-      style={{ background: '#f8f9fc', borderTop: '1px solid var(--line)', borderBottom: '1px solid var(--line)' }}
+      style={{
+        background: '#f8f9fc',
+        borderTop: '1px solid var(--line)',
+        borderBottom: '1px solid var(--line)',
+      }}
     >
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-20 lg:py-28">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
-
           {/* Image left */}
           <div className="lg:col-span-5">
             <FramedImage
-              src="/img/services/appliances.jpg"
+              src="/img/services/kitchen-cooktop.jpg"
               alt="High-end Kitchen Appliances Integration"
-              caption="FIG. 05 — APPLIANCE SETUP, LEKKI"
+              caption="APPLIANCE SETUP, LEKKI"
               aspect="aspect-[4/5]"
               sizes="(max-width: 1024px) 100vw, 40vw"
             />
@@ -39,17 +58,14 @@ export default function AppliancesSection() {
           {/* Content right */}
           <div className="lg:col-span-7 space-y-8">
             <SectionHeading
-              eyebrow="Appliance Integration"
+              eyebrow="Premium Appliance Solutions"
               title="Premium Appliance Setup. Seamless Integration."
               subtitle="Installing high-end home appliances is an architectural task. We handle procurement, structural placement, utility hookups, and cable management for a completely flush result."
               align="left"
             />
 
             {/* 2×2 capability grid */}
-            <div
-              className="grid grid-cols-2"
-              style={{ border: '1px solid var(--line)' }}
-            >
+            <div className="grid grid-cols-2" style={{ border: '1px solid var(--line)' }}>
               {capabilities.map((item, i) => (
                 <div
                   key={i}
@@ -74,10 +90,7 @@ export default function AppliancesSection() {
                       style={{ width: '12px', height: '12px', color: '#ffffff' }}
                     />
                   </div>
-                  <p
-                    className="font-semibold text-xs mb-1"
-                    style={{ color: 'var(--panel-ink)' }}
-                  >
+                  <p className="font-semibold text-xs mb-1" style={{ color: 'var(--panel-ink)' }}>
                     {item.label}
                   </p>
                   <p className="text-xs leading-relaxed" style={{ color: 'var(--graphite)' }}>
@@ -107,7 +120,6 @@ export default function AppliancesSection() {
               </a>
             </div>
           </div>
-
         </div>
       </div>
     </section>

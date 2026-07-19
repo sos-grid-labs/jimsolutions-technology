@@ -49,19 +49,41 @@ import { faWhatsapp } from '@fortawesome/free-brands-svg-icons';
 
 library.add(
   // UI
-  faBars, faXmark, faChevronDown, faChevronLeft, faChevronRight,
+  faBars,
+  faXmark,
+  faChevronDown,
+  faChevronLeft,
+  faChevronRight,
   // Contact
-  faPhone, faEnvelope, faClock, faLocationDot, faMapMarkerAlt,
+  faPhone,
+  faEnvelope,
+  faClock,
+  faLocationDot,
+  faMapMarkerAlt,
   // Services
-  faBolt, faSolarPanel, faPlug, faScrewdriverWrench, faHeadset, faShieldHalved,
+  faBolt,
+  faSolarPanel,
+  faPlug,
+  faScrewdriverWrench,
+  faHeadset,
+  faShieldHalved,
   // Stats
-  faAward, faBriefcase, faMap,
+  faAward,
+  faBriefcase,
+  faMap,
   // Appliances
-  faTv, faCogs, faBoxes,
+  faTv,
+  faCogs,
+  faBoxes,
   // Power
-  faBatteryFull, faCalculator,
+  faBatteryFull,
+  faCalculator,
   // Helpers
-  faCheck, faCheckCircle, faShieldAlt, faWrench, faTruckFast,
+  faCheck,
+  faCheckCircle,
+  faShieldAlt,
+  faWrench,
+  faTruckFast,
   // Brand
   faWhatsapp,
 );

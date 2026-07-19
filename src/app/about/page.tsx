@@ -5,7 +5,6 @@ import { createMetadata } from '@/lib/seo';
 import { getBreadcrumbSchema } from '@/lib/schema';
 import SchemaScript from '@/components/ui/SchemaScript';
 import { BUSINESS_DETAILS, getWhatsappLink } from '@/lib/constants';
-import Button from '@/components/ui/Button';
 import SectionHeading from '@/components/ui/SectionHeading';
 import FramedImage from '@/components/ui/FramedImage';
 
@@ -34,7 +33,8 @@ export default function AboutPage() {
     },
     {
       title: 'Reliable Durability',
-      description: 'Quality tested solar/inverter batteries and robust electrical wiring that lasts.',
+      description:
+        'Quality tested solar/inverter batteries and robust electrical wiring that lasts.',
       icon: faHourglassHalf,
     },
     {
@@ -91,18 +91,15 @@ export default function AboutPage() {
       </section>
 
       {/* Main Content */}
-      <section
-        className="w-full bg-white"
-        style={{ borderBottom: '1px solid var(--line)' }}
-      >
+      <section className="w-full bg-white" style={{ borderBottom: '1px solid var(--line)' }}>
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-20 lg:py-28">
           <div className="grid grid-cols-1 gap-12 lg:grid-cols-2 lg:gap-16 items-center">
             {/* Image Left */}
             <div>
               <FramedImage
-                src="/img/services/solar.jpg"
+                src="/img/services/high-voltage-inverter-system.jpg"
                 alt="Jimsolutions Inverter Installation"
-                caption="FIG. 10 — INVERTER INSTALLATION, SHOMOLU"
+                caption="INVERTER INSTALLATION, SHOMOLU"
                 aspect="aspect-[4/3]"
                 sizes="(max-width: 1024px) 100vw, 50vw"
               />
@@ -127,9 +124,9 @@ export default function AboutPage() {
                 </p>
                 <p>
                   Our expertise covers premium appliance brands including Miele, Gaggenau, Bosch,
-                  Siemens, Fhiaba, Barazza, and Teka. We combine engineering knowledge with professional
-                  workmanship to deliver reliable, long lasting solutions that protect our clients&apos;
-                  investments.
+                  Siemens, Fhiaba, Barazza, and Teka. We combine engineering knowledge with
+                  professional workmanship to deliver reliable, long lasting solutions that protect
+                  our clients&apos; investments.
                 </p>
               </div>
 
@@ -189,7 +186,10 @@ export default function AboutPage() {
                     className="flex items-center justify-center flex-shrink-0 mb-6"
                     style={{ width: '40px', height: '40px', background: badgeBg }}
                   >
-                    <FontAwesomeIcon icon={val.icon} style={{ width: '18px', height: '18px', color: '#ffffff' }} />
+                    <FontAwesomeIcon
+                      icon={val.icon}
+                      style={{ width: '18px', height: '18px', color: '#ffffff' }}
+                    />
                   </div>
                   <h3
                     className="font-black uppercase leading-tight mb-3"

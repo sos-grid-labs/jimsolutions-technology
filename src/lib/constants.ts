@@ -14,5 +14,8 @@ export const BUSINESS_DETAILS = {
 };
 
 export const getWhatsappLink = (message?: string) => {
+  if (message) {
+    return `https://wa.me/2348157179060?text=${encodeURIComponent(message)}`;
+  }
   return BUSINESS_DETAILS.whatsappUrl;
 };

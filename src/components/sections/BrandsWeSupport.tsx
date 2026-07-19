@@ -11,10 +11,7 @@ const brands = [
 
 export default function BrandsWeSupport() {
   return (
-    <section
-      className="w-full bg-white"
-      style={{ borderBottom: '1px solid var(--line)' }}
-    >
+    <section className="w-full bg-white" style={{ borderBottom: '1px solid var(--line)' }}>
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-20 lg:py-28">
         <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-8 mb-16">
           <SectionHeading
@@ -42,9 +39,7 @@ export default function BrandsWeSupport() {
               >
                 {brand.name}
               </span>
-              <span
-                className="font-mono text-[8px] uppercase tracking-wider leading-relaxed text-graphite"
-              >
+              <span className="font-mono text-[8px] uppercase tracking-wider leading-relaxed text-graphite">
                 {brand.desc}
               </span>
             </div>
