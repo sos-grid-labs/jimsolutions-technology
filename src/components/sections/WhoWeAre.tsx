@@ -37,9 +37,9 @@ export default function WhoWeAre() {
           {/* Left: FramedImage */}
           <div className="lg:col-span-5">
             <FramedImage
-              src="/img/gallery/Solar-Panel-Array-Installation.jpg"
-              alt="Jimsolutions Solar Panel Installation"
-              caption="HYBRID SOLAR INVERTER SYSTEM INSTALLATION, LAGOS"
+              src="/img/gallery/Full-Grill-Stainless-Steel-Outdoor-Unit-with-Gas-Hob.png"
+              alt="Full Grill Stainless Steel Outdoor Unit with Gas Hob"
+              caption="FULL GRILL STAINLESS STEEL OUTDOOR UNIT WITH GAS HOB"
               aspect="aspect-[4/5]"
               sizes="(max-width: 1024px) 100vw, 40vw"
             />
