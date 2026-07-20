@@ -34,7 +34,7 @@ export default function AboutPreview() {
           {/* Text block */}
           <div className="space-y-8 order-2 lg:order-1">
             <SectionHeading
-              eyebrow="About Jimsolutions"
+              eyebrow="About Jimsolutions Technology"
               title="Handcrafted Quality. Engineered to Last."
               subtitle={undefined}
               align="left"

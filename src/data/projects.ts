@@ -57,12 +57,12 @@ export const PROJECTS: ProjectItem[] = [
     id: 5,
     title: 'Kitchen Appliances Installation',
     category: 'Premium Appliance Solutions',
-    location: 'ITA Ibadan Guest House',
+    location: 'IITA Ibadan Guest House',
     description:
-      'Completed a kitchen appliances installation consisting of microwave, gas oven, gas hob and extractor hood at ITA Ibadan Guest House.',
+      'Completed a kitchen appliances installation consisting of microwave, gas oven, gas hob and extractor hood at IITA Ibadan Guest House.',
     image: '/img/projects/Kitchen-Appliances-Installation.jpg',
     whatsappMessage:
-      'Hello Jimsolutions Technology, I saw your Kitchen Appliances Installation at ITA Ibadan Guest House and would like to request an appliance setup quote.',
+      'Hello Jimsolutions Technology, I saw your Kitchen Appliances Installation at IITA Ibadan Guest House and would like to request an appliance setup quote.',
   },
   {
     id: 6,

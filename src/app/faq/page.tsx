@@ -103,8 +103,8 @@ export default function FAQPage() {
             className="text-base sm:text-lg leading-relaxed max-w-xl mx-auto"
             style={{ color: 'rgba(255,255,255,0.7)' }}
           >
-            Get in touch directly with our engineering team. We are available daily from 8:00 AM to
-            10:00 PM on WhatsApp.
+            Get in touch directly with our engineering team. We are available Monday to Friday, 9:00 AM to
+            5:00 PM on WhatsApp.
           </p>
           <div className="pt-4">
             <a

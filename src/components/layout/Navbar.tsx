@@ -137,7 +137,7 @@ export default function Navbar() {
                 className="text-xs sm:text-sm font-black uppercase tracking-wider sm:tracking-widest"
                 style={{ fontFamily: 'var(--font-display)', color: 'var(--panel-ink)' }}
               >
-                JIM SOLUTIONS TECHNOLOGY
+                JIMSOLUTIONS TECHNOLOGY
               </span>
             </Link>
 

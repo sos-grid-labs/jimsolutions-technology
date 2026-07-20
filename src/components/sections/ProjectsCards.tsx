@@ -38,7 +38,7 @@ export default function ProjectsCards() {
         >
           {PROJECTS.map((project, i) => {
             const whatsappUrl = getWhatsappLink(project.whatsappMessage);
-            const figLabel = `${project.category.toUpperCase()}, ${project.location.toUpperCase()}`;
+            const figLabel = project.title.toUpperCase();
 
             return (
               <div

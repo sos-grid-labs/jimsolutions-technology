@@ -12,7 +12,7 @@ export const FAQS: FAQItem[] = [
   {
     question: 'How fast can I get a quote or reach your team?',
     answer:
-      'WhatsApp is the fastest channel to reach us. You can click the floating WhatsApp button to chat directly with our team. We are available daily from 8:00 AM to 10:00 PM.',
+      'WhatsApp is the fastest channel to reach us. You can click the floating WhatsApp button to chat directly with our team. We are available Monday to Friday, 9:00 AM to 5:00 PM.',
   },
   {
     question: 'Do you handle both the supply and installation of appliances and solar components?',

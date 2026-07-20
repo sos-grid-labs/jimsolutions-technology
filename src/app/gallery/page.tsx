@@ -123,9 +123,9 @@ export default function GalleryPage() {
       tag: 'Rotary Laundry Ironer Setup',
     },
     {
-      src: '/img/gallery/Solar-Panel-Array-Installation.jpg',
-      alt: 'Solar Panel Array Installation',
-      tag: 'Solar Panel Array Installation',
+      src: '/img/gallery/Outdoor-Grill-Unit.jpeg',
+      alt: 'Outdoor Grill Unit',
+      tag: 'Outdoor Grill Unit',
     },
   ];
 

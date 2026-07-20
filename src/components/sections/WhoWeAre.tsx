@@ -71,7 +71,7 @@ export default function WhoWeAre() {
                 We provide installation, preventive maintenance, diagnostics, repairs, and system
                 optimization for luxury residential and commercial properties. Our expertise covers
                 brands like Miele, Gaggenau, Bosch, Siemens, Fhiaba, Barazza, and Teka. Our team is
-                available daily from 8:00 AM to 10:00 PM.
+                available Monday to Friday, 9:00 AM to 5:00 PM.
               </p>
             </div>
 

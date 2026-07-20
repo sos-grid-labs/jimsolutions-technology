@@ -114,7 +114,7 @@ export default function ContactPage() {
               <SectionHeading
                 eyebrow="Reach Us"
                 title="Direct Channels"
-                subtitle="We are available daily from 8:00 AM to 10:00 PM. Choose your preferred way to connect."
+                subtitle="We are available Monday to Friday, 9:00 AM to 5:00 PM. Choose your preferred way to connect."
                 align="left"
               />
 
@@ -204,7 +204,7 @@ export default function ContactPage() {
                         marginTop: '3px',
                       }}
                     />
-                    <span>8:00 AM - 10:00 PM Daily Operations</span>
+                    <span>9:00 AM - 5:00 PM Mon–Fri</span>
                   </div>
                 </div>
               </div>

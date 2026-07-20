@@ -67,7 +67,7 @@ export default function WhyChooseUs() {
         <SectionHeading
           eyebrow="Engineering Standards"
           index="08 PILARS"
-          title="Why Choose Jimsolutions"
+          title="Why Choose Jimsolutions Technology"
           subtitle="Bridging certified technical compliance with clean, visual integration."
           align="left"
           className="mb-16"

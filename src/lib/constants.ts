@@ -8,7 +8,7 @@ export const BUSINESS_DETAILS = {
   instagramUrl: 'https://www.instagram.com/jimsolutions_technology?igsh=aTE4a2d6aDZ6NDU1',
   tiktokUrl: 'https://www.tiktok.com/@jimsolutions_tech?_r=1&_t=ZS-97wdVBzCrOU',
   address: 'Lagos, Nigeria',
-  hours: '8:00 AM - 10:00 PM Daily',
+  hours: '9:00 AM - 5:00 PM Mon–Fri',
   serviceArea: 'Lagos and nationwide coverage',
   website: 'https://jimsolutionstechnology.com.ng',
 };

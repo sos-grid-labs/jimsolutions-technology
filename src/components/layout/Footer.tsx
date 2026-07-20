@@ -95,7 +95,7 @@ export default function Footer() {
                 className="text-sm sm:text-base font-black uppercase tracking-wider sm:tracking-widest"
                 style={{ fontFamily: 'var(--font-display)', color: '#ffffff' }}
               >
-                JIM SOLUTIONS TECHNOLOGY
+                JIMSOLUTIONS TECHNOLOGY
               </span>
             </Link>
 
